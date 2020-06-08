@@ -1,6 +1,8 @@
 ---
 title: 从0开始搭建Hexo个人博客
 date: 2020-06-07 23:23:55
+categories:
+- Hexo
 tags:
 ---
 
