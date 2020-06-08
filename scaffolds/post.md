@@ -1,5 +1,6 @@
 ---
 title: {{ title }}
 date: {{ date }}
-tags:
+categorier:
+- 未分类
 ---
