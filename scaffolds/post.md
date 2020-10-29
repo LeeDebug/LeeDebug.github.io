@@ -1,6 +1,11 @@
 ---
 title: {{ title }}
-date: {{ date }}
+tags:
+- Hexo
 categorier:
-- 未分类
+- Hexo
+keywords: "Hexo,笔记"
+date: {{ date }}
+description: "描述"
+cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---

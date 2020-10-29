@@ -9,9 +9,13 @@ menu:
   时间轴: /archives/ || fa fa-archive
   标签: /tags/ || fa fa-tags
   分类: /categories/ || fa fa-folder-open
-  友情链接: /link/ || fa fa-link
-  关于淳淳同学: /about/ || fa fa-heart
-  更多功能||fa fa-list:
+  # 友情链接: /link/ || fa fa-link
+  # 关于淳淳同学: /about/ || fa fa-heart
+  更多功能 || fa fa-list:
+    - GitHub || https://github.com/LeeDebug || fa fa-GitHub
+    - GitLab || https://gitlab.com/Leevue || fa fa-GitLab
+    - Gitee || https://gitee.com/leejs || fa fa-Gitee
+    - WeiBo || https://weibo.com/p/1005053297895847 || fa fa-WeiBo
     - 音乐 || /music/ || fa fa-music
     - 电影 || /movies/ || fa fa-film
 
@@ -41,16 +45,18 @@ code_word_wrap: false
 # copyright 複製的內容後面加上版權信息
 copy:
   enable: true # true 開啟 / false 禁止
-  copyright: false
+  copyright:
+    enable: true
+    limit_count: 50
 
 # social settings
 # formal:
 #   icon: link || the description
 # ---------------
 social:
-  fa fa-github: https://github.com/jerryc127 || Github
-  fa fa-envelope: mailto:xxxxxxx@gmail.com || Email
-  fa fa-rss: /atom.xml || RSS
+  fa fa-github: https://github.com/LeeDebug || Github
+  fa fa-envelope: mailto:961150665@qq.com || Email
+  # fa fa-rss: /atom.xml || RSS
 
 ####    search    ####
 # Algolia search
@@ -136,15 +142,18 @@ category_img:
 
 cover:
   # 是否顯示文章封面
-  index_enable: true
-  aside_enable: true
-  archives_enable: true
+  index_enable: false
+  aside_enable: false
+  archives_enable: false
   # 封面顯示的位置
   # 三個值可配置 left , right , both
   position: both
   # 當沒有設置cover時，默認的封面顯示
   default_cover:
     - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg
+    - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png
+    - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png
+    - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png
 
 # if the photo link cannot connect,it will show that
 lodding_bg:
@@ -161,16 +170,18 @@ error_404:
 post_meta:
   page:
     date_type: created # created or updated or both 主頁文章日期是創建日或者更新日或都顯示
+    date_format: relative # date/relative 显示日期还是相对日期
     categories: true # true or false 主頁是否顯示分類
-    tags: false # true or false 主頁是否顯示標籤
+    tags: true # true or false 主頁是否顯示標籤
   post:
     date_type: both # created or updated or both 文章頁日期是創建日或者更新日或都顯示
+    date_format: relative # date/relative 显示日期还是相对日期
     categories: true # true or false 文章頁是否顯示分類
     tags: true # true or false 文章頁是否顯示標籤
 
 # Please see doc for more details: https://docs.jerryc.me/config.html#字數統計
 wordcount:
-  enable: false
+  enable: true
   post_wordcount: true
   min2read: true
   total_wordcount: true
@@ -298,7 +309,10 @@ facebook_comments:
 
 #####     Footer Settings    ####
 # ------------------------------------
-since: 2020
+footer:
+  owner:
+    enable: true
+    since: 2018
 
 footer_custom_text:
 
@@ -359,10 +373,10 @@ reward:
   enable: true
   QR_code:
     - itemlist:
-        img: /img/wechat.jpg
+        img: /img/wechat.png
         text: 微信
     - itemlist:
-        img: /img/alipay.jpg
+        img: /img/alipay.png
         text: 支付寶
 
 # 推薦文章
@@ -373,7 +387,7 @@ related_post:
 
 # figcaption
 # 圖片描述文字
-photofigcaption: false
+photofigcaption: true
 
 # anchor
 # when you scroll in post, the url will update according to header id.
@@ -420,7 +434,7 @@ tag_ui: # 留空或index
 background:
 
 # footer是否顯示圖片背景(與top_img一致)
-footer_bg: false
+footer_bg: true
 
 # 背景特效
 # 避免卡頓，建議只開啟一個
@@ -510,7 +524,7 @@ subtitle:
   # 打字效果
   effect: true
   # 循環或者只打字一次
-  loop: false
+  loop: true
   # source調用第三方服務
   # source: false 關閉調用
   # source: 1  調用搏天api的隨機語錄（簡體） https://api.btstu.cn/
@@ -522,8 +536,8 @@ subtitle:
   # (如果有英文逗號' , '，請使用轉義字符 &#44;)
   # 如果關閉打字效果，subtitle只會顯示sub的第一行文字
   sub:
-    - 今日事&#44;今日畢
-    - Never put off till tomorrow what you can do today
+    - 日拱一卒无有尽，功不唐捐终入海
+    - 首先应努力成为一个好程序员，入职一线互联网公司只是顺路的事
 
 # fontawesome圖標
 # 默認使用的是 fontawesome v4版本的圖標
@@ -545,15 +559,17 @@ aside:
     description:
   card_announcement:
     enable: true
-    content: This is my Blog
+    content: 这是淳淳同学的个人博客
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
+    sort: date # date or updated
   card_categories:
     enable: true
     limit: 8 # if set 0 will show all
+    expand: none # none/true/false
   card_tags:
-    enable: true
+    enable: false
     limit: 40 # if set 0 will show all
     color: false
   card_archives:
@@ -562,7 +578,10 @@ aside:
     format: MMMM YYYY # eg: YYYY年MM月
     order: -1 # Sort of order. 1, asc for ascending; -1, desc for descending
     limit: 8 # if set 0 will show all
-  card_webinfo: true
+  card_webinfo:
+    enable: true
+    post_count: true
+    last_push_date: true
 
 # busuanzi count for PV / UV in site
 # 訪問人數
@@ -576,7 +595,7 @@ busuanzi:
 # 也可以寫成 年/月/日 時間
 runtimeshow:
   enable: true
-  start_date: 6/7/2018 00:00:00
+  start_date: 9/12/2018 20:13:14
 
 ####   右下角按鈕  ####
 #----------------------------------------------
@@ -585,15 +604,15 @@ translate:
   enable: true
   # 默認按鈕顯示文字
   default: 繁
-  #網站默認語言，1: 繁體中文, 2: 簡體中文
+  # 網站默認語言，1: 繁體中文, 2: 簡體中文
   defaultEncoding: 2
-  #延遲時間,若不在前, 要設定延遲翻譯時間, 如100表示100ms,默認為0
+  # 延遲時間,若不在前, 要設定延遲翻譯時間, 如100表示100ms,默認為0
   translateDelay: 0
-  #博客網址
-  cookieDomain: 'https://xxx/'
-  #當文字是簡體時，按鈕顯示的文字
+  # 博客網址
+  cookieDomain: 'http://blog.lee521.top'
+  # 當文字是簡體時，按鈕顯示的文字
   msgToTraditionalChinese: '繁'
-  #當文字是繁體時，按鈕顯示的文字
+  # 當文字是繁體時，按鈕顯示的文字
   msgToSimplifiedChinese: '簡'
 
 #閲讀模式
@@ -610,6 +629,7 @@ darkmode:
   # autoChangeMode: 2  只按照時間晚上6點到早上6點之間切換為 dark mode
   # autoChangeMode: false 取消自動切換
   autoChangeMode: 1
+
 
 ####    other     ####
 #------------------------------------------------
