@@ -1,10 +1,10 @@
 ---
 title: qiankun-2.0.24-爬坑记录
+categories:
+  - Vue
 tags:
-  - vue
-categorier:
-  - vue
-keywords: '前端,微前端,笔记'
+  - 微前端
+keywords: '微前端,笔记'
 description: 描述
 cover: 'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png'
 date: 2020-10-27 23:45:08
