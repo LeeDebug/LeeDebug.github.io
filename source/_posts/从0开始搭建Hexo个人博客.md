@@ -135,5 +135,75 @@ $ hexo g
 $ hexo d
 ```
 
-部署成功后，浏览器打开http://LeeDebug.github.io，就能看到你的博客了
+部署成功后，浏览器打开`http://LeeDebug.github.io`，就能看到你的博客了
+
+
+# 安装主题
+
+首先下载主题包，如[butterfly](https://github.com/jerryc127/hexo-theme-butterfly)
+```bash
+npm i hexo-theme-butterfly
+```
+
+配置`_config.yml`文件
+```bash
+theme: butterfly
+```
+
+# 新建文章
+
+首先修改`/scaffolds/post.md`文件模板，改为想要的形式，比如
+```bash
+---
+title: {{ title }}
+tags:
+- Hexo
+categorier:
+- Hexo
+keywords: "Hexo,笔记"
+date: {{ date }}
+description: "描述"
+cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png
+---
+```
+
+利用post模板新建文章
+```bash
+hexo new post 文章标题
+```
+
+随后在`source/_posts/`文件夹下会出现`文章标题`的文件夹和`文章标题.md`的MarkDown文件，文章内容在`*.md`文件内编辑即可
+
+
+# 新增分类页
+
+```bash
+hexo new page categories
+```
+
+将`/source/categories/index.md/`这个文件改为以下内容
+```bash
+---
+title: 分类
+date: 2018-01-05 00:00:00
+type: "categories"
+---
+```
+
+
+# 新增标签页
+
+```bash
+hexo new page tags
+```
+
+将`/source/tags/index.md/`这个文件改为以下内容
+```bash
+---
+title: 标签
+date: 2018-01-05 00:00:00
+type: "tags"
+---
+```
+
 
