@@ -2327,15 +2327,15 @@ blockquote footer cite:before {
 }
 #nav.post-bg #post-info {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 5rem;
   padding: 0 8%;
   width: 100%;
   color: #eee;
-  text-align: left;
+  text-align: center;
 }
 #nav.post-bg #post-info #post-title {
   margin-bottom: 0.4rem;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 #nav.post-bg #post-info #post-title .posttitle {
   display: -webkit-box;
