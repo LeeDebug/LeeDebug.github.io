@@ -700,7 +700,7 @@ note:
 
 # 圖片懶加載
 # https://github.com/ApoorvSaxena/lozad.js
-lazyload: false
+lazyload: true
 
 # 避免重複網址分散seo
 canonical: true
