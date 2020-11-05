@@ -77,7 +77,7 @@ algolia_search:
 local_search:
   enable: false
   labels:
-    input_placeholder: Search for Posts
+    input_placeholder: 按文章内容模糊搜索
     hits_empty: "We didn't find any results for the search: ${query}" # if there are no result
 
 # MathJax
@@ -435,8 +435,8 @@ index_top_img_height: # 主頁top_img高度 例如 300px/300em/300rem  不能使
 # category和tag頁的UI設置
 # index 值代表 UI將與首頁的UI一樣
 # 默認跟archives頁面UI一樣
-category_ui: # 留空或index
-tag_ui: # 留空或index
+category_ui: index # 留空或index
+tag_ui: index # 留空或index
 
 # 設置網站背景
 # 可設置圖片 或者 顔色
