@@ -1,93 +1,93 @@
 sidebar:
-  catalog: Catalog
+  catalog: 目录
   have_read: You've read
 
 footer:
-  driven: Driven
-  theme: Theme
+  driven: 框架
+  theme: 主题
 
 copy:
-  success: Copy successfully
-  error: Copy error
-  noSupport: The browser does not support
+  success: 复制成功
+  error: 复制失败
+  noSupport: 该浏览器不支持复制功能
 
 page:
-  articles: Articles
-  tag: Tag
-  category: Category
-  archives: Archives
+  articles: 文章
+  tag: 标签
+  category: 分类
+  archives: 时间轴
 
 sticky: Sticky
 no_title: No title
 
 post:
-  created: Created
-  updated: Updated
-  wordcount: Word count
-  min2read: "Reading time: %s min"
-  page_pv: Post View
-  comments: Comments
+  created: 发表于
+  updated: 更新于
+  wordcount: 文章字数
+  min2read: "预计阅读时间: %s 分钟"
+  page_pv: 阅读量
+  comments: 评论
   copyright:
-    author: Author
-    link: Link
+    author: 作者
+    link: 链接
     copyright_notice: Copyright Notice
     copyright_content: 'All articles in this blog are licensed under <a href="%s">%s</a> unless stating additionally.'
-  recommend: Recommend
+  recommend: 推荐
 
-search: Search
+search: 搜索
 algolia_search:
   input_placeholder: Search for Posts
   hits_empty: "We didn't find any results for the search: ${query}."
   hits_stats: "${hits} results found in ${time} ms"
 
 local_search:
-  label: Local search
+  label: 本地搜索
   input_placeholder: Search for Posts
   hits_empty: "We didn't find any results for the search: ${query}"
   powered_by: Powered by
 
 pagination:
-  prev: Previous Post
-  next: Next Post
+  prev: 上一篇
+  next: 下一篇
 
-comment: Comment
+comment: 评论
 
 aside:
-  articles: Articles
-  tags: Tags
-  categories: Categories
-  card_announcement: Announcement
-  card_categories: Categories
-  card_tags: Tags
-  card_archives: Archives
-  card_recent_post: Recent Post
-  card_bookmark: Bookmark
+  articles: 文章
+  tags: 标签
+  categories: 分类
+  card_announcement: 通知
+  card_categories: 分类
+  card_tags: 标签
+  card_archives: 时间轴
+  card_recent_post: 最近文章
+  card_bookmark: 书签
   card_webinfo:
-    headline: Info
-    article_name: Article
-    runtime_name: Run time
-    site_wordcount: Total Count
-    site_uv_name: UV
-    site_pv_name: PV
-  more_button: More
+    headline: 网展资讯
+    article_name: 文章数目
+    runtime_name: 已运行时间
+    site_wordcount: 本站总字数
+    site_uv_name: 本站访客数
+    site_pv_name: 本站总访问量
+  more_button: 查看更多
 
-donate: Donate
-share: Share
+donate: 捐赠
+share: 分享
 bookmark:
-  title: Bookmark
+  title: 书签
 
 rightside:
-  readmode_title: Read Mode
-  font_plus_title: Increase font size
-  font_minus_title: Decrease font size
-  translate_title: Traditional Chinese and Simplified Chinese Conversion
-  night_mode_title: Dark Mode
-  back_to_top: Back to top
-  toc: Table of Contents
-  scroll_to_comment: Scroll to comment
-  setting: Setting
+  readmode_title: 阅读模式
+  font_plus_title: 放大字体
+  font_minus_title: 缩小字体
+  translate_title: 简体/繁体
+  night_mode_title: 夜间模式
+  back_to_top: 回到顶部
+  toc: 目录
+  scroll_to_comment: 前往评论
+  setting: 设置
 
-runtime_unit: days
+runtime_unit: 天
 
 copy_copyright:
   author: Author
@@ -97,12 +97,12 @@ copy_copyright:
 
 Snackbar:
   bookmark:
-    message_prev: Press
-    message_next: to bookmark this page
+    message_prev: 请按
+    message_next: 将本页加入到书签
   chs_to_cht: Traditional Chinese Activated Manually
   cht_to_chs: Simplified Chinese Activated Manually
   day_to_night: Dark Mode Activated Manually
   night_to_day: Light Mode Activated Manually
 
-error_title: Page not found
-loading: Loading...
+error_title: 页面未找到，请联系站点管理人员
+loading: 正在加载中...
