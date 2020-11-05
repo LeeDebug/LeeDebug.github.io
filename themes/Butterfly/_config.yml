@@ -229,6 +229,18 @@ addtoany:
 
 ####   Comments System    ####
 # ------------------------------------
+# 评论设置，参考：https://butterfly.js.org/posts/ceeb73f/#%E8%A9%95%E8%AB%96
+comments:
+  # Up to two comments system, the first will be shown as default
+  # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Utterances/Facebook Comments
+  use:
+    - Valine
+  text: true # Display the comment name next to the button
+  # lazyload: The comment system will be load when comment element enters the browser's viewport.
+  # If you set it to true, the comment count will be invalid
+  lazyload: true
+  count: true # Display comment count in top_img
+
 disqus:
   enable: false
   shortname:
@@ -267,9 +279,9 @@ gitalk:
 
 # valine comment system. https://valine.js.org
 valine:
-  enable: false # if you want use valine,please set this value is true
-  appId: # leancloud application app id
-  appKey: # leancloud application app key
+  enable: true # if you want use valine,please set this value is true
+  appId: c20JQYjgSVXdg1U7txRwJK6g-gzGzoHsz # leancloud application app id
+  appKey: xgkoVU56LqxWjGwRprTfoFSN # leancloud application app key
   notify: false # valine mail notify (true/false) Deprecated in v1.4.0+
   verify: false # valine verify code (true/false) Deprecated in v1.4.0+
   pageSize: 10 # comment list page size
