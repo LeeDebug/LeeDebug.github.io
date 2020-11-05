@@ -453,12 +453,12 @@ footer_bg: true
 # canvas_ribbon 禁止彩帶背景
 # See: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
-  enable: false
+  enable: true
   size: 150
   alpha: 0.6
   zIndex: -1
-  click_to_change: false
-  mobile: false # false 手機端不顯示 true 手機端顯示
+  click_to_change: true
+  mobile: true # false 手機端不顯示 true 手機端顯示
 
 # 動態彩帶
 canvas_ribbon_piao:
