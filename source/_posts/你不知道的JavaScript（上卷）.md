@@ -1,10 +1,13 @@
 ---
 title: 你不知道的JavaScript（上卷）
-date: 2020-07-18 23:23:55
 categories:
-- ReadingNotes
+    - 前端
+    - 读书笔记
 tags:
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png
+keywords: '前端,读书笔记'
+description: ReadingNotes
+cover: 'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png'
+date: 2020-07-18 23:23:55
 ---
 
 > 去年就想读这一套书，由于个人原因一直拖到现在，今天终于周末在家没事，看了5个小时才看了上卷的1/3（其实也就60页）。主要讲述了作用域和闭包的相关知识，可能是由于自己基础知识的匮乏，所以进度有些慢。总之，要提高阅读速度了。

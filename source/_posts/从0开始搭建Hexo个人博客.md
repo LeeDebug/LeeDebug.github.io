@@ -1,9 +1,13 @@
 ---
 title: 从0开始搭建Hexo个人博客
-date: 2020-06-07 23:23:55
 categories:
-- Hexo
+  - Hexo
 tags:
+  - Hexo
+keywords: '前端,读书笔记'
+description: ReadingNotes
+cover: 'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png'
+date: 2020-06-07 23:23:55
 ---
 
 > 搭建个人博客是每个程序员成长的必经之路，不但可以记录与分享自己在学习过程中Get到的新技能、新知识，还能顺便提高一下自己的文采。

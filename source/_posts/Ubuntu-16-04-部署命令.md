@@ -1,10 +1,10 @@
 ---
 title: Ubuntu_16.04_部署命令
+categories:
+  - 服务器
 tags:
   - 服务器
-categorier:
-  - 服务器
-keywords: 'Hexo,服务器'
+keywords: '服务器'
 description: 服务器
 cover: 'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png'
 date: 2020-07-06 15:17:53

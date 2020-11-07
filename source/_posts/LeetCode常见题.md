@@ -1,10 +1,10 @@
 ---
 title: LeetCode常见题
+categories:
+  - LeetCode
 tags:
   - LeetCode
-categorier:
-  - LeetCode
-keywords: 'Hexo,LeetCode'
+keywords: 'LeetCode'
 description: LeetCode
 cover: 'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png'
 date: 2020-07-01 22:32:05

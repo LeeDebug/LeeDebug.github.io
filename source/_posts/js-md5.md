@@ -1,9 +1,14 @@
 ---
 title: js-md5
-date: 2020-06-10 22:49:18
 categories:
-- npm
+  - 前端
+  - npm
 tags:
+  - npm
+keywords: '前端,插件'
+description: 前端插件
+cover: 'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png'
+date: 2020-06-10 22:49:18
 ---
 
 > 前端在用户登录时尝使用md5对用户的登录信息进行加密操作
