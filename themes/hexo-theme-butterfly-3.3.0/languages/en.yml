@@ -1,0 +1,116 @@
+footer:
+  framework: 框架
+  theme: 主题
+
+copy:
+  success: 复制成功
+  error: 复制失败
+  noSupport: 该浏览器不支持复制功能
+
+page:
+  articles: 文章
+  tag: 标签
+  category: 分类
+  archives: 时间轴
+
+sticky: Sticky
+no_title: No title
+
+post:
+  created: 发表于
+  updated: 更新于
+  wordcount: 文章字数
+  min2read: 预计阅读时间
+  min2read_unit: 分钟
+  page_pv: 阅读量
+  comments: 评论
+  copyright:
+    author: 作者
+    link: 链接
+    copyright_notice: Copyright Notice
+    copyright_content: 'All articles in this blog are licensed under <a href="%s">%s</a> unless stating additionally.'
+  recommend: 推荐文章
+
+search: 搜索
+algolia_search:
+  input_placeholder: Search for Posts
+  hits_empty: "We didn't find any results for the search: ${query}."
+  hits_stats: '${hits} results found in ${time} ms'
+
+local_search:
+  label: Local search
+  input_placeholder: Search for Posts
+  hits_empty: "We didn't find any results for the search: ${query}"
+  powered_by: Powered by
+
+pagination:
+  prev: 上一篇
+  next: 下一篇
+
+comment: 评论
+
+aside:
+  articles: 文章
+  tags: 标签
+  categories: 分类
+  card_announcement: 通知
+  card_categories: 分类
+  card_tags: 标签
+  card_archives: 时间轴
+  card_recent_post: 最近文章
+  card_webinfo:
+    headline: 网展资讯
+    article_name: 文章数目
+    runtime:
+      name: 已运行时间
+      unit: 天
+    last_push_date:
+      name: 最后发表时间
+    site_wordcount: 本站总字数
+    site_uv_name: 本站访客数
+    site_pv_name: 本站总访问量
+  more_button: 查看更多
+  card_newest_comments:
+    headline: 最新评论
+    loading_text: 正在努力加载中...
+    error: Unable to get the data, please make sure the settings are correct.
+  card_toc: 本文目录
+
+date_suffix:
+  just: 刚刚
+  min: 分钟以前
+  hour: 小时以前
+  day: 天以前
+  month: 个月以前
+
+donate: 捐赠
+share: 分享
+
+rightside:
+  readmode_title: 阅读模式
+  font_plus_title: 放大字体
+  font_minus_title: 缩小字体
+  translate_title: 简体/繁体
+  night_mode_title: 开灯/关灯
+  back_to_top: 回到顶部
+  toc: 目录
+  scroll_to_comment: 前往评论
+  setting: 设置
+
+copy_copyright:
+  author: 作者
+  link: 链接
+  source: Source
+  info: Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+
+Snackbar:
+  chs_to_cht: 已切换至繁体中文
+  cht_to_chs: 已切换至简体中文
+  day_to_night: 已切换至夜间模式
+  night_to_day: 已切换至日间模式
+
+loading: 正在努力加载中...
+
+error404:
+  error_title: 页面未找到，请联系站点管理人员
+  back_button: 点击返回首页

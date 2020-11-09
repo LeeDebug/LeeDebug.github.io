@@ -96,7 +96,7 @@ ignore:
 ## Themes: https://hexo.io/themes/
 # theme: landscape
 # theme: hexo-theme-next
-theme: Butterfly
+theme: hexo-theme-butterfly-3.3.0
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

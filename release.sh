@@ -10,6 +10,6 @@ rm -rf /Users/qducc/Documents/0_blog_posts/*
 # git push origin master
 
 # 自动化构建及部署
-hexo clean
-hexo g
-hexo d
+npm run clean
+npm run build
+npm run deploy
