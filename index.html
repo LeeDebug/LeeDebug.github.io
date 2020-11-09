@@ -1,99 +1,177 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>淳淳同学的个人博客 - 人不可一日无事</title><meta name="description" content="个人博客"><meta name="author" content="Lee淳淳"><meta name="copyright" content="Lee淳淳"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="淳淳同学的个人博客"><meta name="twitter:description" content="个人博客"><meta name="twitter:image" content="http://blog.lee521.top/img/avatar.png"><meta property="og:type" content="website"><meta property="og:title" content="淳淳同学的个人博客"><meta property="og:url" content="http://blog.lee521.top/"><meta property="og:site_name" content="淳淳同学的个人博客"><meta property="og:description" content="个人博客"><meta property="og:image" content="http://blog.lee521.top/img/avatar.png"><meta property="article:published_time" content="2020-11-07T13:50:55.674Z"><meta property="article:modified_time" content="2020-11-07T13:50:55.674Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
-var t = Cookies.get("theme")
-if (autoChangeMode == '1'){
-  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
-  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-  if (t === undefined){
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport){
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour < 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-  }
-  } else if (t == 'light') activateLightMode()
-  else activateDarkMode()
-
-} else if (autoChangeMode == '2'){
-  now = new Date();
-  hour = now.getHours();
-  isNight = hour < 6 || hour >= 18
-  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode() 
-} else {
-  if ( t == 'dark' ) activateDarkMode()
-  else if ( t == 'light') activateLightMode()
-}
-
-function activateDarkMode(){
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
-  }
-}
-function activateLightMode(){
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
-  }
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="canonical" href="http://blog.lee521.top/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>淳淳同学的个人博客 - 人不可一日无事</title><meta name="author" content="Lee淳淳"><meta name="copyright" content="Lee淳淳"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="个人博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="淳淳同学的个人博客">
+<meta property="og:url" content="http://blog.lee521.top/index.html">
+<meta property="og:site_name" content="淳淳同学的个人博客">
+<meta property="og:description" content="个人博客">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.lee521.top/null">
+<meta property="article:author" content="Lee淳淳">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.lee521.top/null"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.lee521.top/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
-  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"http://blog.lee521.top","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
   copy: {
-    success: '复制成功',
-    error: '复制失败',
-    noSupport: '该浏览器不支持复制功能'
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
   },
-  bookmark: {
-    message_prev: '请按',
-    message_next: '将本页加入到书签'
+  relativeDate: {
+    homepage: false,
+    post: false
   },
-  runtime_unit: '天',
-  runtime: true,
-  copyright: {"languages":{"author":"Author: Lee淳淳","link":"Link: ","source":"Source: 淳淳同学的个人博客","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
   ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: {"bookmark":{"message_prev":"请按","message_next":"将本页加入到书签"},"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
-  baiduPush: false,
-  highlightCopy: true,
-  highlightLang: true,
-  highlightShrink: 'false',
-  isFontAwesomeV5: false,
-  isPhotoFigcaption: true,
-  islazyload: true,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
   isanchor: false
-  
-}</script><script>var GLOBAL_CONFIG_SITE = { 
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
   isPost: false,
   isHome: true,
-  isSidebar: false  
-  }</script><noscript><style>
-#page-header {
-  opacity: 1
-}
-.justified-gallery img{
-  opacity: 1
-}
-</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">12</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">9</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 更多功能</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="https://github.com/LeeDebug" target="_blank" rel="noopener"><i class="fa-fw fa fa-GitHub"></i><span> GitHub</span></a></li><li><a class="site-page" href="https://gitlab.com/Leevue" target="_blank" rel="noopener"><i class="fa-fw fa fa-GitLab"></i><span> GitLab</span></a></li><li><a class="site-page" href="https://gitee.com/leejs" target="_blank" rel="noopener"><i class="fa-fw fa fa-Gitee"></i><span> Gitee</span></a></li><li><a class="site-page" href="https://weibo.com/p/1005053297895847" target="_blank" rel="noopener"><i class="fa-fw fa fa-WeiBo"></i><span> WeiBo</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div></div></div><div id="body-wrap"><div class="full_page" id="nav" style="background-image: url(https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">淳淳同学的个人博客</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 更多功能</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="https://github.com/LeeDebug" target="_blank" rel="noopener"><i class="fa-fw fa fa-GitHub"></i><span> GitHub</span></a></li><li><a class="site-page" href="https://gitlab.com/Leevue" target="_blank" rel="noopener"><i class="fa-fw fa fa-GitLab"></i><span> GitLab</span></a></li><li><a class="site-page" href="https://gitee.com/leejs" target="_blank" rel="noopener"><i class="fa-fw fa fa-Gitee"></i><span> Gitee</span></a></li><li><a class="site-page" href="https://weibo.com/p/1005053297895847" target="_blank" rel="noopener"><i class="fa-fw fa fa-WeiBo"></i><span> WeiBo</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="site-info"><h1 id="site_title">淳淳同学的个人博客</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/LeeDebug" target="_blank" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="mailto:961150665@qq.com" target="_blank" title="Email"><i class="fa fa-envelope" aria-hidden="true"></i></a></div></div><div id="scroll_down"><i class="fa fa-angle-down scroll-down-effects"></i></div></div><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/11/07/%E4%B8%AD%E5%A4%AE%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%E6%8F%92%E4%BB%B6vue-bus-ts/" title="中央事件总线插件vue-bus-ts">中央事件总线插件vue-bus-ts</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-11-07 18:28:46"><i class="fa fa-calendar" aria-hidden="true"></i>2020-11-07</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-11-07 21:40:35"><i class="fa fa-history" aria-hidden="true"></i>2020-11-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/Vue/">Vue</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Vue/">Vue</a></span></div><div class="content">
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2020-11-09 17:09:02'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">12</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">8</div></a></div></div></div><hr/></div></div><div id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">淳淳同学的个人博客</a></span><span id="menus"><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">淳淳同学的个人博客</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/07/%E4%B8%AD%E5%A4%AE%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%E6%8F%92%E4%BB%B6vue-bus-ts/" title="中央事件总线插件vue-bus-ts">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="中央事件总线插件vue-bus-ts"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/07/%E4%B8%AD%E5%A4%AE%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%E6%8F%92%E4%BB%B6vue-bus-ts/" title="中央事件总线插件vue-bus-ts">中央事件总线插件vue-bus-ts</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-07T10:28:46.000Z" title="Created 2020-11-07 18:28:46">2020-11-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/Vue/">Vue</a></span></div><div class="content">
 项目中难免会遇到非父子组件之间的传参与通信问题，遂整理此文。
 
 简介vue-bus-ts 是一款支持在ts环境下使用的全局事件总线插件。
 安装及使用方法安装1npm i -S vue-bus-ts
 
 注册安装后需要在main.ts中引入并注册，挂载到全局的Vue实例上即可
-123456789101 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/10/27/qiankun-2-0-24-%E7%88%AC%E5%9D%91%E8%AE%B0%E5%BD%95/" title="qiankun-2.0.24-爬坑记录">qiankun-2.0.24-爬坑记录</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-10-27 23:45:08"><i class="fa fa-calendar" aria-hidden="true"></i>2020-10-27</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-11-07 21:46:16"><i class="fa fa-history" aria-hidden="true"></i>2020-11-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/Vue/">Vue</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/">微前端</a></span></div><div class="content">
+123456789101112# main.tsimport Vue from &#x27;vue&#x27;;import EventBus from &#x27;vue-bus-ts&#x27;;Vue.use(EventBus);var bus = new EventBus.Bus();new Vue(&#123;  bus,  render: (h) =&gt; h(App),&#125;).$mount(&#x27;#app&#x27;);
+
+注册事件在调用事件前，需要实现注册该事件，否则不会生效
+一般写在vue文件的mounted或者created生命周期中
+123456# *.vue  var eventId = this.$bus.$on(&#x27;event_name&#x27;, functi ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/10/27/qiankun-2-0-24-%E7%88%AC%E5%9D%91%E8%AE%B0%E5%BD%95/" title="qiankun-2.0.24-爬坑记录">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="qiankun-2.0.24-爬坑记录"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/27/qiankun-2-0-24-%E7%88%AC%E5%9D%91%E8%AE%B0%E5%BD%95/" title="qiankun-2.0.24-爬坑记录">qiankun-2.0.24-爬坑记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-10-27T15:45:08.000Z" title="Created 2020-10-27 23:45:08">2020-10-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/Vue/">Vue</a></span></div><div class="content">
 由于本次开发项目需要嵌入之前的老项目，由于考虑到iframe速度慢、css/js需要额外请求、阻塞页面加载、浏览器前进/后退等缺点，遂打算踩坑qiankun，为了更早的爬坑，整理此文。
 
-简介qiankun 是一个基于 single-spa 的微前端实现库，旨在帮助大家能更简单、无痛的构建一个生产 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/08/12/2020%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/" title="2020前端面试">2020前端面试</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-08-12 23:54:32"><i class="fa fa-calendar" aria-hidden="true"></i>2020-08-12</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-11-07 21:41:51"><i class="fa fa-history" aria-hidden="true"></i>2020-11-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95/">面试</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/">前端面试</a></span></div><div class="content">
+简介qiankun 是一个基于 single-spa 的微前端实现库，旨在帮助大家能更简单、无痛的构建一个生产可用微前端架构系统。
+官方提供的资源：
+
+官方提供了一个 示例代码
+示例代码的在线demo
+单独访问在线vue子应用
+单独访问在线react子应用
+
+根据 qiankun官方文档 介绍，主要有以下七大特性：
+
+📦 基于 single-spa 封装，提供了更加开箱即用的 API。
+📱 技术栈无关，任意技术栈的应用均可 使用/接入，不论是 React/Vue/Angular/JQuery 还是其他等框架。
+💪 HTML Entry 接入方式，让你接入微应用像使用 iframe 一样简单。
+🛡​ 样式隔离，确保微应用之间样式互相不干扰。
+🧳 JS 沙箱，确保微应用之间 全局变量/事件 不冲突。
+⚡️ 资源预加载，在浏览器空闲时间预加载未打开的微应用资源，加速微应用打开速度。
+🔌 umi ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/12/2020%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/" title="2020前端面试">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2020前端面试"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/12/2020%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/" title="2020前端面试">2020前端面试</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-08-12T15:54:32.000Z" title="Created 2020-08-12 23:54:32">2020-08-12</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95/">面试</a></span></div><div class="content">
 今日裸辞，在投简历的过程中抽出一周集中复习前端知识，并做了此文以记录知识点。
 
 目 录[TOC]
@@ -105,17 +183,71 @@ http和https
 get和post的区别
 浏览器缓存机制
 浏览器缓存存放位置
-浏览器从输入url ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/07/18/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%EF%BC%88%E4%B8%8A%E5%8D%B7%EF%BC%89/" title="你不知道的JavaScript（上卷）">你不知道的JavaScript（上卷）</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-07-18 23:23:55"><i class="fa fa-calendar" aria-hidden="true"></i>2020-07-18</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-11-07 21:44:14"><i class="fa fa-history" aria-hidden="true"></i>2020-11-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span></div><div class="content">
+浏览器从输入url到页面生成结果哪些步骤
+tcp三次连接
+进程和线程
+bfc是什么，解决哪些问题
+ajax的原理和缺点
+typeof和instanceof的区别
+有几种方式判断Array类型
+函数深拷贝和浅拷贝的区别，怎么实现深拷贝
+js垃圾回收机制
+事件循环
+事件冒泡
+阻止事件冒泡的方式，ie是什么方式
+this的情况
+js的继承方式，有什么缺点
+new做了什么事情
+node线程池
+node有哪些模块
+node的事件循环和浏览器的有什么区别
+node应该怎么读取2DB的数据
+vue的双向绑定是怎么做到的
+vue的diff算法是怎么样的
+vue cil做了哪些事情，你会怎么设计
+MVC，ajax, 布局，JQuery
+“敏感信息”(密码、身份证之类的)的处理
+页面优化相关
+px rem em
+border-r ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/07/18/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%EF%BC%88%E4%B8%8A%E5%8D%B7%EF%BC%89/" title="你不知道的JavaScript（上卷）">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="你不知道的JavaScript（上卷）"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/18/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%EF%BC%88%E4%B8%8A%E5%8D%B7%EF%BC%89/" title="你不知道的JavaScript（上卷）">你不知道的JavaScript（上卷）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-07-18T15:23:55.000Z" title="Created 2020-07-18 23:23:55">2020-07-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span></div><div class="content">
 去年就想读这一套书，由于个人原因一直拖到现在，今天终于周末在家没事，看了5个小时才看了上卷的1/3（其实也就60页）。主要讲述了作用域和闭包的相关知识，可能是由于自己基础知识的匮乏，所以进度有些慢。总之，要提高阅读速度了。
 
 作用域和闭包作用域是什么
-JavaScript是一门编译语言，其引擎进行 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/07/06/Ubuntu-16-04-%E9%83%A8%E7%BD%B2%E5%91%BD%E4%BB%A4/" title="Ubuntu_16.04_部署命令">Ubuntu_16.04_部署命令</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-07-06 15:17:53"><i class="fa fa-calendar" aria-hidden="true"></i>2020-07-06</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-11-07 21:46:32"><i class="fa fa-history" aria-hidden="true"></i>2020-11-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a></span></div><div class="content">
+JavaScript是一门编译语言，其引擎进行编译的步骤和传统的编译语言非常相似，包括下列三个编译步骤：
+分析/词法分析（Tokenizing/Lexing）（词法化、单词化）
+解析/语法分析（Parsing）
+代码生成
+
+
+
+
+作用域是一种规则，用于确定在何处以及如何查找该变量（标识符），即用来管理引擎如何在当前作用域以及嵌套的子作用域中根据标识符名称进行变量查找
+引擎
+编译器
+作用域
+
+
+
+
+var a = 2;
+var a：编译器会询问作用域是否已经有一个该名称的变量存在于同一个作用域的集合中。如果是，编译器会忽略该声明，继续进行编译；否则它会要求作用域在当前作用域的集合中声明一个新的变量，并命名为a。（定义声明在编译阶段进行）
+a = 2：编译器会为引擎生成运行时所需要的代码，这些代码被用来处理a=2这个赋值操作。首先会询问作用 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/07/06/Ubuntu-16-04-%E9%83%A8%E7%BD%B2%E5%91%BD%E4%BB%A4/" title="Ubuntu_16.04_部署命令">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ubuntu_16.04_部署命令"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/06/Ubuntu-16-04-%E9%83%A8%E7%BD%B2%E5%91%BD%E4%BB%A4/" title="Ubuntu_16.04_部署命令">Ubuntu_16.04_部署命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-07-06T07:17:53.000Z" title="Created 2020-07-06 15:17:53">2020-07-06</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a></span></div><div class="content">
 现时代身为一名前端工程师，配置服务器、部署线上项目等技能是必不可少的。
 
 参考文档
 使用 pyenv 可以在一个系统中安装多个python版本
 
-配置步骤基本配置123456789101112131415161718192021222324# 连接ssh -p 22 root@47.104.223 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/07/01/LeetCode%E5%B8%B8%E8%A7%81%E9%A2%98/" title="LeetCode常见题">LeetCode常见题</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-07-01 22:32:05"><i class="fa fa-calendar" aria-hidden="true"></i>2020-07-01</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-11-07 21:46:04"><i class="fa fa-history" aria-hidden="true"></i>2020-11-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/LeetCode/">LeetCode</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/LeetCode/">LeetCode</a></span></div><div class="content">
+配置步骤基本配置123456789101112131415161718192021222324# 连接ssh -p 22 root@47.104.223.131# 修改主机名sudo vi /etc/hostname改为：    LeeJs# 修改配置文件sudo vi /etc/hosts添加：    127.0.1.1   LeeJs    # 重启reboot# apt 检测更新sudo apt updateapt list --upgradable# 查看版本信息lsb_release -auname -acat /proc/version
+
+
+** ⚠️ 注：以下命令已打包至 install.sh **
+安装yum（不需要）1apt install yum
+
+
+安装 ruby（不需要）1apt install ruby
+
+
+安装 LinuxBrew（不需要）1sh -c &quot;$(curl -fsSL https://raw ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/07/01/LeetCode%E5%B8%B8%E8%A7%81%E9%A2%98/" title="LeetCode常见题">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode常见题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/01/LeetCode%E5%B8%B8%E8%A7%81%E9%A2%98/" title="LeetCode常见题">LeetCode常见题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-07-01T14:32:05.000Z" title="Created 2020-07-01 22:32:05">2020-07-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/LeetCode/">LeetCode</a></span></div><div class="content">
 算法对前端的重要性可以说至关重要，不可小觑。
 
 算法思想
@@ -130,10 +262,36 @@ JavaScript是一门编译语言，其引擎进行 ...</div></div></div><div clas
 合并两个有序数组
 
 
-给你两个有 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/06/23/%E3%80%8A%E5%89%8D%E7%AB%AF%E5%86%85%E5%8F%82%E3%80%8B/" title="《前端内参》读书笔记">《前端内参》读书笔记</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-06-23 21:08:31"><i class="fa fa-calendar" aria-hidden="true"></i>2020-06-23</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-11-07 21:40:25"><i class="fa fa-history" aria-hidden="true"></i>2020-11-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span></div><div class="content">
+给你两个有序整数数组 nums1 和 nums2，请你将 nums2 合并到 nums1 中，使 nums1 成为一个有序数组。
+说明:初始化 nums1 和 nums2 的元素数量分别为 m 和 n 。你可以假设 nums1 有足够的空间（空间大小大于或等于 m + n）来保存 nums2 中的元素。
+示例:
+
+输入:
+nums1 = [1,2,3,0,0,0], m = 3
+nums2 = [2,5,6],       n = 3
+
+
+输出: 
+[1,2,2,3,5,6]
+
+
+
+123456789101112131415161718192021/** * @param &#123;number[]&#125; nums1 * @param &#123;number&#125; m * @param ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/06/23/%E3%80%8A%E5%89%8D%E7%AB%AF%E5%86%85%E5%8F%82%E3%80%8B/" title="《前端内参》读书笔记">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《前端内参》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/06/23/%E3%80%8A%E5%89%8D%E7%AB%AF%E5%86%85%E5%8F%82%E3%80%8B/" title="《前端内参》读书笔记">《前端内参》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-06-23T13:08:31.000Z" title="Created 2020-06-23 21:08:31">2020-06-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span></div><div class="content">
 做web前端开发也有两年的时间了，但技术层面一直很浅，特别是近期感觉遇到了知识瓶颈，还是因为看书少、不爱总结。本次笔记在参考Bob Ma大佬整理分享的《前端内参》的基础上，记录并整理下来一些自己平时不注意的知识点。
 
-壹.1.1.3 ES 8 新特性字符串追加在 ES 8 中String新增了两个 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/06/20/%E5%89%8D%E7%AB%AF%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%8E%E9%A1%B9%E7%9B%AE%E8%A7%84%E8%8C%83/" title="前端个人学习笔记与项目规范">前端个人学习笔记与项目规范</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-06-20 10:35:22"><i class="fa fa-calendar" aria-hidden="true"></i>2020-06-20</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-11-07 21:44:34"><i class="fa fa-history" aria-hidden="true"></i>2020-11-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">123456789101112# Lee 更新于 2019-05-30以下是学习Vue的渐进路线，并非适合所有人但适合大多数人如果是计算机专业的话，而且有其他语言基础的，1～2天就可以过一遍如果是非计算机专业的话，可能要半个月左右，不会的一定要勤问（发扬不要脸的精神）看完之后别逗留太久，尽早跟着项目 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/06/15/%E7%A8%8B%E5%BA%8F%E5%91%98%E8%BF%9B%E4%BF%AE%E6%96%87%E6%A1%A3/" title="程序员进修文档">程序员进修文档</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-06-15 08:16:29"><i class="fa fa-calendar" aria-hidden="true"></i>2020-06-15</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-11-07 21:41:51"><i class="fa fa-history" aria-hidden="true"></i>2020-11-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95/">面试</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/">前端面试</a></span></div><div class="content">
+壹.1.1.3 ES 8 新特性字符串追加在 ES 8 中String新增了两个实例函数String.prototype.padStart和String.prototype.padEnd，允许将空字符串或其他字符串添加到原始字符串的开头或结尾。
+
+String.padStart(targetLength,[padString])  targetLength：当前字符串需要填充到的目标长度。如果这个数值小于当前字符串的长度，则返回当前字符串本身。  padString：(可选)填充字符串。如果字符串太长，使填充后的字符串长度超过了目标长度，则只保留最左侧的部分，其他部分会被截断，此参数的缺省值为空格。
+String.padEnd(targetLength,padString]) 参数释义同上。
+
+1234567891011&#x27;es8&#x27;.padStart( ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/06/20/%E5%89%8D%E7%AB%AF%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%8E%E9%A1%B9%E7%9B%AE%E8%A7%84%E8%8C%83/" title="前端个人学习笔记与项目规范">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="前端个人学习笔记与项目规范"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/06/20/%E5%89%8D%E7%AB%AF%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%8E%E9%A1%B9%E7%9B%AE%E8%A7%84%E8%8C%83/" title="前端个人学习笔记与项目规范">前端个人学习笔记与项目规范</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-06-20T02:35:22.000Z" title="Created 2020-06-20 10:35:22">2020-06-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">123456789101112# Lee 更新于 2019-05-30以下是学习Vue的渐进路线，并非适合所有人但适合大多数人如果是计算机专业的话，而且有其他语言基础的，1～2天就可以过一遍如果是非计算机专业的话，可能要半个月左右，不会的一定要勤问（发扬不要脸的精神）看完之后别逗留太久，尽早跟着项目走，真正开始动手写点儿东西的时候，才是你刚开始入门的时候        人生、工作的结果 &#x3D; 思维方式 × 热情 × 能力                                                                        --- 稻盛和夫《活法》
+
+
+Basic Document：
+HTML(***)：http://www.w3school.com.cn/html/index.asp
+JS(****)：https://wangdoc.com/javascript/index.html
+Js(W3c版)：http://www.w3school.com.cn/jsref/jsref_obj_array.asp
+CSS3(*)：http://w ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/06/15/%E7%A8%8B%E5%BA%8F%E5%91%98%E8%BF%9B%E4%BF%AE%E6%96%87%E6%A1%A3/" title="程序员进修文档">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="程序员进修文档"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/06/15/%E7%A8%8B%E5%BA%8F%E5%91%98%E8%BF%9B%E4%BF%AE%E6%96%87%E6%A1%A3/" title="程序员进修文档">程序员进修文档</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-06-15T00:16:29.000Z" title="Created 2020-06-15 08:16:29">2020-06-15</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95/">面试</a></span></div><div class="content">
 以下文档为学习期间整理的好文，有的只是大体的看了一下觉得不错就收藏了，一定要找机会读完。以后要强烈拒绝这种码了不看的行为！！！
 
 程序员修炼手册
@@ -142,22 +300,37 @@ JavaScript是一门编译语言，其引擎进行 ...</div></div></div><div clas
 力扣（LeetCode）题库
 LeetCode解题之路
 Web 开发技术 - MDN web docs
-W3C 和  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/06/10/js-md5/" title="js-md5">js-md5</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-06-10 22:49:18"><i class="fa fa-calendar" aria-hidden="true"></i>2020-06-10</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-11-07 21:45:25"><i class="fa fa-history" aria-hidden="true"></i>2020-11-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/npm/">npm</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/npm/">npm</a></span></div><div class="content">
+W3C 和 MDN 简介
+停止学习框架，应多学习不会过时的通用技能
+计算机专业曾经有哪些方向非常火后来却凉了？
+
+前端面试题前端100问：能搞懂80%的请把简历给我JavaScript专题系列二十篇正式完结web前端面试100题带答案(知乎)
+vue常见面试题-知乎
+前端常见的Vue面试题目汇总
+前端每日3+1面试题
+前端小智 博客目录
+程序媛面试之高频题型汇总(一）
+程序媛面试之高频题型汇总（二）
+Web前端知识总结（逼乎）
+为什么Node是小菜前端团队的核心技术栈
+2019前端面试题汇总（主要是Vue）
+记一次腾讯社招前端面试（已拿到offer入职）
+算法面经分享|双非研究生斩获大厂offer
+
+学习资料
+学习资源 - ApacheCN
+
+JavaScript
+ECMAScript 6 入门 - 阮 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/06/10/js-md5/" title="js-md5">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="js-md5"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/06/10/js-md5/" title="js-md5">js-md5</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-06-10T14:49:18.000Z" title="Created 2020-06-10 22:49:18">2020-06-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/npm/">npm</a></span></div><div class="content">
 前端在用户登录时尝使用md5对用户的登录信息进行加密操作
 
 MD5简介MD5信息摘要算法（英语：MD5 Message-Digest Algorithm），一种被广泛使用的密码散列函数，可以产生出一个128位（16字节）的散列值（hash value），用于确保信息传输完整一致。
-js-md5简介 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-fw fa-chevron-right" aria-hidden="true"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Lee淳淳</div><div class="author-info__description">个人博客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">12</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">9</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">8</div></a></div></div><div class="card-info-bookmark is-center"><a class="bookmark button--primary button--animated" id="bookmark-it" href="javascript:;" title="书签" target="_self"><i class="fa fa-bookmark" aria-hidden="true"></i><span>书签</span></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/LeeDebug" target="_blank" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="mailto:961150665@qq.com" target="_blank" title="Email"><i class="fa fa-envelope" aria-hidden="true"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fa fa-bullhorn card-announcement-animation" aria-hidden="true"></i><span>通知</span></div><div class="announcement_content">这是淳淳同学的个人博客</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fa fa-history" aria-hidden="true"></i><span>最近文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/2020/11/07/%E4%B8%AD%E5%A4%AE%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%E6%8F%92%E4%BB%B6vue-bus-ts/"><div class="aside-post-title no-aside-cover"><div class="aside-post_title" href="/2020/11/07/%E4%B8%AD%E5%A4%AE%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%E6%8F%92%E4%BB%B6vue-bus-ts/" title="中央事件总线插件vue-bus-ts">中央事件总线插件vue-bus-ts</div><time class="aside-post_meta post-meta__date" title="发表于 2020-11-07 18:28:46">2020-11-07</time></div></a></div><div class="aside-recent-post"><a href="/2020/10/27/qiankun-2-0-24-%E7%88%AC%E5%9D%91%E8%AE%B0%E5%BD%95/"><div class="aside-post-title no-aside-cover"><div class="aside-post_title" href="/2020/10/27/qiankun-2-0-24-%E7%88%AC%E5%9D%91%E8%AE%B0%E5%BD%95/" title="qiankun-2.0.24-爬坑记录">qiankun-2.0.24-爬坑记录</div><time class="aside-post_meta post-meta__date" title="发表于 2020-10-27 23:45:08">2020-10-27</time></div></a></div><div class="aside-recent-post"><a href="/2020/08/12/2020%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"><div class="aside-post-title no-aside-cover"><div class="aside-post_title" href="/2020/08/12/2020%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/" title="2020前端面试">2020前端面试</div><time class="aside-post_meta post-meta__date" title="发表于 2020-08-12 23:54:32">2020-08-12</time></div></a></div><div class="aside-recent-post"><a href="/2020/07/18/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%EF%BC%88%E4%B8%8A%E5%8D%B7%EF%BC%89/"><div class="aside-post-title no-aside-cover"><div class="aside-post_title" href="/2020/07/18/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%EF%BC%88%E4%B8%8A%E5%8D%B7%EF%BC%89/" title="你不知道的JavaScript（上卷）">你不知道的JavaScript（上卷）</div><time class="aside-post_meta post-meta__date" title="发表于 2020-07-18 23:23:55">2020-07-18</time></div></a></div><div class="aside-recent-post"><a href="/2020/07/06/Ubuntu-16-04-%E9%83%A8%E7%BD%B2%E5%91%BD%E4%BB%A4/"><div class="aside-post-title no-aside-cover"><div class="aside-post_title" href="/2020/07/06/Ubuntu-16-04-%E9%83%A8%E7%BD%B2%E5%91%BD%E4%BB%A4/" title="Ubuntu_16.04_部署命令">Ubuntu_16.04_部署命令</div><time class="aside-post_meta post-meta__date" title="发表于 2020-07-06 15:17:53">2020-07-06</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fa fa-folder-open" aria-hidden="true"></i><span>分类</span></div><ul class="card-category-list">
-            <li class="card-category-list-item"><a class="card-category-list-link" href="/categories/Hexo/"><span class="card-category-list-name">Hexo</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/LeetCode/"><span class="card-category-list-name">LeetCode</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/"><span class="card-category-list-name">前端</span><span class="card-category-list-count">8</span></a></li><ul class="card-category-list child"><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Vue/"><span class="card-category-list-name">Vue</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/npm/"><span class="card-category-list-name">npm</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">读书笔记</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95/"><span class="card-category-list-name">面试</span><span class="card-category-list-count">2</span></a></li></ul><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><span class="card-category-list-name">服务器</span><span class="card-category-list-count">1</span></a></li>
-                       
-            </ul></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fa fa-archive" aria-hidden="true"></i><span>时间轴</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">November 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">October 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">August 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">July 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/06/"><span class="card-archive-list-date">June 2020</span><span class="card-archive-list-count">6</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fa fa-line-chart" aria-hidden="true"></i><span>网展资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">12</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="9/12/2018 20:13:14">     </div></div><div class="webinfo-item"><div class="webinfo-site-wordcount-name">本站总字数 :</div><div class="webinfo-site-wordcount">41.9k</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By Lee淳淳</div><div class="framework-info"><span>框架 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简体/繁体" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script defer id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@3/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
-if (subtitleEffect) { 
-  var typed = new Typed("#subtitle", {
-    strings: '日拱一卒无有尽，功不唐捐终入海,首先应努力成为一个好程序员，入职一线互联网公司只是顺路的事'.split(","),
-    startDelay: 300,
-    typeSpeed: 150,
-    loop: true,
-    backSpeed: 50
-  })
-} else {
-  document.getElementById("subtitle").innerHTML = '日拱一卒无有尽，功不唐捐终入海'
-}</script></body></html>
+js-md5简介A simple MD5 hash function for JavaScript supports UTF-8 encoding.详情请查看npm的js-md5部分
+使用教程安装1$ npm i js-md5
+
+引入1234$ import md5 from &#39;js-md5&#39;&#x2F;&#x2F; 如果在main.js中引入，需要注册$ Vue.prototype.$md5 &#x3D; md5
+
+使用12345678910111213141516171819md5(&#39;&#39;); &#x2F;&#x2F; d41d8cd98f00b204e9800998ecf8427emd5(&#39;The quick brown fox jumps over the la ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Lee淳淳</div><div class="author-info__description">个人博客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">12</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">8</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/11/07/%E4%B8%AD%E5%A4%AE%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%E6%8F%92%E4%BB%B6vue-bus-ts/" title="中央事件总线插件vue-bus-ts"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="中央事件总线插件vue-bus-ts"/></a><div class="content"><a class="title" href="/2020/11/07/%E4%B8%AD%E5%A4%AE%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%E6%8F%92%E4%BB%B6vue-bus-ts/" title="中央事件总线插件vue-bus-ts">中央事件总线插件vue-bus-ts</a><time datetime="2020-11-07T10:28:46.000Z" title="Created 2020-11-07 18:28:46">2020-11-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/10/27/qiankun-2-0-24-%E7%88%AC%E5%9D%91%E8%AE%B0%E5%BD%95/" title="qiankun-2.0.24-爬坑记录"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="qiankun-2.0.24-爬坑记录"/></a><div class="content"><a class="title" href="/2020/10/27/qiankun-2-0-24-%E7%88%AC%E5%9D%91%E8%AE%B0%E5%BD%95/" title="qiankun-2.0.24-爬坑记录">qiankun-2.0.24-爬坑记录</a><time datetime="2020-10-27T15:45:08.000Z" title="Created 2020-10-27 23:45:08">2020-10-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/12/2020%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/" title="2020前端面试"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2020前端面试"/></a><div class="content"><a class="title" href="/2020/08/12/2020%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/" title="2020前端面试">2020前端面试</a><time datetime="2020-08-12T15:54:32.000Z" title="Created 2020-08-12 23:54:32">2020-08-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/07/18/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%EF%BC%88%E4%B8%8A%E5%8D%B7%EF%BC%89/" title="你不知道的JavaScript（上卷）"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="你不知道的JavaScript（上卷）"/></a><div class="content"><a class="title" href="/2020/07/18/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%EF%BC%88%E4%B8%8A%E5%8D%B7%EF%BC%89/" title="你不知道的JavaScript（上卷）">你不知道的JavaScript（上卷）</a><time datetime="2020-07-18T15:23:55.000Z" title="Created 2020-07-18 23:23:55">2020-07-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/07/06/Ubuntu-16-04-%E9%83%A8%E7%BD%B2%E5%91%BD%E4%BB%A4/" title="Ubuntu_16.04_部署命令"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ubuntu_16.04_部署命令"/></a><div class="content"><a class="title" href="/2020/07/06/Ubuntu-16-04-%E9%83%A8%E7%BD%B2%E5%91%BD%E4%BB%A4/" title="Ubuntu_16.04_部署命令">Ubuntu_16.04_部署命令</a><time datetime="2020-07-06T07:17:53.000Z" title="Created 2020-07-06 15:17:53">2020-07-06</time></div></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>Categories</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hexo/"><span class="card-category-list-name">Hexo</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/LeetCode/"><span class="card-category-list-name">LeetCode</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/"><span class="card-category-list-name">前端</span><span class="card-category-list-count">8</span></a></li><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Vue/"><span class="card-category-list-name">Vue</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/npm/"><span class="card-category-list-name">npm</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">读书笔记</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95/"><span class="card-category-list-name">面试</span><span class="card-category-list-count">2</span></a></li></ul><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><span class="card-category-list-name">服务器</span><span class="card-category-list-count">1</span></a></li>
+            
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/Hexo/" style="font-size: 1.1em; color: #999">Hexo</a> <a href="/tags/LeetCode/" style="font-size: 1.1em; color: #999">LeetCode</a> <a href="/tags/Vue/" style="font-size: 1.1em; color: #999">Vue</a> <a href="/tags/npm/" style="font-size: 1.1em; color: #999">npm</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.5em; color: #99a9bf">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/" style="font-size: 1.5em; color: #99a9bf">前端面试</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">微前端</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">服务器</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">读书笔记</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">November 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">October 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">August 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">July 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/06/"><span class="card-archive-list-date">June 2020</span><span class="card-archive-list-count">6</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">12</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2020-11-09T09:09:02.634Z"></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By Lee淳淳</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
