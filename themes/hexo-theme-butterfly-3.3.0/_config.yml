@@ -298,7 +298,7 @@ valine:
   appId: c20JQYjgSVXdg1U7txRwJK6g-gzGzoHsz # leancloud application app id
   appKey: xgkoVU56LqxWjGwRprTfoFSN # leancloud application app key
   pageSize: 10 # comment list page size
-  avatar: wavatar # gravatar style https://valine.js.org/#/avatar
+  avatar: monsterid # gravatar style https://valine.js.org/#/avatar
   lang: zh-CN # i18n: zh-CN/zh-TW/en/ja
   placeholder: Please leave your footprints # valine comment input placeholder (like: Please leave your footprints)
   guest_info: nick,mail,link # valine comment header info (nick/mail/link)
