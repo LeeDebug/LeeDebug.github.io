@@ -7,7 +7,7 @@ tags:
   - 前端
 keywords: 前端
 description: A free CDN for Open Source
-cover: 'https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201110183658.png'
+cover: https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201110234920.png
 date: 2020-11-10 18:14:26
 ---
 
@@ -27,7 +27,7 @@ date: 2020-11-10 18:14:26
   - 例如：`https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/xxx.png`
 
 测试图片：
-![GitHub自带的CND](https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201110183658.png)
+![GitHub自带的CND](https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201110234920.png)
 
 
 # 图床
@@ -41,7 +41,7 @@ date: 2020-11-10 18:14:26
 - [图床工具的使用-PicGo](https://www.jianshu.com/p/9d91355e8418)
 
 测试图片：
-![PicGo+GitHub](https://raw.githubusercontent.com/LeeDebug/PicGo/master/img/20201110183658.png)
+![PicGo+GitHub](https://raw.githubusercontent.com/LeeDebug/PicGo/master/img/20201110234920.png)
 
 ## [新浪图床](https://chrome.google.com/webstore/detail/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%9B%BE%E5%BA%8A/fdfdnfpdplfbbnemmmoklbfjbhecpnhf)
 
