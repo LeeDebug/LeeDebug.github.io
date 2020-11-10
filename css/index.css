@@ -2302,15 +2302,32 @@ blockquote footer cite:before {
   width: 45%;
   height: 100%;
   -webkit-mask-image: -webkit-radial-gradient(#fff, #000);
+  text-align: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 #recent-posts > .recent-post-item .post_cover img.post_bg {
-  width: 100%;
-  height: 100%;
-  -webkit-transition: all 0.6s;
-  -moz-transition: all 0.6s;
-  -o-transition: all 0.6s;
-  -ms-transition: all 0.6s;
-  transition: all 0.6s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s;
   object-fit: cover;
 }
 #recent-posts > .recent-post-item .post_cover img.post_bg:hover {
@@ -2623,8 +2640,26 @@ blockquote footer cite:before {
 }
 #aside_content .aside-list > .aside-list-item .thumbnail {
   overflow: hidden;
-  width: 4.2em;
-  height: 4.2em;
+  width: 4em;
+  height: 4em;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 #aside_content .aside-list > .aside-list-item .thumbnail > img {
   width: 100%;
