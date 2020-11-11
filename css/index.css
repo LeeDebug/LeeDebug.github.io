@@ -3104,13 +3104,6 @@ blockquote footer cite:before {
   -moz-background-size: cover;
   background-size: cover;
 }
-#footer:before {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  content: '';
-}
 #footer-wrap {
   position: relative;
   padding: 2rem 1rem;
@@ -3232,6 +3225,11 @@ blockquote footer cite:before {
 }
 #page-header.post-bg {
   height: 20rem;
+  -webkit-background-size: auto auto;
+  -moz-background-size: auto auto;
+  background-size: auto auto;
+  background-position: 50% 30%;
+  background-color: #49b1f5;
 }
 @media screen and (max-width: 768px) {
   #page-header.post-bg {
@@ -3264,7 +3262,7 @@ blockquote footer cite:before {
 }
 #page-header #post-info {
   position: absolute;
-  bottom: 5rem;
+  bottom: 3rem;
   padding: 0 8%;
   width: 100%;
   text-align: center;
