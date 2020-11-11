@@ -7,7 +7,7 @@ tags:
   - 微前端
 keywords: '微前端,笔记'
 description: 描述
-cover: 'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png'
+cover: https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170023.png
 date: 2020-10-27 23:45:08
 ---
 

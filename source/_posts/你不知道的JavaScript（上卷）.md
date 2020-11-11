@@ -6,7 +6,7 @@ categories:
 tags:
 keywords: '前端,读书笔记'
 description: ReadingNotes
-cover: 'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png'
+cover: https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170127.png
 date: 2020-07-18 23:23:55
 ---
 

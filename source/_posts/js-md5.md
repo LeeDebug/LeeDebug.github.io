@@ -7,7 +7,7 @@ tags:
   - npm
 keywords: '前端,插件'
 description: 前端插件
-cover: 'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png'
+cover: https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170415.png
 date: 2020-06-10 22:49:18
 ---
 

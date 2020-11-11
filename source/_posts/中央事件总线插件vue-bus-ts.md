@@ -7,7 +7,7 @@ tags:
   - Vue
 keywords: vue插件,事件总线
 description: 描述
-cover: 'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png'
+cover: https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111165942.png
 date: 2020-11-07 18:28:46
 ---
 

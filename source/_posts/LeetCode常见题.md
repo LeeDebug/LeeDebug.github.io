@@ -6,7 +6,7 @@ tags:
   - LeetCode
 keywords: 'LeetCode'
 description: LeetCode
-cover: 'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png'
+cover: https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170207.png
 date: 2020-07-01 22:32:05
 ---
 

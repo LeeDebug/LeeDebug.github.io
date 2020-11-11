@@ -6,7 +6,7 @@ tags:
   - 服务器
 keywords: '服务器'
 description: 服务器
-cover: 'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png'
+cover: https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170149.png
 date: 2020-07-06 15:17:53
 ---
 
