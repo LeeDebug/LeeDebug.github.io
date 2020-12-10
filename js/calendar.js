@@ -1,0 +1,1 @@
+GitHubCalendar(".calendar", "LeeDebug", { responsive: true });
