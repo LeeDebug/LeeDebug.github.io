@@ -829,9 +829,10 @@ fragment_cache: true
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
-    # - <link rel="stylesheet" href="/xxx.css">
+    - <link rel="stylesheet" href="/css/calendar.css"/>
   bottom:
-    # - <script src="xxxx"></script>
+    - <script src="/js/gitcalendar.js"></script>
+    - <script src="/js/calendar.js"></script>
 
 # CDN
 # Don't modify the following settings unless you know how they work
