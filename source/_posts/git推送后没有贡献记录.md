@@ -6,7 +6,7 @@ tags:
   - Git
 keywords: Git
 description: git推送后没有贡献记录
-cover: 'https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201211125927.png'
+cover: 'https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201211143223.png'
 date: 2020-12-11 12:55:15
 ---
 
