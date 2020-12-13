@@ -57,16 +57,27 @@ const calendar = new Vue({
     },
     thiscolor(x) {
       if (x === 0) {
-        let i = parseInt(x / 2);
-        return this.color[0]
-      } else if (x < 2) {
-        return this.color[1]
-      } else if (x < 20) {
-        let i = parseInt(x / 2);
-        return this.color[i]
+        return this.leeGreen[0]
+      } else if (x <= 5) {
+        return this.leeGreen[1]
+      } else if (x <= 10) {
+        return this.leeGreen[2]
+      } else if (x <= 18) {
+        return this.leeGreen[3]
       } else {
-        return this.color[9]
+        return this.leeGreen[4]
       }
+      // if (x === 0) {
+      //   let i = parseInt(x / 2);
+      //   return this.color[0]
+      // } else if (x < 2) {
+      //   return this.color[1]
+      // } else if (x < 20) {
+      //   let i = parseInt(x / 2);
+      //   return this.color[i]
+      // } else {
+      //   return this.color[9]
+      // }
     },
   }
 });
@@ -111,8 +122,8 @@ $(function () {
           for (let day in weekdata) {
             let dataitem = {date: "", count: "", x: 0, y: 0};
             calendar.positionplusdata.push(dataitem);
-            // ctx.fillStyle = calendar.thiscolor(weekdata[day].count);
-            ctx.fillStyle = calendar.leeGreen[weekdata[day].intensity];
+            ctx.fillStyle = calendar.thiscolor(weekdata[day].count);
+            // ctx.fillStyle = calendar.leeGreen[weekdata[day].intensity]; // 可按api的强度直接取色
             setposition.y = Math.round(setposition.y * 100) / 100;
             dataitem.date = weekdata[day].date;
             dataitem.count = weekdata[day].count;
