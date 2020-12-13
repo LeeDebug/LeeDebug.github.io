@@ -71,7 +71,6 @@ const calendar = new Vue({
 });
 let githubapiurl = "https://githubapi.ryanchristian.dev/user/" + calendar.user;
 $(function () {
-  console.log(23333333333, 'ajax')
   $.ajax({
     type: "GET",
     url: githubapiurl,
