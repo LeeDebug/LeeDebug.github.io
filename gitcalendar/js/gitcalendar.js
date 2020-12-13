@@ -149,14 +149,11 @@ $(function () {
           var rect = canvas.getBoundingClientRect();
           var x = event.clientX - rect.left * (canvas.width / rect.width);
           var y = event.clientY - rect.top * (canvas.height / rect.height);
-          //console.log("x:"+x+",y:"+y);
           for (let item of calendar.positionplusdata) {
             let lenthx = x - item.x;
             let lenthy = y - item.y;
-            //console.log(lenthx,lenthy);
             if (0 < lenthx && lenthx < lineminwitdh) {
               if (0 < lenthy && lenthy < lineminwitdh) {
-                //console.log(item.date,item.count)
                 $('.angle-wrapper').show();
                 calendar.span1 = item.date;
                 calendar.span2 = item.count;
@@ -164,4 +161,72 @@ $(function () {
                 calendar.y = event.clientY - 60
               }
             }
-            //if(0< x - item.x 
+          }
+        }
+      }
+
+      responsiveChart();
+      $(window).on('resize', responsiveChart);
+      window.onscroll = function () {
+        $('.angle-wrapper').hide()
+      };
+      console.log(calendar.positionplusdata)
+
+      function addlastmonth() {
+        if (calendar.thisdayindex === 0) {
+          thisweekcore(52);
+          thisweekcore(51);
+          thisweekcore(50);
+          thisweekcore(49);
+          thisweekcore(48);
+          calendar.thisweekdatacore += calendar.firstdate[6].count;
+          calendar.amonthago = calendar.firstdate[6].date
+        } else {
+          thisweekcore(52);
+          thisweekcore(51);
+          thisweekcore(50);
+          thisweekcore(49);
+          thisweek2core();
+          calendar.amonthago = calendar.first2date[calendar.thisdayindex - 1].date
+        }
+      };
+
+      function thisweek2core() {
+        for (let i = calendar.thisdayindex - 1; i < calendar.first2date.length; i++) {
+          calendar.thisweekdatacore += calendar.first2date[i].count
+        }
+      };
+
+      function thisweekcore(index) {
+        for (let item of calendar.data[index]) {
+          calendar.thisweekdatacore += item.count
+        }
+      };
+
+      function addlastweek() {
+        for (let item of calendar.lastweek) {
+          calendar.weekdatacore += item.count
+        }
+      };
+
+      function addbeforeweek() {
+        for (let i = calendar.thisdayindex; i < calendar.beforeweek.length; i++) {
+          calendar.weekdatacore += calendar.beforeweek[i].count
+        }
+      };
+
+      function addweek() {
+        if (calendar.thisdayindex === 6) {
+          calendar.aweekago = calendar.lastweek[0].date;
+          addlastweek()
+        } else {
+          lastweek = data.contributions[51];
+          calendar.aweekago = lastweek[calendar.thisdayindex + 1].date;
+          addlastweek();
+          addbeforeweek()
+        }
+      }
+    }
+  })
+});
+if(document.getElementById("calendarcanvasbox").offsetWidth
