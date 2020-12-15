@@ -829,10 +829,10 @@ fragment_cache: true
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
-    - <link rel="stylesheet" href="/css/calendar.css"/>
+    - <link rel="stylesheet" href="/gitcalendar/css/gitcalendar_v01.css"/>
   bottom:
-    - <script src="/js/gitcalendar.js"></script>
-    - <script src="/js/calendar.js"></script>
+    - <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    - <script src="/gitcalendar/js/gitcalendar_v01.js"></script>
 
 # CDN
 # Don't modify the following settings unless you know how they work
