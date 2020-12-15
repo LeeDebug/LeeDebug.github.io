@@ -1,5 +1,5 @@
 ---
-title: qiankun-2.0.24-爬坑记录
+title: qiankun 2.0.24 爬坑记录
 categories:
   - 前端
   - Vue

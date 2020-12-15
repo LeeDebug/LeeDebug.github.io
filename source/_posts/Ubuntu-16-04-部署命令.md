@@ -1,5 +1,5 @@
 ---
-title: Ubuntu_16.04_部署命令
+title: Ubuntu 16.04 部署命令
 categories:
   - 服务器
 tags:
