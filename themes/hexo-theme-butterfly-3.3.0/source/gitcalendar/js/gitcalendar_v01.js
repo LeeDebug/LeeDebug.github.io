@@ -3,7 +3,7 @@ const calendar = new Vue({
   data: {
     // 打开时使用canvas绘制gitcalendar，关闭时使用svg绘制gitcalendar
 	  // canvas：dom数少，但图像会发生模糊，自适应一般  svg：dom数多，图像清晰，自适应更佳  
-    simplemode: false,
+    simplemode: true,
     // 这里填写你的github用户名
     user: 'LeeDebug',
     fixed: 'fixed',
