@@ -177,7 +177,9 @@ $(function () {
         }
       }
 
-      responsiveChart();
+      setTimeout(() => {
+        responsiveChart();
+      });
       $(window).on('resize', responsiveChart);
       window.onscroll = function () {
         $('.angle-wrapper').hide()
