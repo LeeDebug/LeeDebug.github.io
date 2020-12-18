@@ -16,8 +16,8 @@ mixin articleSort(posts)
             else
               img(src=url_for(article.cover) alt=title onerror=`this.onerror=null;this.src='${url_for(theme.error_img.post_page)}'`)
         .article-sort-item-info
+          a.article-sort-item-title(href=url_for(article.path) title=title)= title
           .article-sort-item-time
             i.far.fa-calendar-alt
             time.post-meta-date-created(datetime=date_xml(article.date) title=_p('post.created') + ' ' + full_date(article.date))= date(article.date, config.date_format)
-          a.article-sort-item-title(href=url_for(article.path) title=title)= title
     - })
