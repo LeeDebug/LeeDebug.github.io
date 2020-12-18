@@ -72,6 +72,7 @@ hexo.extend.helper.register('aside_archives', function (options = {}) {
   const len = data.length
   const Judge = limit === 0 ? len : Math.min(len, limit)
 
+  // console.log('Judge:\n', Judge);
   for (let i = 0; i < Judge; i++) {
     const item = data[i]
 
@@ -79,6 +80,9 @@ hexo.extend.helper.register('aside_archives', function (options = {}) {
 
     result += `<a class="card-archive-list-link" href="${link(item)}">`
     result += '<span class="card-archive-list-date">'
+    // console.log('transform:\n', transform);
+    // console.log('item:\n', item);
+    // console.log('transform(item.name):\n', transform(item.name));
     result += transform ? transform(item.name) : item.name
     result += '</span>'
 
