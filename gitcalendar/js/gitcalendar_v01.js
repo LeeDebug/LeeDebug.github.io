@@ -241,4 +241,5 @@ $(function () {
     }
   })
 });
-if(document.getElementById("calendarcanvasbox").offsetWidth<500){calendar.simplemode=false}
+var box = document.getElementById("calendarcanvasbox")
+if(box && box.offsetWidth<500){calendar.simplemode=false}
