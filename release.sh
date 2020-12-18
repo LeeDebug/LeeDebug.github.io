@@ -1,8 +1,8 @@
 # 复制文件内容
-cp -r -f /Users/qducc/Documents/0_blog_posts/ /Users/qducc/Qducc/blog/source/_posts
+# cp -r -f /Users/qducc/Documents/0_blog_posts/ /Users/qducc/Qducc/blog/source/_posts
 
 # 删除 9_blog 文件夹下的所有内容
-rm -rf /Users/qducc/Documents/0_blog_posts/*
+# rm -rf /Users/qducc/Documents/0_blog_posts/*
 
 # 自动推送代码
 # git add .
