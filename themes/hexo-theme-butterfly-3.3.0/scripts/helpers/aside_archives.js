@@ -12,7 +12,30 @@ hexo.extend.helper.register('aside_archives', function (options = {}) {
   const lang = toMomentLocale(this.page.lang || this.page.language || config.language)
   let { format } = options
   const type = options.type || 'monthly'
-  const { transform } = options
+  // let { transform } = options
+  let transform = function (m_y) {
+    if (m_y && m_y !== '') {
+      var m = m_y.split(' ')[0]
+      var y = m_y.split(' ')[1]
+      var m2ch = {
+        'January': '01',
+        'February': '02',
+        'March': '03',
+        'April': '04',
+        'May': '05',
+        'June': '06',
+        'July': '07',
+        'August': '08',
+        'September': '09',
+        'October': '10',
+        'November': '11',
+        'December': '12',
+      }
+      return y + '-' + m2ch[m]
+    } else {
+      return m_y
+    }
+  }
   const showCount = Object.prototype.hasOwnProperty.call(options, 'show_count') ? options.show_count : true
   const order = options.order || -1
   const compareFunc = type === 'monthly'
