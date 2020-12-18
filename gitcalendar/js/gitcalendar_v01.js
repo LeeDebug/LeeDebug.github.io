@@ -179,12 +179,12 @@ $(function () {
 
       setTimeout(() => {
         responsiveChart();
-      });
-      $(window).on('resize', responsiveChart);
-      window.onscroll = function () {
-        $('.angle-wrapper').hide()
-      };
-      console.log(calendar.positionplusdata)
+        $(window).on('resize', responsiveChart);
+        window.onscroll = function () {
+          $('.angle-wrapper').hide()
+        };
+        console.log(calendar.positionplusdata);
+      }, 0);
 
       function addlastmonth() {
         if (calendar.thisdayindex === 0) {
