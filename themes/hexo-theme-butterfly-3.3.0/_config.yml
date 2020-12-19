@@ -830,6 +830,7 @@ fragment_cache: true
 inject:
   head:
     - <link rel="stylesheet" href="/gitcalendar/css/gitcalendar_v01.css"/>
+    # - <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.css"/>
   bottom:
     - <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     - <script src="/gitcalendar/js/gitcalendar_v01.js"></script>
