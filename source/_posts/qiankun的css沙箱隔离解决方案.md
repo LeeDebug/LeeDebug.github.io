@@ -2,7 +2,7 @@
 title: qiankun的css沙箱隔离解决方案
 categories:
   - 前端
-  - Vue
+  - 微前端
 tags:
   - 前端
 keywords: 前端
@@ -13,12 +13,14 @@ date: 2020-12-19 23:57:26
 
 > 本文概要
 
-# 第一章
+# 问题概述
 
-## 第一节
-
-内容
+使用时候出现的问题
 
 ```js
 // some code
 ```
+
+# 解决方案
+
+postcss的插件添加命名空间
