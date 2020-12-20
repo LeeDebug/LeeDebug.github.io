@@ -30,3 +30,5 @@ FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaS
   "build": "node --max_old_space_size=4096 build/build.js"
 }
 ```
+
+# 祝君无Bug~

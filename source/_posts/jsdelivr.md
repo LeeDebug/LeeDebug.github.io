@@ -63,3 +63,5 @@ chrome插件上传；支持多种格式url复制；
 
 测试图片：
 ![奇虎图床](http://p5.so.qhimgs1.com/t02aeeef681ab204d37.jpg)
+
+# 祝君无Bug~

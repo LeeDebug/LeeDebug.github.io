@@ -47,3 +47,6 @@ git config --gloabl user.email "your github email"
 ```bash
 git config user.email "your github email"
 ```
+
+
+# 祝君无Bug~

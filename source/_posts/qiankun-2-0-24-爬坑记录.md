@@ -705,6 +705,4 @@ qiankun 将每个子项目的 js/css 文件内容都记录在一个全局变量�
 另外，qiankun 运行子项目的 js，并不是通过 script 标签插入的，而是通过 eval 函数实现的，eval 函数的安全和性能是有一些争议的：[MDN的eval介绍](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval)
 
 
-
-
-
+# 祝君无Bug~

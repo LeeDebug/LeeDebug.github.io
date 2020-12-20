@@ -57,3 +57,6 @@ md5.arrayBuffer(''); // ArrayBuffer
 md5.buffer(''); // ArrayBuffer, deprecated, This maybe confuse with Buffer in node.js. Please use arrayBuffer instead.
 md5.base64(''); // 1B2M2Y8AsgTpgAmY7PhCfg==
 ```
+
+
+# 祝君无Bug~
