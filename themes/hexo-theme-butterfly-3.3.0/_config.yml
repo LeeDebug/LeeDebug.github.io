@@ -94,7 +94,8 @@ avatar:
 index_img:
 
 # If the banner of page not setting, it will show the top_img
-default_top_img: https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg
+default_top_img: https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201225095521.jpg
+# https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg
 
 # The banner image of archive page
 archive_img:
