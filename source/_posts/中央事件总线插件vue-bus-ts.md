@@ -1,7 +1,6 @@
 ---
 title: 中央事件总线插件vue-bus-ts
 categories:
-  - 前端
   - Vue
 tags:
   - Vue

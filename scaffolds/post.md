@@ -1,11 +1,10 @@
 ---
 title: {{ title }}
 categories:
-  - 前端
   - Vue
 tags:
-  - 前端
-keywords: '前端'
+  - Vue
+keywords: 'Vue'
 description: {{ title }}
 cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png
 date: {{ date }}
@@ -22,3 +21,6 @@ date: {{ date }}
 ```js
 // some code
 ```
+
+
+# 祝君无Bug~

@@ -1,11 +1,10 @@
 ---
 title: js-md5
 categories:
-  - 前端
   - npm
 tags:
   - npm
-keywords: '前端,插件'
+keywords: 'npm'
 description: 前端插件
 cover: https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170415.png
 date: 2020-06-10 22:49:18

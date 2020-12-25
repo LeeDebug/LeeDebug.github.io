@@ -1,11 +1,10 @@
 ---
 title: node打包内存溢出
 categories:
-  - 前端
   - Webpack
 tags:
-  - 前端
-keywords: 前端
+  - Webpack
+keywords: Webpack
 description: node打包内存溢出
 cover: 'https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201211230124.png'
 date: 2020-12-11 22:55:31

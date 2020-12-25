@@ -1,11 +1,10 @@
 ---
 title: GitHub Corners
 categories:
-  - 前端
-  - Vue
+  - Git
 tags:
-  - 前端
-keywords: 前端
+  - Git
+keywords: Git
 description: GitHub Corners
 cover: 'https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201215232213.png'
 date: 2020-12-15 23:19:34

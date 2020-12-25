@@ -1,11 +1,10 @@
 ---
 title: Mac配置多个SSH-Key
 categories:
-  - 前端
   - Git
 tags:
-  - 前端
-keywords: 前端
+  - Git
+keywords: Git
 description: Mac配置多个SSH-Key
 cover: 'https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201211231351.png'
 date: 2020-12-11 23:11:41

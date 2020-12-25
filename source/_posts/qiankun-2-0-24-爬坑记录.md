@@ -1,11 +1,10 @@
 ---
 title: qiankun 2.0.24 爬坑记录
 categories:
-  - 前端
-  - Vue
+  - 微前端
 tags:
   - 微前端
-keywords: '微前端,笔记'
+keywords: '微前端'
 description: 描述
 cover: https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170023.png
 date: 2020-10-27 23:45:08

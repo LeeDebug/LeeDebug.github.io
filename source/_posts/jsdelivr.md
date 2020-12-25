@@ -1,11 +1,10 @@
 ---
 title: jsdelivr
 categories:
-  - 前端
-  - 插件
+  - Git
 tags:
-  - 前端
-keywords: 前端
+  - Git
+keywords: Git
 description: A free CDN for Open Source
 cover: https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111165611.png
 date: 2020-11-10 18:14:26

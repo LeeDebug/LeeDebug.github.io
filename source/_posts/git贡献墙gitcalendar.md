@@ -1,11 +1,10 @@
 ---
 title: git贡献墙 gitcalendar
 categories:
-  - 前端
   - Git
 tags:
-  - 前端
-keywords: 前端
+  - Git
+keywords: Git
 description: git贡献墙gitcalendar
 cover: 'https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201214124257.png'
 date: 2020-12-14 12:40:34

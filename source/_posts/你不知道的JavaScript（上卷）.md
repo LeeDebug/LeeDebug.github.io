@@ -1,11 +1,11 @@
 ---
 title: 你不知道的JavaScript（上卷）
 categories:
-    - 前端
-    - 读书笔记
+  - 笔记
 tags:
-keywords: '前端,读书笔记'
-description: ReadingNotes
+  - 笔记
+keywords: 笔记
+description: 笔记
 cover: https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170127.png
 date: 2020-07-18 23:23:55
 ---

@@ -1,11 +1,11 @@
 ---
 title: 从0开始搭建Hexo个人博客
 categories:
-  - Hexo
+  - 笔记
 tags:
-  - Hexo
-keywords: '前端,读书笔记'
-description: ReadingNotes
+  - 笔记
+keywords: '前端,Hexo,笔记'
+description: 笔记
 cover: https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170432.png
 date: 2020-06-07 23:23:55
 ---
