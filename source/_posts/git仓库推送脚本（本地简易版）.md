@@ -6,7 +6,7 @@ tags:
   - Git
 keywords: Git
 description: git仓库推送脚本（本地简易版）
-cover: ''
+cover: 'https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201226234636.png'
 date: 2020-12-26 23:32:34
 ---
 
