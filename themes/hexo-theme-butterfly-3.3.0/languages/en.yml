@@ -10,7 +10,7 @@ copy:
 page:
   articles: 文章
   tag: 标签
-  category: 分类
+  categories: 分类
   archives: 时间轴
 
 sticky: Sticky
