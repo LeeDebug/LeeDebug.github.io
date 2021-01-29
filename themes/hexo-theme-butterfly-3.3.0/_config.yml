@@ -10,7 +10,7 @@ menu:
   主页: / || fas fa-home
   时间轴: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
-  分类: /categories/ || fas fa-folder-open
+  分类: /category/ || fas fa-folder-open
   # 友情链接: /link/ || fas fa-link
   # 关于淳淳同学: /about/ || fas fa-heart
   关于淳淳同学 || fa fa-list:

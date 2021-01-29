@@ -10,7 +10,7 @@ copy:
 page:
   articles: 文章總覽
   tag: 標籤
-  categories: 分類
+  category: 分類
   archives: 歸檔
 
 sticky: 置頂

@@ -10,7 +10,7 @@ copy:
 page:
   articles: Articles
   tag: Tag
-  categories: Category
+  category: Category
   archives: Archives
 
 sticky: Sticky
