@@ -6,7 +6,7 @@ tags:
   - Vue
 keywords: Vue
 description: 安卓微信浏览器中type=file的input框无法使用
-cover: 'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png'
+cover: 'https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210225125447.png'
 date: 2021-02-25 12:47:41
 ---
 
