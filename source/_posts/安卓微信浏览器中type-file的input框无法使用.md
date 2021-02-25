@@ -7,7 +7,7 @@ tags:
 keywords: Vue
 description: 安卓微信浏览器中type=file的input框无法使用
 cover: 'https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210225125447.png'
-date: 2021-02-25 12:47:41
+date: 2021-01-17 19:35:03
 ---
 
 > 如果使用html的input框设为`type=file`来选择文件，在安卓的微信中打开页面时，会提示`暂无可使用应用`等错误提示
