@@ -1,3 +1,9 @@
+echo → fetch最新代码
+git fetch
+
+echo → 将最新代码pull到本地
+git pull
+
 echo → 暂存选取所有代码
 git add .
 
