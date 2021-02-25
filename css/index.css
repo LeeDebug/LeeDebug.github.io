@@ -3341,9 +3341,6 @@ blockquote footer cite:before {
   color: #49b1f5;
   text-decoration: underline;
 }
-#post-info #post-meta time {
-  display: none;
-}
 #post > #post-info {
   margin-bottom: 1.5rem;
 }
