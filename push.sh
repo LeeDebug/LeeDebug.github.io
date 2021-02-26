@@ -4,10 +4,10 @@
 # echo → 将最新代码pull到本地
 # git pull
 
+read -p "→ 请输入您的commit提交信息：" MSG
+
 echo → 暂存选取所有代码
 git add .
-
-read -p "→ 请输入您的commit提交信息：" MSG
 
 echo → 提交所有暂存代码
 git commit -m "$MSG"
