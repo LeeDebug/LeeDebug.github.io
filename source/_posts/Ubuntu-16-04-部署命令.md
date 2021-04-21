@@ -221,9 +221,11 @@ nginx -s reload
 
 
 ## 配置 HTTPS 443
+
 - [Django 中将HTTP转换为HTTPS [已成功？？？]](https://blog.csdn.net/qq1154479896/article/details/89408428)
 - [在本地环境（mac）启用https](https://www.cnblogs.com/programs/p/11043169.html)
 - [阿里云服务器https配置](https://blog.csdn.net/wqhjfree/article/details/77256131)
+
 ```bash
 # 服务器报错 400
 You're accessing the development server over HTTPS, but it only supports HTTP.
