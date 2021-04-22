@@ -1,10 +1,10 @@
 ---
 title: JavaScript运算符优先级
 categories:
-  - Vue,JavaScript
+  - JavaScript
 tags:
-  - Vue,JavaScript
-keywords: Vue,JavaScript
+  - JavaScript
+keywords: JavaScript
 description: JavaScript运算符优先级
 cover: 'https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210422112132.png'
 date: 2021-04-08 10:11:48
