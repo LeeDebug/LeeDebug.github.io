@@ -6,7 +6,7 @@ tags:
   - VSCode
 keywords: VSCode,Better Comments
 description: VSCode注释高亮插件 Better Comments
-cover: 'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png'
+cover: 'https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210422112146.png'
 date: 2021-03-25 12:21:54
 ---
 
