@@ -11,10 +11,10 @@ menu:
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
   时间轴: /archives/ || fas fa-archive
-  简历: /resume/ || fas fa-file-word
   # 友情链接: /link/ || fas fa-link
   # 关于淳淳同学: /about/ || fas fa-heart
   关于淳淳同学 || fa fa-list:
+    - 个人简历 || /resume/ || fas fa-file-word
     - GitHub || https://github.com/LeeDebug || fab fa-github
     - GitLab || https://gitlab.com/Leevue || fab fa-gitlab
     - Gitee || https://gitee.com/leejs || fab fa-git
