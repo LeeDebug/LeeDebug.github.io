@@ -8,19 +8,19 @@
 
 menu:
   主页: / || fas fa-home
-  时间轴: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
-  测试页: /resume/ || fas fa-home
+  时间轴: /archives/ || fas fa-archive
+  简历: /resume/ || fas fa-file-word
   # 友情链接: /link/ || fas fa-link
   # 关于淳淳同学: /about/ || fas fa-heart
   关于淳淳同学 || fa fa-list:
-    - GitHub || https://github.com/LeeDebug || fa fa-github
-    - GitLab || https://gitlab.com/Leevue || fa fa-gitlab
-    - Gitee || https://gitee.com/leejs || fa fa-git
-    - WeiBo || https://weibo.com/p/1005053297895847 || fa fa-weibo
-    - 音乐 || /music/ || fa fa-music
-    - 电影 || /movies/ || fa fa-film
+    - GitHub || https://github.com/LeeDebug || fab fa-github
+    - GitLab || https://gitlab.com/Leevue || fab fa-gitlab
+    - Gitee || https://gitee.com/leejs || fab fa-git
+    - 微博 || https://weibo.com/p/1005053297895847 || fab fa-weibo
+    # - 音乐 || /music/ || fa fa-music
+    # - 电影 || /movies/ || fa fa-film
 
 # Hide the child menu items in mobile sidebar
 hide_sidebar_menu_child: false
@@ -907,6 +907,8 @@ CDN:
   ClickShowText: https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js
 
   # fontawesome
+  # 图标链接：http://www.fontawesome.com.cn/faicons/
+  # 可用部分：网页常用图标 (Web Application Icons)
   fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
 
   # Conversion between Traditional and Simplified Chinese
