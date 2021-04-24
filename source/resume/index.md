@@ -4,12 +4,10 @@ date: 2021-04-23 18:32:14
 ---
 
 # 技能掌握
-- vue2.x+element，vue3.x+原生ui，qiankun2.0，Electron，Mui跨平台开发、Webpack
-- a
-- 三年+前端开发经验，一年项目管理经验，半年小程序开发经验，半年后台开发经验
-- 主导负责过10余个项目，从需求对接、产品开发到后期部署维护全程参与，并有自己的团队开发项目规范
-- 前端技术栈:vue、微信小程序、等，擅长组件开发及构建优化
-- 后台技术栈: Django + Restful Api、Mysql基本操作、Linux基础命令、Nginx配置站点及静态文件
+- vue2.x + element，vue3.x + 原生ui
+- Webpack、qiankun2.0
+- Electron
+- Django + Restful Api
 - 坚持6年相声演出; 坚持3年每天写日记; 喜欢研究阅读源码; 喜欢对新技术落地实施;
 
 # 项目经验
