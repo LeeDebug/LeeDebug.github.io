@@ -907,6 +907,7 @@ CDN:
   ClickShowText: https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js
 
   # fontawesome
+  # 图标链接：https://fontawesome.com/icons
   # 图标链接：http://www.fontawesome.com.cn/faicons/
   # 可用部分：网页常用图标 (Web Application Icons)
   fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
