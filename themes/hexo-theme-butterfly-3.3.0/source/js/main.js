@@ -338,7 +338,7 @@ $(function () {
       const percentage = (scrollPercentRounded > 100) ? 100
         : (scrollPercentRounded <= 0) ? 0
           : scrollPercentRounded
-      $cardToc.attr('progress-percentage', percentage)
+      $cardToc.attr('progress-percentage', percentage + '%')
     }
 
     // anchor
