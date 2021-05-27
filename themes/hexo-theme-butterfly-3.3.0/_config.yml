@@ -629,7 +629,7 @@ aside:
       link: https://github.com/LeeDebug
   card_announcement:
     enable: true
-    content: 这是淳淳同学的个人博客
+    content: 以下为本人常活跃的社区，有兴趣的大佬可以给个关注，给个 Star 也好<br/><a href="https://juejin.cn/user/2189882894323975/posts">掘金入口</a><br/><a href="https://www.yuque.com/LeeDebug">语雀入口</a><br/><a href="https://www.jianshu.com/u/fc47eb26e53c">简书入口</a><br/><a href="https://my.oschina.net/LeeDebug">开源中国入口</a><br/><a href="https://www.cnblogs.com/LeeDebug/">博客园入口</a>
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
