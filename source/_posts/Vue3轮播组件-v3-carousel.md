@@ -166,7 +166,7 @@ export default defineComponent({
 - [语雀](https://www.yuque.com/LeeDebug)
 - [简书](https://www.jianshu.com/u/fc47eb26e53c)
 - [开源中国](https://my.oschina.net/LeeDebug)
-- [博客园](https://home.cnblogs.com/u/2411182/)
+- [博客园](https://www.cnblogs.com/LeeDebug/)
 - 微信二维码:
 <table>
   <tr>
