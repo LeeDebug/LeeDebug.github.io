@@ -1,5 +1,5 @@
 ---
-title: 'Vue3 mini轮播组件: v3-carousel'
+title: '【个人开源】Vue3 mini轮播组件: v3-carousel'
 categories:
   - Vue
 tags:
@@ -159,7 +159,7 @@ export default defineComponent({
 - WeChat: x972761675
 - 前端qq交流群: 700785102
 
-### 目前维护者
+### 目前维护者: 淳淳同学
 - [个人博客](https://leedebug.github.io/)
 - [Github](https://github.com/LeeDebug)
 - [掘金](https://juejin.cn/user/2189882894323975/posts)
