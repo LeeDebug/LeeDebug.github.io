@@ -1,12 +1,12 @@
 ---
-title: '【个人开源】Vue3 mini轮播组件: v3-carousel'
+title: '【个人开源】Vue3 轮播组件: v3-carousel'
 categories:
   - Vue
 tags:
   - Vue
 keywords: Vue
-description: 'Vue3 mini轮播组件: v3-carousel'
-cover: 'https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210527125703.png'
+description: 'Vue3 轮播组件: v3-carousel'
+cover: 'https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210527141809.png'
 date: 2021-05-27 12:55:02
 sticky: 99
 ---
