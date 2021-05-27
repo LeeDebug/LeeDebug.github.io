@@ -2560,6 +2560,11 @@ blockquote footer cite:before {
 #aside_content .card-info .card-info-data > .card-info-data-item {
   display: table-cell;
 }
+#aside_content .card-info .card-info-data > .card-info-data-item:hover {
+  border-radius: 10px;
+  -webkit-box-shadow: 0 2px 8px 2px #efefef;
+  box-shadow: 0 2px 8px 2px #efefef;
+}
 #aside_content .card-info .card-info-data > .card-info-data-item a .headline {
   color: var(--font-color);
   font-size: 1em;
