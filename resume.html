@@ -1,13 +1,366 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>测试网址</title>
-</head>
-<body>
-  <div id="resume">
-    我是简历内容
+<style>
+  [v-cloak] {
+    display: none;
+  }
+
+  div,p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1;
+    height: auto;
+  }
+  :after, :before {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+
+  .printBody {
+    width: 100%;
+    height: 100%;
+    background: white;
+  }
+
+  /* 打印按钮 */
+  .printBtn {
+    position: fixed;
+    /* left: 50%;
+    transform: translate(-50%, 0%); */
+  }
+
+  /* 要打印的整体 */
+  #printMe {
+    width: 650px;
+    height: 978px;
+    margin: 0 auto;
+    /* margin-top: 10px; */
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #333;
+    letter-spacing: 1.5px;
+    background: white;
+  }
+
+  /* 个人信息 + 头像 */
+  .header {
+    /* border: 1px solid red; */
+    display: flex;
+    height: 135px;
+  }
+  .hInfo {
+    flex: 1;
+    /* border: 1px solid green; */
+    padding: 5px 10px 0;
+  }
+  .hName {
+    color: #000;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .hLine1 {
+    margin-top: 10px;
+  }
+  .loseML {
+    margin-left: -6px;
+  }
+  .hLine2 {
+    margin-top: 10px;
+  }
+  .hAvatar {
+    width: 100px;
+    /* border: 1px solid blue; */
+  }
+  .hAvatar > img {
+    width: inherit;
+    height: 100%;
+  }
+
+  /* 正常卡片 */
+  .cCont {
+    /* border: 1px solid #999999; */
+  }
+  .cCont + .cCont {
+    margin-top: 15px;
+  }
+  .cHeadLine {
+    width: 100%;
+  }
+  .cHeadLineCont {
+    display: flex;
+  }
+  .cHeadLineCont:after {
+    /* position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    content: ""; */
+    /* background: -o-linear-gradient(right,#fff 0,rgba(0,123,134,.6) 100%);
+    background: -webkit-gradient(linear,right top,left top,from(#fff),to(rgba(0,123,134,.6)));
+    background: linear-gradient(270deg,#fff,rgba(0,123,134,.6)); */
+  }
+  .chlTitle {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    font-size: 18px;
+    color: #000;
+    /* color: white; */
+    /* background: #007b86; */
+    border-top-left-radius: 10px;
+    border: 2px solid #007b86;
+    border-bottom-width: 0;
+  }
+  .chlBackImg {
+    width: 74px;
+    height: inherit;
+    /* background: url(https://static.zhipin.com/zhipin-geek/chat/v27/static/images/title-bg.d5736f66.png) no-repeat; */
+    margin-left: -1px;
+  }
+
+  .cDivider {
+    border: 1px solid #007b86;
+  }
+
+  .cSub {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .cSubItem {
+    /* border: 1px solid red; */
+    font-size: 14px;
+    font-weight: 700;
+    width: 33.33%;
+  }
+  .cExpUl {
+    /* border: 1px solid green; */
+    margin: 0;
+    padding-left: 0;
+  }
+  .cExpUl + .cExpUl {
+    margin-top: 10px;
+  }
+  .cExpTitle {
+    /* border: 1px solid green; */
+    margin: 10px 0 5px 0;
+    font-size: 14px;
+    font-weight: 500;
+    height: 16px;
+    display: flex;
+  }
+  .cExpTitleBlock {
+    width: 1px;
+    height: 100%;
+    margin-right: 10px;
+    display: inline-block;
+    border: 2px solid #007b86;
+  }
+  .cExpTitleText {
+    line-height: 16px;
+    height: 16px;
+    display: inline-block;
+  }
+  .cExpTitleEmpty {
+    height: 10px;
+  }
+  .cExpLi {
+    /* border: 1px solir blue; */
+    margin-left: 18px;
+    line-height: 18px;
+    /* 文字向左对齐，但水平撑开 */
+    text-align: justify;
+  }
+  .cExpLi + .cExpLi {
+    margin-top: 5px;
+  }
+</style>
+
+<script type="module">
+  import { createApp } from 'https://unpkg.com/petite-vue?module'
+
+  createApp({
+    // 是否展示打印按钮
+    showPrintBtn: true,
+    // 教育背景
+    education: {
+      title: '教育背景',
+      subTitle: [
+        {
+          rangeTime: '2018.9 ~ 2021.7',
+          name: '青岛大学（统招非全日制）',
+          position: '计算机技术（专业硕士）',
+        },
+        {
+          rangeTime: '2014.9 ~ 2018.7',
+          name: '青岛理工大学',
+          position: '网络工程专业',
+        },
+      ],
+    },
+    // 工作经历 + 创业经历 + 个人优势
+    cardInfoList: [
+      {
+        title: '工作经历',
+        subTitle: {
+          rangeTime: '2020.9 ~ 至今',
+          name: '北京容联七陌科技有限公司',
+          position: '前端开发工程师',
+        },
+        projectList: [
+          {
+            expTitle: 'V7联络云 - 访客端（PC端 & H5端 + 微信小程序插件）',
+            expIntroList: [
+              '作为小组长角色负责项目开发，调研并决定技术选型。主动提出使用 <span style="font-weight: 400;">Vue3.x + TypeScript + Vite2.x</span> 的实践方案，并采用多入口的打包方式同时开发 PC端 + H5端；不仅为团队带来了新的技术，而且也大大提高了开发效率；',
+              '提前撰写开发文档并与后端制定通信数据结构，采用 mockjs 解决前后端进度不一致的问题；并在 api 接口层对数据进行二次封装，解决多端消息类型处理混杂的问题；',
+              '基于 vue-template-compiler 二次开发模板编译器，将 template 模板语法以最小的成本转换为 wxml 文件，还原度可达八成；极大的减少了相同功能重复开发的成本；',
+              '完善 WebSocket 断线重连与心跳机制，并使用 crypto-js 对私密消息进行 AES 加解密，以及消息体内的 Xss 攻击过滤，增加了通信数据的安全性问题；',
+              'PC端测试链接：<span style="text-decoration: underline;">http://mtw.so/5FVY4z</span>； H5端测试链接：<span style="text-decoration: underline;">http://mtw.so/5ylylH</span>',
+              '微信小程序端：Web开发协会（个人小程序，仅提供客服入口而已）',
+            ],
+          },
+          // 第二个项目
+          {
+            expTitle: 'V7联络云 - 座席端',
+            expIntroList: [
+              '与多个子项目的对接嵌入，主动提出使用 qiankun 微前端架构方案，解决 iframe 带来的内外通信复杂的问题；并与子项目协同制定 CSS命名规范，解决多应用下样式冲突问题；',
+              '以发布订阅模式对子应用进行封装，从而实现多实例的重用问题与功能模块之间的解耦；',
+              '使用 Web Worker 进行报表与数据大屏的异步渲染和导入导出，解决了计算或轮询阻塞渲染的问题，节省了系统资源的同时使得用户体验更加流畅；',
+              '封装并设计高频基础组件与工具函数，编写开发文档与客户使用文档，全部放在企业 confluence 上，帮助新同事快速上手投入开发；',
+              // '测试环境链接：http://mtw.so/5UYm6b',
+              // '<span style="color: red;">对项目的优化？算法？</span>',
+              // '*提取主子项目的公共依赖，减少打包时间；（还需润色）*',
+            ],
+          },
+        ],
+      },
+      {
+        title: '创业经历',
+        subTitle: {
+          rangeTime: '2018.9 ~ 2020.9',
+          name: '青岛韦辰未来网络科技有限公司',
+          position: '项目前端负责人',
+        },
+        projectList: [
+          {
+            expIntroList: [
+              '这是第一份创业工作，期间学到了很多技能，包括谈客户、分析需求、整理文档、页面设计与开发、项目部署及后期的沟通与维护等，对未来几年的工作能力与个人学习能力有了很大的铺垫；',
+              '引入基于 Apriori 的关联规则分析算法，挖掘学生成绩与选科的隐含关系，并将结果基于 ECharts 与 高德地图Api 实现数据大屏展示，对未来新生的选科环节提供了非常有价值的数据参考。',
+            ],
+          }
+        ],
+      },
+      {
+        title: '个人优势',
+        projectList: [
+          {
+            expIntroList: [
+              '坚持6年相声演出；坚持4年每天写笔记；喜欢研究阅读源码；坚持对新技术落地实施；',
+              '面向用户体验开发；善于团队合作；成长速度快；勇于尝试且敢于承担责任；',
+            ],
+          },
+        ],
+      },
+    ],
+    // aaaaaaa: 111,
+
+    // get allDone() {
+    //   return this.remaining === 0
+    // },
+
+    // set allDone(value) {
+    //   this.todos.forEach(function (todo) {
+    //     todo.completed = value
+    //   })
+    // },
+
+    printPage() {
+      // 点击打印时，先隐藏按钮
+      this.showPrintBtn = false;
+      setTimeout(() => {
+        window.print();
+        this.showPrintBtn = true;
+      }, 0);
+    },
+
+  }).mount('#app');
+</script>
+
+<div id="app" v-cloak>
+  <div class="printBody">
+    <!-- 打印按钮 -->
+    <button v-if="showPrintBtn" class="printBtn" v-print="printObj" @click="printPage">打印简历（预览）</button>
+
+    <div id="printMe">
+      <!-- #region 个人信息 + 头像 -->
+      <div class="header">
+        <div class="hInfo">
+          <p class="hName">李淳淳</p>
+          <p class="hLine1">1996.07丨15610045821(青岛)丨4年前端丨在职-月内到岗</p>
+          <p class="hLine1 loseML">
+            「淳淳同学的个人博客」<span style="border-bottom: 1px solid #333;">https://leedebug.github.io</span>（右上角GitHub）
+          </p>
+          <p class="hLine1 loseML">
+            「开源vue3轮播组件」<span style="border-bottom: 1px solid #333;">https://www.npmjs.com/package/v3-carousel</span>
+          </p>
+        </div>
+        <div class="hAvatar">
+          <img src="https://z3.ax1x.com/2021/07/24/WcSg6P.jpg" alt="">
+        </div>
+      </div>
+      <!-- #endregion -->
+
+      <!-- #region 教育背景 -->
+      <div class="cCont">
+        <div class="cHeadLine">
+          <div class="cHeadLineCont">
+            <p class="chlTitle">{{education.title}}</p>
+            <p class="chlBackImg"></p>
+          </div>
+        </div>
+        <div class="cDivider"></div>
+        <div v-if="education.subTitle">
+          <div v-for="(e, ei) in education.subTitle" :key="ei" class="cSub">
+            <p class="cSubItem" style="width: 30%;">{{e.rangeTime}}</p>
+            <p class="cSubItem" style="width: 40%;">{{e.name}}</p>
+            <p class="cSubItem" style="width: 30%;text-align: right;">{{e.position}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- #endregion -->
+
+      <!-- #region 工作经历 + 创业经历 + 个人优势 -->
+      <div
+        v-for="(c, ci) in cardInfoList"
+        :key="ci"
+        class="cCont"
+      >
+        <div class="cHeadLine">
+          <div class="cHeadLineCont">
+            <p class="chlTitle">{{c.title}}</p>
+            <p class="chlBackImg"></p>
+          </div>
+        </div>
+        <div class="cDivider"></div>
+        <div v-if="c.subTitle" class="cSub">
+          <p class="cSubItem" style="width: 30%;">{{c.subTitle.rangeTime}}</p>
+          <p class="cSubItem" style="width: 40%;">{{c.subTitle.name}}</p>
+          <p class="cSubItem" style="width: 30%;text-align: right;">{{c.subTitle.position}}</p>
+        </div>
+        <ul v-for="(p, pi) in c.projectList" :key="pi" class="cExpUl">
+          <div v-if="p.expTitle" class="cExpTitle">
+            <div class="cExpTitleBlock"></div>
+            <div class="cExpTitleText">{{p.expTitle}}</div>
+          </div>
+          <div v-else class="cExpTitleEmpty"></div>
+          <li v-for="(e, ei) in p.expIntroList" :key="ei" class="cExpLi">
+            <span v-html="e"></span>
+          </li>
+        </ul>
+      </div>
+      <!-- #endregion -->
+    </div>
   </div>
-</body>
-</html>
+</div>
