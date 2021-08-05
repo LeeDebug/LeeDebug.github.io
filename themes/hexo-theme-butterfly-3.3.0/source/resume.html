@@ -192,12 +192,10 @@
       margin-top: 5px;
     }
     code {
-      color: #00acbb;
+      color: #007b86;
+      /* color: #00acbb; */
       font-weight: 900;
-    }
-    .code {
-      color: #00acbb;
-      font-weight: 900;
+      font-family: auto;
     }
   </style>
 </head>
@@ -233,7 +231,7 @@
       cardInfoList: [
         {
           title: '工作经历',
-          titleRemark: '（出于排版原因，各个<span class="code">「技术栈」</span>已在下方标记，请谅解~）',
+          titleRemark: '（出于排版原因，各个<code>「技术栈」</code>已在下方标记，请谅解~）',
           subTitle: {
             rangeTime: '2020.9 ~ 至今',
             name: '北京容联七陌科技有限公司',
@@ -244,11 +242,11 @@
               expTitle: 'V7联络云 - 访客端（PC端 & H5端 + 微信小程序插件）',
               expIntroList: [
                 '作为小组长角色负责项目开发，调研并决定技术选型。主动提出使用 ' +
-                  '<span class="code">Vue3.x + TypeScript + Vite2.x</span>' +
+                  '<code>Vue3.x + TypeScript + Vite2.x</code>' +
                   ' 的实践方案，并采用多入口的打包方式同时开发 PC端 + H5端；不仅为团队带来了新的技术，而且也大大提高了开发效率；',
                 '提前撰写开发文档并与后端制定通信数据结构，采用 mockjs 解决前后端进度不一致的问题；并在 api 接口层对数据进行二次封装，解决多端消息类型处理混杂的问题；',
-                '基于 <span class="code">vue-template-compiler</span> 二次开发模板编译器，将 template 模板语法以最小的成本转换为 wxml 文件，还原度可达八成；极大的减少了相同功能重复开发的成本；',
-                '完善 <span class="code">WebSocket</span> 断线重连与心跳机制，并使用 <span class="code">crypto-js</span> 对私密消息进行 AES 加解密，以及消息体内的 Xss 攻击过滤，增加了通信数据的安全性问题；',
+                '基于 <code>vue-template-compiler</code> 二次开发模板编译器，将 template 模板语法以最小的成本转换为 wxml 文件，还原度可达八成；极大的减少了相同功能重复开发的成本；',
+                '完善 <code>WebSocket</code> 断线重连与心跳机制，并使用 <code>crypto-js</code> 对私密消息进行 AES 加解密，以及消息体内的 Xss 攻击过滤，增加了通信数据的安全性问题；',
                 'PC端测试短链接：<span style="text-decoration: underline;">http://mtw.so/5FVY4z</span>； H5端测试短链接：<span style="text-decoration: underline;">http://mtw.so/5ylylH</span>',
                 '微信小程序端：Web开发协会（个人小程序，仅提供客服入口而已）',
               ],
@@ -257,9 +255,9 @@
             {
               expTitle: 'V7联络云 - 座席端',
               expIntroList: [
-                '与多个子项目的对接嵌入，主动提出使用 <span class="code">qiankun</span> 微前端架构方案，解决 iframe 带来的内外通信复杂的问题；并与子项目协同制定 CSS命名规范，解决多应用下样式冲突问题；',
-                '以 <span class="code">发布订阅模式</span> 对子应用进行封装，从而实现多实例的重用问题与功能模块之间的解耦；',
-                '使用 <span class="code">Web Worker</span> 与 <span class="code">虚拟滚动</span> 进行报表与数据大屏的异步渲染和导入导出，解决了计算或轮询阻塞渲染的问题，节省了系统资源的同时使得用户体验更加流畅；',
+                '与多个子项目的对接嵌入，主动提出使用 <code>qiankun</code> 微前端架构方案，解决 iframe 带来的内外通信复杂的问题；并与子项目协同制定 CSS命名规范，解决多应用下样式冲突问题；',
+                '以 <code>发布订阅模式</code> 对子应用进行封装，从而实现多实例的重用问题与功能模块之间的解耦；',
+                '使用 <code>Web Worker</code> 与 <code>虚拟滚动</code> 进行报表与数据大屏的异步渲染和导入导出，解决了计算或轮询阻塞渲染的问题，节省了系统资源的同时使得用户体验更加流畅；',
                 '封装并设计高频基础组件与工具函数，编写各项目开发文档与客户使用文档，全部放在企业 confluence 上，帮助新同事快速上手投入开发；',
                 // '测试环境链接：http://mtw.so/5UYm6b',
                 // '<span style="color: red;">对项目的优化？算法？</span>',
@@ -279,7 +277,7 @@
             {
               expIntroList: [
                 '这是第一份创业工作，期间学到了很多技能，包括谈客户、分析需求、整理文档、页面设计与开发、项目部署及后期的沟通与维护等，对未来几年的工作能力与个人学习能力有了很大的铺垫；',
-                '引入基于 <span class="code">Apriori</span> 的关联规则分析算法，挖掘学生成绩与选科的隐含关系，并将结果基于 <span class="code">ECharts</span> 与 <span class="code">高德地图Api</span> 实现数据大屏展示，对未来新生的选科环节提供了非常有价值的数据参考。',
+                '引入基于 <code>Apriori</code> 的关联规则分析算法，挖掘学生成绩与选科的隐含关系，并将结果基于 <code>ECharts</code> 与 <code>高德地图Api</code> 实现数据大屏展示，对未来新生的选科环节提供了非常有价值的数据参考。',
               ],
             }
           ],
@@ -289,7 +287,7 @@
           projectList: [
             {
               expIntroList: [
-                '坚持<span class="code">6年相声演出</span>；坚持<span class="code">4年每天写笔记</span>；喜欢研究<span class="code">阅读源码</span>；坚持对新技术落地实施；',
+                '坚持<code>6年相声演出</code>；坚持<code>4年每天写笔记</code>；喜欢研究<code>阅读源码</code>；坚持对新技术落地实施；',
                 '面向用户体验开发；善于团队合作；成长速度快；勇于尝试且敢于承担责任；',
               ],
             },
