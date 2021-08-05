@@ -14,7 +14,7 @@ menu:
   # 友情链接: /link/ || fas fa-link
   # 关于淳淳同学: /about/ || fas fa-heart
   关于淳淳同学 || fa fa-list:
-    - 个人简历 || /resume/ || fas fa-file-word
+    - 个人简历 || /resume.html || fas fa-file-word
     - GitHub || https://github.com/LeeDebug || fab fa-github
     - GitLab || https://gitlab.com/Leevue || fab fa-gitlab
     - Gitee || https://gitee.com/leejs || fab fa-git
