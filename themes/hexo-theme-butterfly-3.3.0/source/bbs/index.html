@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="https://leedebug.github.io/img/avatar.png">
+  <!-- <link rel="stylesheet" href="https://unpkg.com/todomvc-app-css@2.4.1/index.css" /> -->
+  <link rel="stylesheet" href="./index.css" />
+  <title>淳淳同学的留言板「By. petite-vue」</title>
+</head>
+
+<body>
+
+  <!-- #region petite-vue dom -->
+  <div
+    id="bbs"
+    @mounted="onMountedHook"
+    v-effect="onSave()"
+    v-cloak
+  >
+    <h1 class="todoTitle">淳淳同学的留言板</h1>
+    <section class="todoapp">
+      <!-- 输入框 -->
+      <header class="header">
+        <input
+          class="new-todo"
+          autofocus
+          autocomplete="off"
+          placeholder="请输入您想要对淳淳说的话~"
+          v-model="newTodo"
+          @keyup.enter="addTodo"
+        />
+      </header>
+      <!-- 列表部分 -->
+      <section class="main" v-show="todos.length">
+        <!-- <input
+          id="toggle-all"
+          class="toggle-all"
+          type="checkbox"
+          v-model="allDone"
+        /> -->
+        <!-- <label for="toggle-all">Mark all as complete</label> -->
+        <ul class="todo-list">
+          <li
+            v-for="todo in filteredTodos"
+            class="todo"
+            :key="todo.id"
+            :class="{ completed: todo.completed, editing: todo === editedTodo }"
+          >
+            <div class="view">
+              <!-- <input class="toggle" type="checkbox" v-model="todo.completed" /> -->
+              <label @dblclick="editTodo(todo)">{{ todo.content }}</label>
+              <button class="destroy" @click="removeTodo(todo)"></button>
+            </div>
+            <input
+              class="edit"
+              type="text"
+              v-model="todo.content"
+              v-effect="if (todo === editedTodo) $el.focus()"
+              @blur="doneEdit(todo)"
+              @keyup.enter="doneEdit(todo)"
+              @keyup.escape="cancelEdit(todo)"
+            />
+          </li>
+        </ul>
+      </section>
+      <!-- 底部的切换按钮们 -->
+      <footer class="footer" v-show="todos.length">
+        <span class="todo-count">
+          <strong>共 {{ remaining }} 条</strong>
+          <!-- <span>{{ pluralize(remaining) }} left</span> -->
+        </span>
+        <!-- <ul class="filters">
+          <li>
+            <a href="#/all" :class="{ selected: visibility === 'all' }">All</a>
+          </li>
+          <li>
+            <a href="#/active" :class="{ selected: visibility === 'active' }"
+              >Active</a
+            >
+          </li>
+          <li>
+            <a
+              href="#/completed"
+              :class="{ selected: visibility === 'completed' }"
+              >Completed</a
+            >
+          </li>
+        </ul> -->
+        <!-- <button
+          class="clear-completed"
+          @click="removeCompleted"
+          v-show="todos.length > remaining"
+        >
+          Clear completed
+        </button> -->
+      </footer>
+    </section>
+  </div>
+  <!-- #endregion -->
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- uuid官网：https://www.bootcdn.cn/uuid -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+
+  <!-- #region petite-vue instance -->
+  <script type="module">
+    import { createApp } from 'https://unpkg.com/petite-vue?module'
+
+    // 添加 axios 的响应拦截器
+    axios.interceptors.response.use(function (response) {
+      // 对响应数据做点什么
+      if (response.data !== undefined || response.data !== null) {
+        return response.data;
+      } else {
+        return Promise.reject(response);
+      }
+    }, error => {
+      // 对响应错误做点什么
+      return Promise.reject(error);
+    });
+
+    //#region API接口前缀
+    // 全局属性
+    const UUID = uuid.v5.DNS;
+    const API_PREFIX = 'http://lcc.moetime.cn:9624/';
+    // const API_PREFIX = 'http://47.104.223.131:9624/';
+
+    const STORAGE_KEY = 'todos-petite-vue'
+    const todoStorage = {
+      // fetch() {
+      //   const todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+      //   console.log('======= todos:', todos);
+      //   todos.forEach((todo, index) => {
+      //     todo.id = index
+      //   })
+      //   todoStorage.uid = todos.length
+      //   return todos
+      // },
+      save(todos) {
+        // console.log('======= save todos:', todos);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
+      }
+    }
+
+    const filters = {
+      all(todos) {
+        return todos
+      },
+      active(todos) {
+        return todos.filter((todo) => {
+          return !todo.completed
+        })
+      },
+      completed(todos) {
+        return todos.filter(function (todo) {
+          return todo.completed
+        })
+      }
+    }
+    //#endregion
+
+    createApp({
+      //#region data
+      todos: [], // todoStorage.fetch()
+      newTodo: '',
+      editedTodo: null,
+      visibility: 'all',
+      //#endregion
+
+      //#region computed
+      get filteredTodos() {
+        return filters[this.visibility](this.todos)
+      },
+
+      get remaining() {
+        return filters.active(this.todos).length
+      },
+
+      get allDone() {
+        return this.remaining === 0
+      },
+
+      set allDone(value) {
+        this.todos.forEach(function (todo) {
+          todo.completed = value
+        })
+      },
+      //#endregion
+
+      //#region methods
+      /** 初始化页面 */
+      onMountedHook() {
+        // 生成唯一UUID
+        // uuid.v4();
+        // 生成UUID命名空间
+        // uuid.parse(uuid.v5.DNS);
+        console.log('======= onMountedHook:');
+        this.fetchMessageList();
+        // 根据路由的 # 后的 hash 值切换展示类型
+        const onHashChange = () => {
+          var visibility = window.location.hash.replace(/#\/?/, '')
+          if (filters[visibility]) {
+            this.visibility = visibility
+          } else {
+            window.location.hash = ''
+            this.visibility = 'all'
+          }
+        }
+        window.addEventListener('hashchange', onHashChange)
+        onHashChange()
+      },
+
+      /** v-effect 回调：将数据同步到 localStorage 中 */
+      onSave() {
+        // todoStorage.save(this.todos)
+      },
+
+      /** 获取 留言板数据 */
+      fetchMessageList() {
+        axios.get(API_PREFIX + 'users')
+          .then((res) => {
+            console.log('======= axios res:\n', res);
+            res.map(m => m.completed = false);
+            this.todos = res;
+          })
+        // 方案2: 也可以直接用 fetch 请求
+        // fetch(API_PREFIX + 'users')
+        //   .then((res) => res.json())
+        //   .then((res) => {
+        //     console.log('======= fetch res\n:', res);
+        //   })
+      },
+
+      addTodo() {
+        var value = this.newTodo && this.newTodo.trim()
+        if (!value) {
+          return
+        }
+        const data = {
+          content: value,
+          signature: UUID,
+          avatar: '',
+          name: uuid.v4(),
+        }
+        axios.post(API_PREFIX + 'users', data)
+          .then((res) => {
+            // console.log('======= axios res:\n', res);
+            this.todos.push({
+              ...res,
+              completed: false
+            })
+            this.newTodo = ''
+          })
+      },
+
+      /** 删除留言 */
+      removeTodo(todo) {
+        axios.delete(API_PREFIX + 'users/' + todo.id)
+          .then((res) => {
+            // console.log('======= axios res:\n', res);
+            this.todos.splice(this.todos.indexOf(todo), 1);
+          })
+      },
+
+      /** 准备编辑留言 */
+      editTodo(todo) {
+        // this.beforeEditCache = todo.content
+        // this.editedTodo = todo
+      },
+
+      /** 编辑完成留言 */
+      doneEdit(todo) {
+        if (!this.editedTodo) {
+          return
+        }
+        console.log('======= this.editedTodo:', this.editedTodo);
+        // axios.delete(API_PREFIX + 'users/' + todo.id)
+        //   .then((res) => {
+        //     // console.log('======= axios res:\n', res);
+        //     this.todos.splice(this.todos.indexOf(todo), 1);
+        //   })
+        this.editedTodo = null
+        todo.content = todo.content.trim()
+        if (!todo.content) {
+          this.removeTodo(todo)
+        }
+      },
+
+      cancelEdit(todo) {
+        this.editedTodo = null
+        todo.content = this.beforeEditCache
+      },
+
+      removeCompleted() {
+        this.todos = filters.active(this.todos)
+      },
+
+      pluralize(n) {
+        return n === 1 ? 'item' : 'items'
+      }
+      //#endregion
+    }).mount('#bbs');
+  </script>
+  <!-- #endregion -->
+
+</body>
+</html>
