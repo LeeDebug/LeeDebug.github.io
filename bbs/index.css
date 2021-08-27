@@ -79,8 +79,8 @@ button {
 }
 
 .todoapp {
-  max-height: calc(100% - 70px - 20px);
-  overflow-y: auto;
+  height: calc(100% - 70px - 20px);
+  overflow-y: hidden;
   background: #fff;
   /* margin: 130px 0 40px 0; */
   /* position: relative; */
@@ -134,8 +134,8 @@ button {
 
 .main {
   position: relative;
-  /* max-height: calc(100% - 65px - 41px);
-  overflow-y: auto; */
+  max-height: calc(100% - 65px - 41px);
+  overflow-y: auto;
   z-index: 2;
   border-top: 1px solid #e6e6e6;
 }
@@ -184,7 +184,7 @@ button {
 
 .todo-list li {
   position: relative;
-  font-size: 24px;
+  font-size: 18px;
   border-bottom: 1px solid #ededed;
 }
 
@@ -242,12 +242,23 @@ button {
 
 .todo-list li label {
   word-break: break-all;
-  padding: 15px 15px 15px 60px;
+  padding: 15px 35px 15px 20px;
   display: block;
   line-height: 1.2;
   transition: color 0.4s;
   font-weight: 400;
   color: #484848;
+}
+
+.todo-list li label .content {
+  line-height: 24px;
+}
+
+.todo-list li label .time {
+  margin-top: 5px;
+  font-size: 14px;
+  color: grey;
+  text-align: right;
 }
 
 .todo-list li.completed label {
@@ -259,7 +270,7 @@ button {
   display: none;
   position: absolute;
   top: 0;
-  right: 10px;
+  right: 0;
   bottom: 0;
   width: 40px;
   height: 40px;
