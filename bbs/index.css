@@ -134,7 +134,7 @@ button {
 
 .main {
   position: relative;
-  max-height: calc(100% - 65px - 41px);
+  height: calc(100% - 65px - 41px);
   overflow-y: auto;
   z-index: 2;
   border-top: 1px solid #e6e6e6;
