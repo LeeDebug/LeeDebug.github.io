@@ -18,6 +18,7 @@
     v-effect="onSave()"
     v-cloak
   >
+    <!-- <div id="wordCloud" style="height: 400px;"></div> -->
     <h1 class="todoTitle">淳淳同学的留言板</h1>
     <section class="todoapp">
       <!-- 输入框 -->
@@ -49,7 +50,11 @@
           >
             <div class="view">
               <!-- <input class="toggle" type="checkbox" v-model="todo.completed" /> -->
-              <label @dblclick="editTodo(todo)">{{ todo.content }}</label>
+              <label @dblclick="editTodo(todo)">
+                <!-- <div>{{ todo.name }}</div> -->
+                <div class="content">{{ todo.content }}</div>
+                <div class="time">{{ todo.created_time }}</div>
+              </label>
               <button class="destroy" @click="removeTodo(todo)"></button>
             </div>
             <input
@@ -100,8 +105,10 @@
   <!-- #endregion -->
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <!-- uuid官网：https://www.bootcdn.cn/uuid -->
+  <!-- uuid官网: https://www.bootcdn.cn/uuid -->
   <script src="https://cdn.bootcdn.net/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+  <!-- github: https://github.com/liangbizhi/js2wordcloud -->
+  <script src="https://liangbizhi.github.io/js2wordcloud/dist/js2wordcloud.min.js"></script>
 
   <!-- #region petite-vue instance -->
   <script type="module">
@@ -156,6 +163,35 @@
         return todos.filter(function (todo) {
           return todo.completed
         })
+      }
+    }
+    
+    /**
+     * (type: onlyYear) -->  2020-10-23
+     * (type: onlyTime) -->  23:23:34
+     * (type: '') -->  2020-10-23 23:23:34
+     */
+    const getFormatDateTime = (date, type) => {
+      if (typeof date === 'string') {
+        date = new Date(date);
+      }
+      const year = date.getFullYear();
+      let month = date.getMonth();
+      let day = date.getDate();
+      let hour = date.getHours();
+      let minites = date.getMinutes();
+      let second = date.getSeconds();
+      month = month + 1 > 9 ? month + 1 : '0' + (month + 1);
+      day = day > 9 ? day : '0' + day;
+      hour = hour > 9 ? hour : '0' + hour;
+      minites = minites > 9 ? minites : '0' + minites;
+      second = second > 9 ? second : '0' + second;
+      if (type === 'onlyYear') {
+        return year + '-' + month + '-' + day;
+      } else if (type === 'onlyTime') {
+        return hour + ':' + minites + ':' + second;
+      } else {
+        return year + '-' + month + '-' + day + ' ' + hour + ':' + minites + ':' + second;
       }
     }
     //#endregion
@@ -220,9 +256,16 @@
       fetchMessageList() {
         axios.get(API_PREFIX + 'users')
           .then((res) => {
-            console.log('======= axios res:\n', res);
-            res.map(m => m.completed = false);
+            // console.log('======= axios res:\n', res);
+            res.map(m => {
+              m.completed = false;
+              m.created_time = getFormatDateTime(m.createdAt);
+              return m;
+            });
+            console.log('======= res:', res);
             this.todos = res;
+            // 生成词云
+            // this.initWordCloud(this.todos);
           })
         // 方案2: 也可以直接用 fetch 请求
         // fetch(API_PREFIX + 'users')
@@ -230,6 +273,39 @@
         //   .then((res) => {
         //     console.log('======= fetch res\n:', res);
         //   })
+      },
+
+      // 云图
+      initWordCloud(todos) {
+        console.log('======= todos:', todos);
+        const list = todos.map(t => {
+          return [t.content, t.id]
+        })
+        var option = {
+          tooltip: {
+            show: true,
+            formatter: function(item) {
+                return item[0] + ': 价值¥' + item[1] + '<br>' + '词云图'
+            }
+          },
+          list,
+          // list: [['谈笑风生', 500000], ['谈笑风生', 50], ['谈笑风生', 40], ['谈笑风生', 40], ['谈笑风生', 30], ['谈笑风生', 30], ['谈笑风生', 20], ['谈笑风生', 20], ['谈笑风生', 1], ['谈笑风生', 1], ['谈笑风生', 500000], ['谈笑风生', 50], ['谈笑风生', 40], ['谈笑风生', 40], ['谈笑风生', 30], ['谈笑风生', 30], ['谈笑风生', 20], ['谈笑风生', 20], ['谈笑风生', 1], ['谈笑风生', 1], ['谈笑风生', 500000], ['谈笑风生', 50], ['谈笑风生', 40], ['谈笑风生', 40], ['谈笑风生', 30], ['谈笑风生', 30], ['谈笑风生', 20], ['谈笑风生', 20], ['谈笑风生', 1], ['谈笑风生', 1], ['谈笑风生', 500000], ['谈笑风生', 50], ['谈笑风生', 40], ['谈笑风生', 40], ['谈笑风生', 30], ['谈笑风生', 30], ['谈笑风生', 20], ['谈笑风生', 20], ['谈笑风生', 1], ['谈笑风生', 1], ['谈笑风生', 500000], ['谈笑风生', 50], ['谈笑风生', 40], ['谈笑风生', 40], ['谈笑风生', 30], ['谈笑风生', 30], ['谈笑风生', 20], ['谈笑风生', 20], ['谈笑风生', 1], ['谈笑风生', 1], ['谈笑风生', 500000], ['谈笑风生', 50], ['谈笑风生', 40], ['谈笑风生', 40], ['谈笑风生', 30], ['谈笑风生', 30], ['谈笑风生', 20], ['谈笑风生', 20], ['谈笑风生', 1], ['谈笑风生', 1], ['谈笑风生', 500000], ['谈笑风生', 50], ['谈笑风生', 40], ['谈笑风生', 40], ['谈笑风生', 30], ['谈笑风生', 30], ['谈笑风生', 20], ['谈笑风生', 20], ['谈笑风生', 1], ['谈笑风生', 1], ['谈笑风生', 500000], ['谈笑风生', 50], ['谈笑风生', 40], ['谈笑风生', 40], ['谈笑风生', 30], ['谈笑风生', 30], ['谈笑风生', 20], ['谈笑风生', 20], ['谈笑风生', 1], ['谈笑风生', 1], ['谈笑风生', 500000], ['谈笑风生', 50], ['谈笑风生', 40], ['谈笑风生', 40], ['谈笑风生', 30], ['谈笑风生', 30], ['谈笑风生', 20], ['谈笑风生', 20], ['谈笑风生', 1], ['谈笑风生', 1], ['谈笑风生', 500000], ['谈笑风生', 50], ['谈笑风生', 40], ['谈笑风生', 40], ['谈笑风生', 30], ['谈笑风生', 30], ['谈笑风生', 20], ['谈笑风生', 20], ['谈笑风生', 1], ['谈笑风生', 1], ['谈笑风生', 500000], ['谈笑风生', 50], ['谈笑风生', 40], ['谈笑风生', 40], ['谈笑风生', 30], ['谈笑风生', 30], ['谈笑风生', 20], ['谈笑风生', 20], ['谈笑风生', 1], ['谈笑风生', 1], ['谈笑风生', 500000], ['谈笑风生', 50], ['谈笑风生', 40], ['谈笑风生', 40], ['谈笑风生', 30], ['谈笑风生', 30], ['谈笑风生', 20], ['谈笑风生', 20], ['谈笑风生', 1], ['谈笑风生', 1]],
+          // list:[["玻璃瓶",941],["塑料瓶",15],["易拉罐",3]],
+          color: '#15a4fa',
+          shape: 'circle',
+          ellipticity: 1
+        };
+        var wc = new Js2WordCloud(document.getElementById('wordCloud'));
+        console.log('======= wc:', wc);
+        wc.showLoading({
+          backgroundColor: '#fff',
+          text: '看见了福建省的附件里是卡洛斯的家乐福就爱上了克拉家乐福及爱丽丝垃圾堆里发简历到复健科了会计师两地分居阿里拉客积分的垃圾费浪费据了解乐山大佛',
+          effect: 'spin'
+        });
+        setTimeout(function() {
+          wc.hideLoading()
+          wc.setOption(option)
+        }, 2000);
       },
 
       addTodo() {
@@ -246,10 +322,12 @@
         axios.post(API_PREFIX + 'users', data)
           .then((res) => {
             // console.log('======= axios res:\n', res);
-            this.todos.push({
+            this.todos.unshift({
               ...res,
-              completed: false
+              created_time: getFormatDateTime(res.createdAt),
+              completed: false,
             })
+            // console.log('======= this.todos:', this.todos);
             this.newTodo = ''
           })
       },
