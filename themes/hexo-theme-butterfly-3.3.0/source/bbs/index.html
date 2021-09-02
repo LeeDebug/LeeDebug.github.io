@@ -21,7 +21,7 @@
   >
     <!-- <div id="wordCloud" style="height: 400px;"></div> -->
     <h1 class="todoTitle">淳淳同学的留言板</h1>
-    <section class="todoapp">
+    <section v-if="!isSetUserInfo" class="todoapp">
       <!-- 输入框 -->
       <header class="header">
         <input
@@ -43,6 +43,10 @@
         /> -->
         <!-- <label for="toggle-all">Mark all as complete</label> -->
         <ul class="todo-list">
+          <!-- <div
+            v-for="todo in filteredTodos"
+            :key="todo.id"
+          >{{todo.id}}</div> -->
           <li
             v-for="todo in filteredTodos"
             class="todo"
@@ -52,9 +56,9 @@
             <div class="view">
               <!-- <input class="toggle" type="checkbox" v-model="todo.completed" /> -->
               <label @dblclick="editTodo(todo)">
-                <!-- <div>{{ todo.name }}</div> -->
+                <!-- <div>{{ todo.id }}.</div> -->
                 <div class="content">{{ todo.content }}</div>
-                <div class="time">{{ todo.created_time }}</div>
+                <div class="time">{{ todo.name }} / {{ todo.created_time }}</div>
               </label>
               <button class="destroy" @click="removeTodo(todo)"></button>
             </div>
@@ -102,6 +106,52 @@
         </button> -->
       </footer>
     </section>
+
+    <!-- 设置个人信息的弹窗 -->
+    <section
+      v-else
+      class="todoapp"
+    >
+      <div id="userInfoModal">
+        <div class="headline">请先设置您的个人信息，淳淳才能知道是谁留的言~</div>
+        <!-- <el-button>Button</el-button> -->
+        <!-- <el-dialog :visible.sync="isSetUserInfo" title="Hello world">
+          <p>Try Element</p>
+        </el-dialog> -->
+        <div
+          v-for="info in userInfoArr"
+          :key="info.name"
+          style="margin-bottom: 20px;float: none;"
+          class="row-class"
+        >
+          <div
+            style="
+              width: '';
+              line-height: 24px;
+              font-size: '';
+              padding: 0 12px 0 0;"
+            class="title-part">
+              {{info.name}}
+          </div>
+
+          <div
+            style="
+              line-height: 24px;
+              font-size: '';
+              flex: auto"
+            class="content-part">
+              <!-- {{info.value}} -->
+              <section v-if="info.type === 'text'">
+                <input type="text" :value="info.value" v-model="info.value">
+                <div class="form-prompt">{{info.prompt}}</div>
+              </section>
+              <section v-else-if="info.type === 'button'">
+                <button type="button" class="form-button" @click="handleConfirmForm">确认</button>
+              </section>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
   <!-- #endregion -->
 
@@ -110,6 +160,10 @@
   <script src="https://cdn.bootcdn.net/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
   <!-- github: https://github.com/liangbizhi/js2wordcloud -->
   <script src="https://liangbizhi.github.io/js2wordcloud/dist/js2wordcloud.min.js"></script>
+  <!-- 引入样式 -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
+  <!-- 引入组件库 -->
+  <!-- <script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
 
   <!-- #region petite-vue instance -->
   <script type="module">
@@ -131,10 +185,12 @@
     //#region API接口前缀
     // 全局属性
     const UUID = uuid.v5.DNS;
-    const API_PREFIX = 'http://lcc.moetime.cn:9624/';
+    // const API_PREFIX = 'http://localhost:9624/';
+    const API_PREFIX = 'http://leedebug.cn:9624/';
+    // const API_PREFIX = 'http://lcc.moetime.cn:9624/';
     // const API_PREFIX = 'http://47.104.223.131:9624/';
 
-    const STORAGE_KEY = 'todos-petite-vue'
+    const STORAGE_KEY = 'licc_msg_user_info'
     const todoStorage = {
       // fetch() {
       //   const todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
@@ -199,6 +255,13 @@
 
     createApp({
       //#region data
+      userInfoArr: [
+        { name: '姓名', value: '', type: 'text', prompt: '只进行数据存储，不进行展示。即只有淳淳能看到' },
+        { name: '昵称', value: '', type: 'text', prompt: '留言中要展示的昵称。即大家都能看到' },
+        { name: '', value: '', type: 'button', prompt: '' },
+      ],
+      userInfo: null,
+      isSetUserInfo: false,
       todos: [], // todoStorage.fetch()
       newTodo: '',
       editedTodo: null,
@@ -207,7 +270,8 @@
 
       //#region computed
       get filteredTodos() {
-        return filters[this.visibility](this.todos)
+        // return filters[this.visibility](this.todos)
+        return this.todos;
       },
 
       get remaining() {
@@ -228,6 +292,8 @@
       //#region methods
       /** 初始化页面 */
       onMountedHook() {
+        // 初始化个人信息
+        this.checkUserInfo();
         // 生成唯一UUID
         // uuid.v4();
         // 生成UUID命名空间
@@ -248,6 +314,34 @@
         onHashChange()
       },
 
+      /** 初始化个人信息 */
+      checkUserInfo() {
+        const local = localStorage.getItem(STORAGE_KEY);
+        // console.log('======= local:', local);
+        if (local) {
+          this.userInfo = JSON.parse(local);
+          return
+        }
+        this.isSetUserInfo = true;
+      },
+
+      handleConfirmForm(e) {
+        const pF = {
+          name: this.userInfoArr.find(v => v.name === '姓名').value,
+          nickName: this.userInfoArr.find(v => v.name === '昵称').value,
+        }
+        if (!pF.name) {
+          alert('请填写姓名')
+          return
+        } else if (!pF.nickName) {
+          alert('请填写昵称')
+          return
+        }
+        this.userInfo = pF;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(pF));
+        this.isSetUserInfo = false;
+      },
+
       /** v-effect 回调：将数据同步到 localStorage 中 */
       onSave() {
         // todoStorage.save(this.todos)
@@ -255,6 +349,7 @@
 
       /** 获取 留言板数据 */
       fetchMessageList() {
+        this.todos = [];
         axios.get(API_PREFIX + 'users')
           .then((res) => {
             // console.log('======= axios res:\n', res);
@@ -263,7 +358,7 @@
               m.created_time = getFormatDateTime(m.createdAt);
               return m;
             });
-            console.log('======= res:', res);
+            // console.log('======= res:', res);
             this.todos = res;
             // 生成词云
             // this.initWordCloud(this.todos);
@@ -318,16 +413,26 @@
           content: value,
           signature: UUID,
           avatar: '',
-          name: uuid.v4(),
+          // name: uuid.v4(),
+          name: this.userInfo.nickName,
+          userProfile: JSON.stringify({
+            name: this.userInfo.name,
+          }),
         }
         axios.post(API_PREFIX + 'users', data)
           .then((res) => {
+            this.fetchMessageList();
             // console.log('======= axios res:\n', res);
-            this.todos.unshift({
-              ...res,
-              created_time: getFormatDateTime(res.createdAt),
-              completed: false,
-            })
+            // this.todos.unshift({
+            //   ...res,
+            //   created_time: getFormatDateTime(res.createdAt),
+            //   completed: false,
+            // })
+            // this.todos.splice(0, 0, {
+            //   ...res,
+            //   created_time: getFormatDateTime(res.createdAt),
+            //   completed: false,
+            // })
             // console.log('======= this.todos:', this.todos);
             this.newTodo = ''
           })
