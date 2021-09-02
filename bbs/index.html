@@ -60,7 +60,11 @@
                 <div class="content">{{ todo.content }}</div>
                 <div class="time">{{ todo.name }} / {{ todo.created_time }}</div>
               </label>
-              <button class="destroy" @click="removeTodo(todo)"></button>
+              <button
+                v-if="userInfo.name && userInfo.name === '李淳淳'"
+                class="destroy"
+                @click="removeTodo(todo)"
+              ></button>
             </div>
             <input
               class="edit"
