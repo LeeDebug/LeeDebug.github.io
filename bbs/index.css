@@ -435,3 +435,49 @@ html .clear-completed:active {
   box-shadow: 0 0 2px 2px #CF7D7D;
   outline: 0;
 }
+
+/* 设置个人信息的弹窗 */
+#userInfoModal {
+  margin: 0 auto;
+  padding: 50px 0 0 0;
+  width: 350px;
+  border: 1px solid gainsboro;
+}
+.headline {
+  margin-bottom: 20px;
+}
+.row-class {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: nowrap;
+  padding-left: 20px;
+}
+.title-part {
+  flex: none;
+  text-align: right;
+  font-size: 14px;
+  color: #606266;
+  font-weight: 700;
+  float: left;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.content-part {
+  font-size: 14px;
+  position: relative;
+}
+.form-prompt {
+  font-size: 12px;
+  margin-top: 2px;
+  color: grey;
+}
+.form-button {
+  margin-left: 28px;
+  border: 1px solid gainsboro;
+  padding: 3px 15px;
+  font-weight: 500;
+}
+.form-button:hover {
+  background-color: gainsboro;
+  color: #b83f45;
+}
