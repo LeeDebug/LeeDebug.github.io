@@ -676,7 +676,8 @@ newest_comments:
     enable: false
     appId: c20JQYjgSVXdg1U7txRwJK6g-gzGzoHsz # leancloud application app id
     appKey: xgkoVU56LqxWjGwRprTfoFSN # leancloud application app key
-    serverURL: https://leedebug.github.io/ # This configuration is suitable for domestic custom domain name users, overseas version will be automatically detected (no need to manually fill in)
+    # serverURL: https://leedebug.github.io/ # This configuration is suitable for domestic custom domain name users, overseas version will be automatically detected (no need to manually fill in)
+    serverURL: https://blog.leedebug.cn/ # This configuration is suitable for domestic custom domain name users, overseas version will be automatically detected (no need to manually fill in)
     default_avatar: wavatar # mp/identicon/monsterid/wavatar/retro/robohash/blank
   github_issues:
     enable: false
