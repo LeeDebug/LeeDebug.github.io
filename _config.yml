@@ -104,7 +104,7 @@ theme: hexo-theme-butterfly-3.3.0
 deploy:
   type: git
   repo: https://github.com/LeeDebug/LeeDebug.github.io.git
-  repo: https://gitee.com/LeeDebug/LeeDebug.git
+  # repo: https://gitee.com/LeeDebug/LeeDebug.git
   branch: master
 
 
