@@ -7,14 +7,14 @@ title: '淳淳同学的个人博客'
 subtitle: '人不可一日无事'
 description: '个人博客'
 keywords:
-author: Lee淳淳
+author: 淳淳同学
 language: en
 timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-# url: https://leedebug.github.io
-url: https://blog.leedebug.cn
+url: https://leedebug.github.io
+# url: https://blog.leedebug.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -97,7 +97,8 @@ ignore:
 ## Themes: https://hexo.io/themes/
 # theme: landscape
 # theme: hexo-theme-next
-theme: hexo-theme-butterfly-3.3.0
+# theme: hexo-theme-butterfly-3.3.0
+theme: hexo-theme-butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
