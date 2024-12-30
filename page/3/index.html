@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>淳淳同学的个人博客 - 人不可一日无事</title><meta name="author" content="淳淳同学"><meta name="copyright" content="淳淳同学"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="个人博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="淳淳同学的个人博客">
+<meta property="og:url" content="https://leedebug.github.io/page/3/index.html">
+<meta property="og:site_name" content="淳淳同学的个人博客">
+<meta property="og:description" content="个人博客">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="淳淳同学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://leedebug.github.io/page/3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '淳淳同学的个人博客',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">15</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-list"></i><span> 关于淳淳同学</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/resume.html"><i class="fa-fw fas fa-file-word"></i><span> 电子简历</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://juejin.cn/user/2189882894323975"><i class="fa-fw fas fa-blog"></i><span> 掘金社区</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://github.com/LeeDebug"><i class="fa-fw fab fa-github"></i><span> GitHub</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitlab.com/Leevue"><i class="fa-fw fab fa-gitlab"></i><span> GitLab</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitee.com/leejs"><i class="fa-fw fab fa-git"></i><span> Gitee</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://weibo.com/p/1005053297895847"><i class="fa-fw fab fa-weibo"></i><span> 微博</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">淳淳同学的个人博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-list"></i><span> 关于淳淳同学</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/resume.html"><i class="fa-fw fas fa-file-word"></i><span> 电子简历</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://juejin.cn/user/2189882894323975"><i class="fa-fw fas fa-blog"></i><span> 掘金社区</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://github.com/LeeDebug"><i class="fa-fw fab fa-github"></i><span> GitHub</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitlab.com/Leevue"><i class="fa-fw fab fa-gitlab"></i><span> GitLab</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitee.com/leejs"><i class="fa-fw fab fa-git"></i><span> Gitee</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://weibo.com/p/1005053297895847"><i class="fa-fw fab fa-weibo"></i><span> 微博</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">淳淳同学的个人博客</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/LeeDebug" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:961150665@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2020/12/15/GitHub-Corners/" title="GitHub Corners"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201215232213.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GitHub Corners"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/15/GitHub-Corners/" title="GitHub Corners">GitHub Corners</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-12-15T15:19:34.000Z" title="Created 2020-12-15 23:19:34">2020-12-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Git/">Git</a></span></div><div class="content"> 可以在你的博客或者自己的网站上增加一个github的标志链接  GitHub Ribbonsgithub repo是最初的角标链接，像丝带一样的长条形状，如下图所示：  接入代码如下所示： 1&lt;a href=&quot;https://github.com/you&quot;&gt;&lt;img loading=&quot;lazy&quot; width=&quot;149&quot; height=&quot;149&quot; src=&quot;https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149&quot; class=&quot;attachment-full size-full&quot; alt=&quot;Fork me on GitHub&quot; data-recalc-dims=&quot;1&quot;&gt;&lt;/a&gt;  GitHub CornersGitHub...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/12/14/git%E8%B4%A1%E7%8C%AE%E5%A2%99gitcalendar/" title="git贡献墙 gitcalendar"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201214124257.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="git贡献墙 gitcalendar"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/14/git%E8%B4%A1%E7%8C%AE%E5%A2%99gitcalendar/" title="git贡献墙 gitcalendar">git贡献墙 gitcalendar</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-12-14T04:40:34.000Z" title="Created 2020-12-14 12:40:34">2020-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Git/">Git</a></span></div><div class="content"> 公司为了访问便捷，大都使用gitlab或gitee，所以前两年的贡献度都在这两个仓库上。从今年打算转战github，多做项目、多做整理、多输出文章，旨在提升自己。所以本文的git贡献墙也以github为例  诸多解决方案Github Official API参考地址：  github的贡献墙自带的request  优势：  官方的  缺点：  速度慢 不稳定，可能会挂 单纯的canvas 没有可读数据  Github Chart API参考地址：  github repo online demo  优势：  实时性好，与官网同步  缺点：  速度慢 不稳定，可能会挂 单纯的canvas 没有可读数据  github-calendar.js参考地址：  github repo online demo  优势：  自带色卡  缺点：  作者不维护了  GitHub Contribution Calendar API参考地址：  github repo online...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/12/11/Mac%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AASSH-Key/" title="Mac配置多个SSH-Key"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201211231351.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mac配置多个SSH-Key"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/11/Mac%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AASSH-Key/" title="Mac配置多个SSH-Key">Mac配置多个SSH-Key</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-12-11T15:11:41.000Z" title="Created 2020-12-11 23:11:41">2020-12-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Git/">Git</a></span></div><div class="content"> 随着项目与能力的提升与扩展，一台电脑上同时用着多个git仓库的情况越来越普遍，所以我们需要创建多个ssh key来对应不同的账号。本文以github为例  本地配置ssh秘钥和公钥进入到ssh文件夹下1→ cd ~/.ssh/  生成一个ssh-key引号内填写你github对应的邮箱 1→ ssh-keygen -t rsa -b 4096 -C &quot;your email&quot;  如果你之前mac上创建过ssh-key，在.ssh文件夹下会有id_rsa和id_rsa.pub两个文件，分别为秘钥和公钥；当再次创建时，会有如下提示： 12Generating public/private rsa key pair.Enter file in which to save the key...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/12/11/node%E6%89%93%E5%8C%85%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" title="node打包内存溢出"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201211230124.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="node打包内存溢出"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/11/node%E6%89%93%E5%8C%85%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" title="node打包内存溢出">node打包内存溢出</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-12-11T14:55:31.000Z" title="Created 2020-12-11 22:55:31">2020-12-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Webpack/">Webpack</a></span></div><div class="content"> vue项目利用webpack打包时提示内存堆栈溢出  报错信息1FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory  解决方案在build前，根据自己的项目大小设置一下最大分配内存空间，即可。 12345// 在package.json中&quot;scripts&quot;: &#123;  ...  &quot;build&quot;: &quot;node --max_old_space_size=4096 build/build.js&quot;&#125;  祝君无Bug~</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/12/11/git%E6%8E%A8%E9%80%81%E5%90%8E%E6%B2%A1%E6%9C%89%E8%B4%A1%E7%8C%AE%E8%AE%B0%E5%BD%95/" title="git推送后没有贡献记录"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201211143223.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="git推送后没有贡献记录"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/11/git%E6%8E%A8%E9%80%81%E5%90%8E%E6%B2%A1%E6%9C%89%E8%B4%A1%E7%8C%AE%E8%AE%B0%E5%BD%95/" title="git推送后没有贡献记录">git推送后没有贡献记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-12-11T04:55:15.000Z" title="Created 2020-12-11 12:55:15">2020-12-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Git/">Git</a></span></div><div class="content"> github的contribution记录墙不展示问题  问题背景最近打算把自己的项目同时部署到github、gitlab、gitee上，并且都改成了统一的email邮箱和username用户名，但是发现只有github没有任何的contribution记录。 于是我把本地的git信息及mac钥匙串保存的信息都删掉，重新记录了一遍；把SSH KEY也都删掉重新加了一遍。但都么有解决问题。 最后发现是github和其他两个仓库用的邮箱不一样，本地git的全局配置邮箱为a，gitee和gitlab用的邮箱也是a，只有github用的邮箱为b；所以github可能认为提交者不是当前用户，所以就没有提交记录。 解决方案所以将多个仓库的邮箱改为同一个，并且将全局的gitconfig的email也改成此邮箱，即可。 命令代码查看全局git信息： 12345git config --global --list# 或cat ~/.gitconfig  修改全局的git信息的邮箱： 1git config --gloabl user.email &quot;your github...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/11/10/jsdelivr/" title="jsdelivr"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111165611.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="jsdelivr"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/10/jsdelivr/" title="jsdelivr">jsdelivr</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-10T10:14:26.000Z" title="Created 2020-11-10 18:14:26">2020-11-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Git/">Git</a></span></div><div class="content"> 本文概要  CDNjsdelivr for GitHub需要配合PicGo图床使用  使用PicGo客户端上传图片 复制url 默认格式为：PicGo默认前缀 + GitHub用户名 + / + 仓库名 + / + 分支名 + 图片在GitHub仓库的绝对路径 例如：https://raw.githubusercontent.com/LeeDebug/PicGo/master/img/xxx.png   替换url中的前缀部分 默认格式为jsdeliver默认前缀 +...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/11/07/%E4%B8%AD%E5%A4%AE%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%E6%8F%92%E4%BB%B6vue-bus-ts/" title="中央事件总线插件vue-bus-ts"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111165942.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="中央事件总线插件vue-bus-ts"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/07/%E4%B8%AD%E5%A4%AE%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%E6%8F%92%E4%BB%B6vue-bus-ts/" title="中央事件总线插件vue-bus-ts">中央事件总线插件vue-bus-ts</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-07T10:28:46.000Z" title="Created 2020-11-07 18:28:46">2020-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Vue/">Vue</a></span></div><div class="content"> 项目中难免会遇到非父子组件之间的传参与通信问题，遂整理此文。  简介vue-bus-ts 是一款支持在ts环境下使用的全局事件总线插件。 安装及使用方法安装1npm i -S vue-bus-ts  注册安装后需要在main.ts中引入并注册，挂载到全局的Vue实例上即可 123456789101112# main.tsimport Vue from &#x27;vue&#x27;;import EventBus from &#x27;vue-bus-ts&#x27;;Vue.use(EventBus);var bus = new EventBus.Bus();new Vue(&#123;  bus,  render: (h) =&gt; h(App),&#125;).$mount(&#x27;#app&#x27;);  注册事件在调用事件前，需要实现注册该事件，否则不会生效 一般写在vue文件的mounted或者created生命周期中 123456# *.vue  var eventId = this.$bus.$on(&#x27;event_name&#x27;,...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/10/27/qiankun-2-0-24-%E7%88%AC%E5%9D%91%E8%AE%B0%E5%BD%95/" title="qiankun 2.0.24 爬坑记录"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170023.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="qiankun 2.0.24 爬坑记录"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/27/qiankun-2-0-24-%E7%88%AC%E5%9D%91%E8%AE%B0%E5%BD%95/" title="qiankun 2.0.24 爬坑记录">qiankun 2.0.24 爬坑记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-10-27T15:45:08.000Z" title="Created 2020-10-27 23:45:08">2020-10-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/">微前端</a></span></div><div class="content"> 由于本次开发项目需要嵌入之前的老项目，由于考虑到iframe速度慢、css/js需要额外请求、阻塞页面加载、浏览器前进/后退等缺点，遂打算踩坑qiankun，为了更早的爬坑，整理此文。  简介qiankun 是一个基于 single-spa 的微前端实现库，旨在帮助大家能更简单、无痛的构建一个生产可用微前端架构系统。 官方提供的资源：  官方提供了一个 示例代码 示例代码的在线demo 单独访问在线vue子应用 单独访问在线react子应用  根据 qiankun官方文档 介绍，主要有以下七大特性：  📦 基于 single-spa 封装，提供了更加开箱即用的 API。 📱 技术栈无关，任意技术栈的应用均可 使用/接入，不论是 React/Vue/Angular/JQuery 还是其他等框架。 💪 HTML Entry 接入方式，让你接入微应用像使用 iframe 一样简单。 🛡​ 样式隔离，确保微应用之间样式互相不干扰。 🧳 JS 沙箱，确保微应用之间 全局变量/事件 不冲突。 ⚡️ 资源预加载，在浏览器空闲时间预加载未打开的微应用资源，加速微应用打开速度。 🔌...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/08/12/2020%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/" title="2020前端面试"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170049.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2020前端面试"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/12/2020%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/" title="2020前端面试">2020前端面试</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-08-12T15:54:32.000Z" title="Created 2020-08-12 23:54:32">2020-08-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></span></div><div class="content"> 今日裸辞，在投简历的过程中抽出一周集中复习前端知识，并做了此文以记录知识点。  目...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/07/18/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%EF%BC%88%E4%B8%8A%E5%8D%B7%EF%BC%89/" title="你不知道的JavaScript（上卷）"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170127.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="你不知道的JavaScript（上卷）"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/18/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%EF%BC%88%E4%B8%8A%E5%8D%B7%EF%BC%89/" title="你不知道的JavaScript（上卷）">你不知道的JavaScript（上卷）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-07-18T15:23:55.000Z" title="Created 2020-07-18 23:23:55">2020-07-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span></div><div class="content"> 去年就想读这一套书，由于个人原因一直拖到现在，今天终于周末在家没事，看了5个小时才看了上卷的1/3（其实也就60页）。主要讲述了作用域和闭包的相关知识，可能是由于自己基础知识的匮乏，所以进度有些慢。总之，要提高阅读速度了。  作用域和闭包作用域是什么 JavaScript是一门编译语言，其引擎进行编译的步骤和传统的编译语言非常相似，包括下列三个编译步骤： 分析/词法分析（Tokenizing/Lexing）（词法化、单词化） 解析/语法分析（Parsing） 代码生成     作用域是一种规则，用于确定在何处以及如何查找该变量（标识符），即用来管理引擎如何在当前作用域以及嵌套的子作用域中根据标识符名称进行变量查找 引擎 编译器 作用域     var a = 2; var a：编译器会询问作用域是否已经有一个该名称的变量存在于同一个作用域的集合中。如果是，编译器会忽略该声明，继续进行编译；否则它会要求作用域在当前作用域的集合中声明一个新的变量，并命名为a。（定义声明在编译阶段进行） a =...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">淳淳同学</div><div class="author-info-description">个人博客</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">15</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/LeeDebug" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:961150665@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/30/hello-world/" title="Hello World"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170450.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2024/12/30/hello-world/" title="Hello World">Hello World</a><time datetime="2024-12-30T05:49:35.053Z" title="Created 2024-12-30 13:49:35">2024-12-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/05/Vue%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%88%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%89/" title="Vue源码解读（知识点总结）"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210706123716.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue源码解读（知识点总结）"/></a><div class="content"><a class="title" href="/2021/07/05/Vue%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%88%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%89/" title="Vue源码解读（知识点总结）">Vue源码解读（知识点总结）</a><time datetime="2021-07-05T15:55:11.000Z" title="Created 2021-07-05 23:55:11">2021-07-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/27/Vue3%E8%BD%AE%E6%92%AD%E7%BB%84%E4%BB%B6-v3-carousel/" title="【个人开源】Vue3 轮播组件: v3-carousel"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210527141809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【个人开源】Vue3 轮播组件: v3-carousel"/></a><div class="content"><a class="title" href="/2021/05/27/Vue3%E8%BD%AE%E6%92%AD%E7%BB%84%E4%BB%B6-v3-carousel/" title="【个人开源】Vue3 轮播组件: v3-carousel">【个人开源】Vue3 轮播组件: v3-carousel</a><time datetime="2021-05-27T04:55:02.000Z" title="Created 2021-05-27 12:55:02">2021-05-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/24/2021%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2021前端知识点总结"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2021前端知识点总结"/></a><div class="content"><a class="title" href="/2021/05/24/2021%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2021前端知识点总结">2021前端知识点总结</a><time datetime="2021-05-24T10:17:08.000Z" title="Created 2021-05-24 18:17:08">2021-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/04/08/JavaScript%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" title="JavaScript运算符优先级"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210422112132.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript运算符优先级"/></a><div class="content"><a class="title" href="/2021/04/08/JavaScript%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" title="JavaScript运算符优先级">JavaScript运算符优先级</a><time datetime="2021-04-08T02:11:48.000Z" title="Created 2021-04-08 10:11:48">2021-04-08</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            <a class="card-more-btn" href="/categories/" title="View More">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/"><span class="card-category-list-name">CSS</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Git/"><span class="card-category-list-name">Git</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/LeetCode/"><span class="card-category-list-name">LeetCode</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Socket/"><span class="card-category-list-name">Socket</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/VSCode/"><span class="card-category-list-name">VSCode</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Vue/"><span class="card-category-list-name">Vue</span><span class="card-category-list-count">10</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Webpack/"><span class="card-category-list-name">Webpack</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/JavaScript/" style="font-size: 1.1em; color: #999">JavaScript</a> <a href="/tags/%E9%9D%A2%E8%AF%95-Vue-JavaScript/" style="font-size: 1.1em; color: #999">面试,Vue,JavaScript</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E6%96%87%E6%A1%A3/" style="font-size: 1.3em; color: #99a1ac">个人文档</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 1.2em; color: #999da3">微前端</a> <a href="/tags/Webpack/" style="font-size: 1.2em; color: #999da3">Webpack</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 1.1em; color: #999">面试</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 1.1em; color: #999">移动端</a> <a href="/tags/Vue/" style="font-size: 1.5em; color: #99a9bf">Vue</a> <a href="/tags/VSCode/" style="font-size: 1.1em; color: #999">VSCode</a> <a href="/tags/Socket/" style="font-size: 1.1em; color: #999">Socket</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 1.2em; color: #999da3">读书笔记</a> <a href="/tags/Git/" style="font-size: 1.4em; color: #99a5b6">Git</a> <a href="/tags/npm/" style="font-size: 1.1em; color: #999">npm</a> <a href="/tags/LeetCode/" style="font-size: 1.1em; color: #999">LeetCode</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">服务器</a> <a href="/tags/CSS/" style="font-size: 1.1em; color: #999">CSS</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      <a class="card-more-btn" href="/archives/"
+            title="View More">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/12/">
+            <span class="card-archive-list-date">
+              December 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2021/07/">
+            <span class="card-archive-list-date">
+              July 2021
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2021/05/">
+            <span class="card-archive-list-date">
+              May 2021
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2021/04/">
+            <span class="card-archive-list-date">
+              April 2021
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2021/03/">
+            <span class="card-archive-list-date">
+              March 2021
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2021/02/">
+            <span class="card-archive-list-date">
+              February 2021
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2021/01/">
+            <span class="card-archive-list-date">
+              January 2021
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2020/12/">
+            <span class="card-archive-list-date">
+              December 2020
+            </span>
+            <span class="card-archive-list-count">8</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">37</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-12-30T06:17:33.074Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By 淳淳同学</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

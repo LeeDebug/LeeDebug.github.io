@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>qiankun的css样式污染解决方案 | 淳淳同学的个人博客</title><meta name="author" content="淳淳同学"><meta name="copyright" content="淳淳同学"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="qiankun的css样式污染解决方案">
+<meta property="og:type" content="article">
+<meta property="og:title" content="qiankun的css样式污染解决方案">
+<meta property="og:url" content="https://leedebug.github.io/2020/12/19/qiankun%E7%9A%84css%E6%B2%99%E7%AE%B1%E9%9A%94%E7%A6%BB%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:site_name" content="淳淳同学的个人博客">
+<meta property="og:description" content="qiankun的css样式污染解决方案">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201220000516.png">
+<meta property="article:published_time" content="2020-12-19T15:57:26.000Z">
+<meta property="article:modified_time" content="2024-12-30T05:49:35.061Z">
+<meta property="article:author" content="淳淳同学">
+<meta property="article:tag" content="微前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201220000516.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "qiankun的css样式污染解决方案",
+  "url": "https://leedebug.github.io/2020/12/19/qiankun%E7%9A%84css%E6%B2%99%E7%AE%B1%E9%9A%94%E7%A6%BB%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/",
+  "image": "https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201220000516.png",
+  "datePublished": "2020-12-19T15:57:26.000Z",
+  "dateModified": "2024-12-30T05:49:35.061Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "淳淳同学",
+      "url": "https://leedebug.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://leedebug.github.io/2020/12/19/qiankun%E7%9A%84css%E6%B2%99%E7%AE%B1%E9%9A%94%E7%A6%BB%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'qiankun的css样式污染解决方案',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">15</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-list"></i><span> 关于淳淳同学</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/resume.html"><i class="fa-fw fas fa-file-word"></i><span> 电子简历</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://juejin.cn/user/2189882894323975"><i class="fa-fw fas fa-blog"></i><span> 掘金社区</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://github.com/LeeDebug"><i class="fa-fw fab fa-github"></i><span> GitHub</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitlab.com/Leevue"><i class="fa-fw fab fa-gitlab"></i><span> GitLab</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitee.com/leejs"><i class="fa-fw fab fa-git"></i><span> Gitee</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://weibo.com/p/1005053297895847"><i class="fa-fw fab fa-weibo"></i><span> 微博</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201220000516.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">淳淳同学的个人博客</span></a><a class="nav-page-title" href="/"><span class="site-name">qiankun的css样式污染解决方案</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-list"></i><span> 关于淳淳同学</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/resume.html"><i class="fa-fw fas fa-file-word"></i><span> 电子简历</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://juejin.cn/user/2189882894323975"><i class="fa-fw fas fa-blog"></i><span> 掘金社区</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://github.com/LeeDebug"><i class="fa-fw fab fa-github"></i><span> GitHub</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitlab.com/Leevue"><i class="fa-fw fab fa-gitlab"></i><span> GitLab</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitee.com/leejs"><i class="fa-fw fab fa-git"></i><span> Gitee</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://weibo.com/p/1005053297895847"><i class="fa-fw fab fa-weibo"></i><span> 微博</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">qiankun的css样式污染解决方案</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-12-19T15:57:26.000Z" title="Created 2020-12-19 23:57:26">2020-12-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-12-30T05:49:35.061Z" title="Updated 2024-12-30 13:49:35">2024-12-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/">微前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><blockquote>
+<p>在使用qiankun框架做微前端开发的过程中，遇到了诸多难题，比如路由重定向、变量名及事件名冲突、挂载注销机制及生命周期、keep-alive等，目前遇到的比较难解决的问题可能就是css样式污染问题了。这次抽出了几天时间研究了一下，遂总结此文</p>
+</blockquote>
+<h1 id="问题概述"><a href="#问题概述" class="headerlink" title="问题概述"></a>问题概述</h1><p>在qiankun加载子应用后，主子应用的样式之间会产生污染，常见的css样式污染有以下几种情况：</p>
+<ul>
+<li>无论是否进行样式隔离：主应用的样式污染了子应用（原因：主应用的样式添加了 <code>!important</code> 属性或 <code>&gt;&gt;&gt;</code> 穿透属性）</li>
+<li>未进行样式隔离：子应用的样式污染了主应用（原因：样式重名，后加载的优先级高）</li>
+<li>处理过样式隔离：子应用打开的弹窗、抽屉、popover等这种需要插入到主应用body的dom元素，样式丢失或应用了主项目的样式（原因：开启沙箱时，子应用的样式作用域只在子应用内，但如描述，子应用的dom被插入到了主应用的body中，遂出现了此种情况）</li>
+</ul>
+<h1 id="qiankun自带的css沙箱"><a href="#qiankun自带的css沙箱" class="headerlink" title="qiankun自带的css沙箱"></a>qiankun自带的css沙箱</h1><p>个人理解，qiankun加载子项目css样式机制大体为：挂载子应用时将子应用的css样式以style标签的形式插入并做快照，卸载子应用时再将快照内的style样式删除。所以在加载子应用期间，若未开启css沙箱隔离，后加载的这些样式，可能会对整个系统的样式产生影响，对此，qiankun提供了两种css沙箱功能，可以将子应用的样式包裹在沙箱容器内部，以此来达到样式隔离的目的。大体代码如下所示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">microApp</span> = <span class="title function_">loadMicroApp</span>(</span><br><span class="line">  &#123; apps infos ... &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">sandbox</span>: &#123;</span><br><span class="line">      <span class="attr">strictStyleIsolation</span>: <span class="literal">true</span> <span class="comment">// 严格沙箱</span></span><br><span class="line">      <span class="attr">experimentalStyleIsolation</span>: <span class="literal">true</span> <span class="comment">// 实验性沙箱</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>严格沙箱</li>
+</ol>
+<p>在加载子应用时，添加<code>strictStyleIsolation: true</code>属性，实现形式为将整个子应用放到<code>Shadow DOM</code>内进行嵌入，完全隔离了主子应用</p>
+<p>缺点：</p>
+<ul>
+<li>子应用的弹窗、抽屉、popover因找不到主应用的body会丢失，或跑到整个屏幕外（具体原因作者并未详细研究）</li>
+<li>主应用不方便去修改子应用的样式</li>
+</ul>
+<ol start="2">
+<li>实验性沙箱</li>
+</ol>
+<p>在加载子应用时，添加<code>experimentalStyleIsolation: true</code>属性，实现形式类似于vue中style标签中的scoped属性，qiankun会自动为子应用所有的样式增加后缀标签，如：<code>div[data-qiankun-microName]</code></p>
+<p>缺点：</p>
+<ul>
+<li>子应用的弹窗、抽屉、popover因插入到了主应用的body，所以导致样式丢失或应用了主应用了样式</li>
+</ul>
+<h1 id="最终解决方案"><a href="#最终解决方案" class="headerlink" title="最终解决方案"></a>最终解决方案</h1><p>说了这么多qiankun自带的css沙箱隔离，但都有各自的缺点，并且对于系统的实现上，影响范围还比较严重，代码的修改范围也比较大。作者的项目中，主子应用都是vue项目，并且都用了element家的样式且都各自魔改过，遂果断<span style="color: red;font-weight: 900;">不开启css沙箱，给各自的项目class全局加上一个各自的命名空间</span>，可以自己的项目名，比如：<code>myVue body</code>、<code>myVue el-form-info__label</code>、<code>myVue customClass</code>等。</p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><ol>
+<li>添加依赖</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ npm i postcss-plugin-namespace -D</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>配置postcss</li>
+</ol>
+<p>在项目根目录创建<code>postcss.config.js</code>文件，并复制以下内容：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// console.log(&#x27;=&gt; =&gt; =&gt; postcss.config.js start =&gt; =&gt; =&gt;&#x27;)</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="function">(<span class="params">ctx</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">      <span class="built_in">require</span>(<span class="string">&#x27;postcss-plugin-namespace&#x27;</span>)(<span class="string">&#x27;#lee_project&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">ignore</span>: [</span><br><span class="line">          <span class="string">&#x27;html&#x27;</span>, <span class="regexp">/body/</span>, <span class="string">&#x27;span&#x27;</span>, <span class="string">&#x27;el-form-item&#x27;</span></span><br><span class="line">        ]</span><br><span class="line">      &#125;),</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// console.log(&#x27;=&gt; =&gt; =&gt; postcss.config.js end =&gt; =&gt; =&gt;&#x27;)</span></span><br></pre></td></tr></table></figure>
+
+<p>该插件会将全局所有class前加上统一前缀，并过滤掉ignore内的标签；ignore内可以写字符串，可以写正则表达式。但每次编译前都会运行，所以可能会增加编译时间，所以日常开发环境下可以将此文件名随便改成别的，上线前记得改回来调试一下（如果直接隐藏掉代码的话，只要有<code>postcss.config.js</code>这个文件webpack会自动帮你执行，并且会提示你的postcss啥也没干，也相当于每次都走了这个脚本）。</p>
+<p>注意：如果用<code>/body/</code>这样的正则，会将所有带body的class都过滤掉，比如<code>el-drawer__body</code>、<code>el-dialog__body</code>等。</p>
+<h1 id="祝君无Bug"><a href="#祝君无Bug" class="headerlink" title="祝君无Bug~"></a>祝君无Bug~</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://leedebug.github.io">淳淳同学</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://leedebug.github.io/2020/12/19/qiankun%E7%9A%84css%E6%B2%99%E7%AE%B1%E9%9A%94%E7%A6%BB%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">https://leedebug.github.io/2020/12/19/qiankun%E7%9A%84css%E6%B2%99%E7%AE%B1%E9%9A%94%E7%A6%BB%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/">微前端</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201220000516.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2020/10/27/qiankun-2-0-24-%E7%88%AC%E5%9D%91%E8%AE%B0%E5%BD%95/" title="qiankun 2.0.24 爬坑记录"><img class="cover" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170023.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-27</div><div class="info-item-2">qiankun 2.0.24 爬坑记录</div></div><div class="info-2"><div class="info-item-1"> 由于本次开发项目需要嵌入之前的老项目，由于考虑到iframe速度慢、css/js需要额外请求、阻塞页面加载、浏览器前进/后退等缺点，遂打算踩坑qiankun，为了更早的爬坑，整理此文。  简介qiankun 是一个基于 single-spa 的微前端实现库，旨在帮助大家能更简单、无痛的构建一个生产可用微前端架构系统。 官方提供的资源：  官方提供了一个 示例代码 示例代码的在线demo 单独访问在线vue子应用 单独访问在线react子应用  根据 qiankun官方文档 介绍，主要有以下七大特性：  📦 基于 single-spa 封装，提供了更加开箱即用的 API。 📱 技术栈无关，任意技术栈的应用均可 使用/接入，不论是 React/Vue/Angular/JQuery 还是其他等框架。 💪 HTML Entry 接入方式，让你接入微应用像使用 iframe 一样简单。 🛡​ 样式隔离，确保微应用之间样式互相不干扰。 🧳 JS 沙箱，确保微应用之间 全局变量/事件 不冲突。 ⚡️ 资源预加载，在浏览器空闲时间预加载未打开的微应用资源，加速微应用打开速度。 🔌...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">淳淳同学</div><div class="author-info-description">个人博客</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">15</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/LeeDebug" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:961150665@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">问题概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#qiankun%E8%87%AA%E5%B8%A6%E7%9A%84css%E6%B2%99%E7%AE%B1"><span class="toc-number">2.</span> <span class="toc-text">qiankun自带的css沙箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">最终解决方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A5%9D%E5%90%9B%E6%97%A0Bug"><span class="toc-number">5.</span> <span class="toc-text">祝君无Bug~</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/30/hello-world/" title="Hello World"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170450.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2024/12/30/hello-world/" title="Hello World">Hello World</a><time datetime="2024-12-30T05:49:35.053Z" title="Created 2024-12-30 13:49:35">2024-12-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/05/Vue%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%88%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%89/" title="Vue源码解读（知识点总结）"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210706123716.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue源码解读（知识点总结）"/></a><div class="content"><a class="title" href="/2021/07/05/Vue%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%88%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%89/" title="Vue源码解读（知识点总结）">Vue源码解读（知识点总结）</a><time datetime="2021-07-05T15:55:11.000Z" title="Created 2021-07-05 23:55:11">2021-07-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/27/Vue3%E8%BD%AE%E6%92%AD%E7%BB%84%E4%BB%B6-v3-carousel/" title="【个人开源】Vue3 轮播组件: v3-carousel"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210527141809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【个人开源】Vue3 轮播组件: v3-carousel"/></a><div class="content"><a class="title" href="/2021/05/27/Vue3%E8%BD%AE%E6%92%AD%E7%BB%84%E4%BB%B6-v3-carousel/" title="【个人开源】Vue3 轮播组件: v3-carousel">【个人开源】Vue3 轮播组件: v3-carousel</a><time datetime="2021-05-27T04:55:02.000Z" title="Created 2021-05-27 12:55:02">2021-05-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/24/2021%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2021前端知识点总结"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2021前端知识点总结"/></a><div class="content"><a class="title" href="/2021/05/24/2021%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2021前端知识点总结">2021前端知识点总结</a><time datetime="2021-05-24T10:17:08.000Z" title="Created 2021-05-24 18:17:08">2021-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/04/08/JavaScript%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" title="JavaScript运算符优先级"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210422112132.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript运算符优先级"/></a><div class="content"><a class="title" href="/2021/04/08/JavaScript%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" title="JavaScript运算符优先级">JavaScript运算符优先级</a><time datetime="2021-04-08T02:11:48.000Z" title="Created 2021-04-08 10:11:48">2021-04-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By 淳淳同学</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>淳淳同学的个人博客 - 人不可一日无事</title><meta name="author" content="淳淳同学"><meta name="copyright" content="淳淳同学"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="个人博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="淳淳同学的个人博客">
+<meta property="og:url" content="https://leedebug.github.io/page/2/index.html">
+<meta property="og:site_name" content="淳淳同学的个人博客">
+<meta property="og:description" content="个人博客">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="淳淳同学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://leedebug.github.io/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '淳淳同学的个人博客',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">15</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-list"></i><span> 关于淳淳同学</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/resume.html"><i class="fa-fw fas fa-file-word"></i><span> 电子简历</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://juejin.cn/user/2189882894323975"><i class="fa-fw fas fa-blog"></i><span> 掘金社区</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://github.com/LeeDebug"><i class="fa-fw fab fa-github"></i><span> GitHub</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitlab.com/Leevue"><i class="fa-fw fab fa-gitlab"></i><span> GitLab</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitee.com/leejs"><i class="fa-fw fab fa-git"></i><span> Gitee</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://weibo.com/p/1005053297895847"><i class="fa-fw fab fa-weibo"></i><span> 微博</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">淳淳同学的个人博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-list"></i><span> 关于淳淳同学</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/resume.html"><i class="fa-fw fas fa-file-word"></i><span> 电子简历</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://juejin.cn/user/2189882894323975"><i class="fa-fw fas fa-blog"></i><span> 掘金社区</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://github.com/LeeDebug"><i class="fa-fw fab fa-github"></i><span> GitHub</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitlab.com/Leevue"><i class="fa-fw fab fa-gitlab"></i><span> GitLab</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitee.com/leejs"><i class="fa-fw fab fa-git"></i><span> Gitee</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://weibo.com/p/1005053297895847"><i class="fa-fw fab fa-weibo"></i><span> 微博</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">淳淳同学的个人博客</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/LeeDebug" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:961150665@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2021/02/21/linear-gradient%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%98/" title="linear-gradient函数实现线性渐变"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210302102414.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="linear-gradient函数实现线性渐变"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/21/linear-gradient%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%98/" title="linear-gradient函数实现线性渐变">linear-gradient函数实现线性渐变</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-02-21T02:23:14.000Z" title="Created 2021-02-21 10:23:14">2021-02-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CSS/">CSS</a></span></div><div class="content"> 当tab标签超出滚动时，在侧边增加一个渐变透明的框，会使视觉上更加明显，让用户感知到该处可以滑动  效果对比展示原本样式：  增加渐变的透明框后的样式：  滚动后的效果：  可滑动的tab标签123456789/* 超出部分可所有滑动 */.tab_scroll &#123;  display: -webkit-box;  overflow: auto;&#125;/* 隐藏滚轮 */.tab_scroll::-webkit-scrollbar &#123;  display: none;&#125;   渐变透明的小方块12345678910.tab_scroll:before &#123;  content: &#x27;&#x27;;  position: absolute;  right: 0;  float: right;  /* border: 1px solid red; */  height: 66px;  width: 60px;  background: linear-gradient(to right, transparent,...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/02/17/navigator.userAgent%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/" title="navigator.userAgent获取当前设备信息"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210226130414.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="navigator.userAgent获取当前设备信息"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/17/navigator.userAgent%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/" title="navigator.userAgent获取当前设备信息">navigator.userAgent获取当前设备信息</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-02-17T15:14:02.000Z" title="Created 2021-02-17 23:14:02">2021-02-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a></span></div><div class="content"> 获取当前是何设备，来区分不同的事件及渲染模式  navigator.userAgent封装好函数直接调用，利用switch直接进行判断即可 12345678910111213141516171819202122export function currDevice() &#123;  const u = navigator.userAgent;  const app = navigator.appVersion; // appVersion 可返回浏览器的平台和版本信息。该属性是一个只读的字符串。  const browserLang = (navigator.browserLanguage || navigator.language).toLowerCase(); //获取浏览器语言  const deviceBrowser = (() =&gt; &#123;    return &#123;      trident: u.indexOf(&#x27;Trident&#x27;) &gt; -1,  // IE内核      presto:...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/02/10/%E5%AE%9E%E7%8E%B0%E8%BE%93%E5%85%A5%E6%A1%86%E7%9A%84n%E7%A7%8D%E5%BD%A2%E5%BC%8F/" title="实现输入框的n种形式"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210226125630.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实现输入框的n种形式"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/10/%E5%AE%9E%E7%8E%B0%E8%BE%93%E5%85%A5%E6%A1%86%E7%9A%84n%E7%A7%8D%E5%BD%A2%E5%BC%8F/" title="实现输入框的n种形式">实现输入框的n种形式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-02-10T14:19:34.000Z" title="Created 2021-02-10 22:19:34">2021-02-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Vue/">Vue</a></span></div><div class="content"> 开发过程中遇到的新方案  textarea最常见的就是这种形式，不多赘述。代码如下 但要展示带html元素的内容，可能就不是那么方便了 1234567891011121314&lt;textarea  id=&quot;sendMsgBox&quot;  class=&quot;sendMsgBox&quot;  ref=&quot;sendMsgBox&quot;  row=&quot;3&quot;  maxlength=&quot;1000&quot;  v-model=&quot;sendContent&quot;  :readonly=&quot;cantOperate&quot;  :placeholder=&quot;getPlaceholder&quot;  @blur=&quot;handleBlurFun&quot;  @focus=&quot;handleFocusFun&quot;  @keydown=&quot;handleKeyDown($event)&quot;  :style=&quot;&#123; &#x27;height&#x27;:...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/02/06/viewerjs%E6%9F%A5%E7%9C%8B%E5%A4%A7%E5%9B%BE%E7%BB%84%E4%BB%B6/" title="viewerjs查看大图组件"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210225140807.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="viewerjs查看大图组件"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/06/viewerjs%E6%9F%A5%E7%9C%8B%E5%A4%A7%E5%9B%BE%E7%BB%84%E4%BB%B6/" title="viewerjs查看大图组件">viewerjs查看大图组件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-02-06T15:07:33.000Z" title="Created 2021-02-06 23:07:33">2021-02-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Vue/">Vue</a></span></div><div class="content"> 因为项目没有使用element-ui，所以不能使用自带的el-image组件进行大图查看，遂找了一个单独的组件  安装1npm install viewerjs  使用案例12345678910111213&lt;!-- 单个图片查看 --&gt;&lt;div&gt;  &lt;img id=&quot;image&quot; src=&quot;picture.jpg&quot; alt=&quot;Picture&quot;&gt;&lt;/div&gt;&lt;!-- 多个图片查看 --&gt;&lt;div&gt;  &lt;ul id=&quot;images&quot;&gt;    &lt;li&gt;&lt;img src=&quot;picture-1.jpg&quot; alt=&quot;Picture 1&quot;&gt;&lt;/li&gt;    &lt;li&gt;&lt;img src=&quot;picture-2.jpg&quot; alt=&quot;Picture 2&quot;&gt;&lt;/li&gt;   ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/01/26/%E4%BF%AE%E6%94%B9element-ui%E7%9A%84%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE/" title="修改element-ui的全局配置"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210225125906.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="修改element-ui的全局配置"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/01/26/%E4%BF%AE%E6%94%B9element-ui%E7%9A%84%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE/" title="修改element-ui的全局配置">修改element-ui的全局配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-01-26T15:44:41.000Z" title="Created 2021-01-26 23:44:41">2021-01-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Vue/">Vue</a></span></div><div class="content"> 项目因使用qiankun嵌入了子项目，且都使用了element-ui的弹窗样式，遂导致子应用中插入到父应用body的弹窗因层级过低无法展示  配置信息因element-ui的弹窗默的z-index层级默认是从2000开始的，并且打开多个弹窗时z-index会逐步递增，所以若主子应用不做区分的话，很可能会导致有的弹窗被遮挡 好在element提供了入口可将全局的弹窗层级设置一个起始值，即只需将子应用的层级初始值调高即可 1234567// 在main.ts中import Vue from &#x27;vue&#x27;;import Element from &#x27;element-ui&#x27;;Vue.use(Element, &#123;  size: &#x27;small&#x27;, // 组件的默认尺寸 mini、small、medium  zIndex: 3000 // 弹窗默认层级初始值，默认2000&#125;);   祝君无Bug~</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/01/17/%E5%AE%89%E5%8D%93%E5%BE%AE%E4%BF%A1%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%ADtype-file%E7%9A%84input%E6%A1%86%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/" title="安卓微信浏览器中type=file的input框无法使用"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210225125447.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="安卓微信浏览器中type=file的input框无法使用"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/01/17/%E5%AE%89%E5%8D%93%E5%BE%AE%E4%BF%A1%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%ADtype-file%E7%9A%84input%E6%A1%86%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/" title="安卓微信浏览器中type=file的input框无法使用">安卓微信浏览器中type=file的input框无法使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-01-17T11:35:03.000Z" title="Created 2021-01-17 19:35:03">2021-01-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Vue/">Vue</a></span></div><div class="content"> 如果使用html的input框设为type=file来选择文件，在安卓的微信中打开页面时，会提示暂无可使用应用等错误提示  解决方案若要选择图片，需将input框的accept属性设为image/*；若要选择文件，需将此属性设为 空 1234567&lt;input  v-show=&quot;false&quot;  :ref=&quot;el =&gt; &#123; if (el) uploadRefs = el &#125;&quot;  type=&quot;file&quot;  :accept=&quot;acceptFileTypeArr&quot;  @change=&quot;handleUploadFunc&quot;/&gt; 123456789const acceptFileTypeArr: any = computed(() =&gt; &#123; // 当前支持上传类型  if (uploadType.value === &#x27;image&#x27;) &#123;    return &#x27;image/*&#x27;; ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/01/08/copy-webpack-plugin%E5%A4%84%E7%90%86%E5%8D%95%E7%8B%ACjs%E6%96%87%E4%BB%B6/" title="copy-webpack-plugin处理单独js文件"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210225123255.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="copy-webpack-plugin处理单独js文件"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/01/08/copy-webpack-plugin%E5%A4%84%E7%90%86%E5%8D%95%E7%8B%ACjs%E6%96%87%E4%BB%B6/" title="copy-webpack-plugin处理单独js文件">copy-webpack-plugin处理单独js文件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-01-08T14:42:14.000Z" title="Created 2021-01-08 22:42:14">2021-01-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Webpack/">Webpack</a></span></div><div class="content"> 当文件在static或public目录下但又想对文件进行编译处理，即可在此插件中进行配置  使用说明copy-webpack-plugin是webpack自带的插件，本意是将某个文件/文件夹，从dir1处复制到dist下，即当你在运行npm run build时，static或public目录下的文件就是走的此插件 配置信息因为我使用的是基于@vue/cli-service的vue3.x，所以是在vue.config.js中设置（如果是vue2.x的版本，请在webpack.base.js中设置） 12345678910111213141516171819202122232425262728293031323334353637// 引入const CopyWebpackPlugin = require(&#x27;copy-webpack-plugin&#x27;)const UglifyJS = require(&#x27;uglify-js&#x27;)// 使用let config = &#123;  // ...others,  configureWebpack:...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/12/27/vue3%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90/" title="vue3的生命周期钩子"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201227213102.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue3的生命周期钩子"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/27/vue3%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90/" title="vue3的生命周期钩子">vue3的生命周期钩子</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-12-27T13:28:58.000Z" title="Created 2020-12-27 21:28:58">2020-12-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Vue/">Vue</a></span></div><div class="content"> vue3的生命周期钩子与vue2的差不多，只是命名和调用上有一些诧异，详见下文  与 2.x 版本生命周期相对应的 Composition API   Vue 2.x Vue 3.x    beforeCreate 改用 setup()   created 改用 setup()   beforeMount onBeforeMount   mounted onMounted   beforeUpdate onBeforeUpdate   updated onUpdated   beforeDestroy onBeforeUnmount   destroyed onUnmounted   errorCaptured onErrorCaptured   新增的钩子函数除了和 2.x 生命周期等效项之外，Composition API 还提供了以下调试钩子函数：  onRenderTracked onRenderTriggered  祝君无Bug~</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/12/26/git%E4%BB%93%E5%BA%93%E6%8E%A8%E9%80%81%E8%84%9A%E6%9C%AC%EF%BC%88%E6%9C%AC%E5%9C%B0%E7%AE%80%E6%98%93%E7%89%88%EF%BC%89/" title="git仓库推送脚本（本地简易版）"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201226234636.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="git仓库推送脚本（本地简易版）"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/26/git%E4%BB%93%E5%BA%93%E6%8E%A8%E9%80%81%E8%84%9A%E6%9C%AC%EF%BC%88%E6%9C%AC%E5%9C%B0%E7%AE%80%E6%98%93%E7%89%88%EF%BC%89/" title="git仓库推送脚本（本地简易版）">git仓库推送脚本（本地简易版）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-12-26T15:32:34.000Z" title="Created 2020-12-26 23:32:34">2020-12-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Git/">Git</a></span></div><div class="content"> 由于每次写完代码都要执行一大堆命令来将本地代码推送至远程仓库，所以索性写一个sh脚本  新建push.sh文件：在项目主目录，即/git所在目录新建push.sh文件，并复制以下内容： 12345678910111213141516echo → 暂存选取所有代码git add .read -p &quot;→ 请输入您的commit提交信息：&quot; MSGecho → 提交所有暂存代码git commit -m &quot;$MSG&quot;echo → 将代码推送至三端git仓库git push -u all master# 如果不是hexo项目可忽略以下内容echo → Hexo自动构建及部署npm run cleannpm run buildnpm run deploy  运行脚本每次推送时，在当前目录运行sh push.sh命令即可，接下来会提示你输入要提交的信息，输入完点击回车即可 注：如果加入了hexo项目的构建部署命令，每次推送时也会帮你完成部署 祝君无Bug~</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/12/19/qiankun%E7%9A%84css%E6%B2%99%E7%AE%B1%E9%9A%94%E7%A6%BB%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="qiankun的css样式污染解决方案"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201220000516.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="qiankun的css样式污染解决方案"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/19/qiankun%E7%9A%84css%E6%B2%99%E7%AE%B1%E9%9A%94%E7%A6%BB%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="qiankun的css样式污染解决方案">qiankun的css样式污染解决方案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-12-19T15:57:26.000Z" title="Created 2020-12-19 23:57:26">2020-12-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/">微前端</a></span></div><div class="content"> 在使用qiankun框架做微前端开发的过程中，遇到了诸多难题，比如路由重定向、变量名及事件名冲突、挂载注销机制及生命周期、keep-alive等，目前遇到的比较难解决的问题可能就是css样式污染问题了。这次抽出了几天时间研究了一下，遂总结此文  问题概述在qiankun加载子应用后，主子应用的样式之间会产生污染，常见的css样式污染有以下几种情况：  无论是否进行样式隔离：主应用的样式污染了子应用（原因：主应用的样式添加了 !important 属性或 &gt;&gt;&gt;...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><a class="page-number" href="/page/4/#content-inner">4</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">淳淳同学</div><div class="author-info-description">个人博客</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">15</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/LeeDebug" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:961150665@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/30/hello-world/" title="Hello World"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170450.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2024/12/30/hello-world/" title="Hello World">Hello World</a><time datetime="2024-12-30T05:49:35.053Z" title="Created 2024-12-30 13:49:35">2024-12-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/05/Vue%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%88%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%89/" title="Vue源码解读（知识点总结）"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210706123716.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue源码解读（知识点总结）"/></a><div class="content"><a class="title" href="/2021/07/05/Vue%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%88%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%89/" title="Vue源码解读（知识点总结）">Vue源码解读（知识点总结）</a><time datetime="2021-07-05T15:55:11.000Z" title="Created 2021-07-05 23:55:11">2021-07-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/27/Vue3%E8%BD%AE%E6%92%AD%E7%BB%84%E4%BB%B6-v3-carousel/" title="【个人开源】Vue3 轮播组件: v3-carousel"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210527141809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【个人开源】Vue3 轮播组件: v3-carousel"/></a><div class="content"><a class="title" href="/2021/05/27/Vue3%E8%BD%AE%E6%92%AD%E7%BB%84%E4%BB%B6-v3-carousel/" title="【个人开源】Vue3 轮播组件: v3-carousel">【个人开源】Vue3 轮播组件: v3-carousel</a><time datetime="2021-05-27T04:55:02.000Z" title="Created 2021-05-27 12:55:02">2021-05-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/24/2021%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2021前端知识点总结"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2021前端知识点总结"/></a><div class="content"><a class="title" href="/2021/05/24/2021%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2021前端知识点总结">2021前端知识点总结</a><time datetime="2021-05-24T10:17:08.000Z" title="Created 2021-05-24 18:17:08">2021-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/04/08/JavaScript%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" title="JavaScript运算符优先级"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210422112132.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript运算符优先级"/></a><div class="content"><a class="title" href="/2021/04/08/JavaScript%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" title="JavaScript运算符优先级">JavaScript运算符优先级</a><time datetime="2021-04-08T02:11:48.000Z" title="Created 2021-04-08 10:11:48">2021-04-08</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            <a class="card-more-btn" href="/categories/" title="View More">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/"><span class="card-category-list-name">CSS</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Git/"><span class="card-category-list-name">Git</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/LeetCode/"><span class="card-category-list-name">LeetCode</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Socket/"><span class="card-category-list-name">Socket</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/VSCode/"><span class="card-category-list-name">VSCode</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Vue/"><span class="card-category-list-name">Vue</span><span class="card-category-list-count">10</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Webpack/"><span class="card-category-list-name">Webpack</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/JavaScript/" style="font-size: 1.1em; color: #999">JavaScript</a> <a href="/tags/%E9%9D%A2%E8%AF%95-Vue-JavaScript/" style="font-size: 1.1em; color: #999">面试,Vue,JavaScript</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E6%96%87%E6%A1%A3/" style="font-size: 1.3em; color: #99a1ac">个人文档</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 1.2em; color: #999da3">微前端</a> <a href="/tags/Webpack/" style="font-size: 1.2em; color: #999da3">Webpack</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 1.1em; color: #999">面试</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 1.1em; color: #999">移动端</a> <a href="/tags/Vue/" style="font-size: 1.5em; color: #99a9bf">Vue</a> <a href="/tags/VSCode/" style="font-size: 1.1em; color: #999">VSCode</a> <a href="/tags/Socket/" style="font-size: 1.1em; color: #999">Socket</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 1.2em; color: #999da3">读书笔记</a> <a href="/tags/Git/" style="font-size: 1.4em; color: #99a5b6">Git</a> <a href="/tags/npm/" style="font-size: 1.1em; color: #999">npm</a> <a href="/tags/LeetCode/" style="font-size: 1.1em; color: #999">LeetCode</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">服务器</a> <a href="/tags/CSS/" style="font-size: 1.1em; color: #999">CSS</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      <a class="card-more-btn" href="/archives/"
+            title="View More">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/12/">
+            <span class="card-archive-list-date">
+              December 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2021/07/">
+            <span class="card-archive-list-date">
+              July 2021
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2021/05/">
+            <span class="card-archive-list-date">
+              May 2021
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2021/04/">
+            <span class="card-archive-list-date">
+              April 2021
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2021/03/">
+            <span class="card-archive-list-date">
+              March 2021
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2021/02/">
+            <span class="card-archive-list-date">
+              February 2021
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2021/01/">
+            <span class="card-archive-list-date">
+              January 2021
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2020/12/">
+            <span class="card-archive-list-date">
+              December 2020
+            </span>
+            <span class="card-archive-list-count">8</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">37</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-12-30T06:17:33.074Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By 淳淳同学</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

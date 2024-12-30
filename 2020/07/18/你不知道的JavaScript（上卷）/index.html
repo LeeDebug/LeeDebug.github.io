@@ -1,0 +1,411 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>你不知道的JavaScript（上卷） | 淳淳同学的个人博客</title><meta name="author" content="淳淳同学"><meta name="copyright" content="淳淳同学"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="读书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你不知道的JavaScript（上卷）">
+<meta property="og:url" content="https://leedebug.github.io/2020/07/18/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%EF%BC%88%E4%B8%8A%E5%8D%B7%EF%BC%89/index.html">
+<meta property="og:site_name" content="淳淳同学的个人博客">
+<meta property="og:description" content="读书笔记">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170127.png">
+<meta property="article:published_time" content="2020-07-18T15:23:55.000Z">
+<meta property="article:modified_time" content="2024-12-30T05:49:35.065Z">
+<meta property="article:author" content="淳淳同学">
+<meta property="article:tag" content="读书笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170127.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "你不知道的JavaScript（上卷）",
+  "url": "https://leedebug.github.io/2020/07/18/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%EF%BC%88%E4%B8%8A%E5%8D%B7%EF%BC%89/",
+  "image": "https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170127.png",
+  "datePublished": "2020-07-18T15:23:55.000Z",
+  "dateModified": "2024-12-30T05:49:35.065Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "淳淳同学",
+      "url": "https://leedebug.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://leedebug.github.io/2020/07/18/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%EF%BC%88%E4%B8%8A%E5%8D%B7%EF%BC%89/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '你不知道的JavaScript（上卷）',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">15</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-list"></i><span> 关于淳淳同学</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/resume.html"><i class="fa-fw fas fa-file-word"></i><span> 电子简历</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://juejin.cn/user/2189882894323975"><i class="fa-fw fas fa-blog"></i><span> 掘金社区</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://github.com/LeeDebug"><i class="fa-fw fab fa-github"></i><span> GitHub</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitlab.com/Leevue"><i class="fa-fw fab fa-gitlab"></i><span> GitLab</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitee.com/leejs"><i class="fa-fw fab fa-git"></i><span> Gitee</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://weibo.com/p/1005053297895847"><i class="fa-fw fab fa-weibo"></i><span> 微博</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170127.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">淳淳同学的个人博客</span></a><a class="nav-page-title" href="/"><span class="site-name">你不知道的JavaScript（上卷）</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-list"></i><span> 关于淳淳同学</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/resume.html"><i class="fa-fw fas fa-file-word"></i><span> 电子简历</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://juejin.cn/user/2189882894323975"><i class="fa-fw fas fa-blog"></i><span> 掘金社区</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://github.com/LeeDebug"><i class="fa-fw fab fa-github"></i><span> GitHub</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitlab.com/Leevue"><i class="fa-fw fab fa-gitlab"></i><span> GitLab</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitee.com/leejs"><i class="fa-fw fab fa-git"></i><span> Gitee</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://weibo.com/p/1005053297895847"><i class="fa-fw fab fa-weibo"></i><span> 微博</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">你不知道的JavaScript（上卷）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-07-18T15:23:55.000Z" title="Created 2020-07-18 23:23:55">2020-07-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-12-30T05:49:35.065Z" title="Updated 2024-12-30 13:49:35">2024-12-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><blockquote>
+<p>去年就想读这一套书，由于个人原因一直拖到现在，今天终于周末在家没事，看了5个小时才看了上卷的1/3（其实也就60页）。主要讲述了作用域和闭包的相关知识，可能是由于自己基础知识的匮乏，所以进度有些慢。总之，要提高阅读速度了。</p>
+</blockquote>
+<h1 id="作用域和闭包"><a href="#作用域和闭包" class="headerlink" title="作用域和闭包"></a>作用域和闭包</h1><h2 id="作用域是什么"><a href="#作用域是什么" class="headerlink" title="作用域是什么"></a>作用域是什么</h2><ul>
+<li>JavaScript是一门编译语言，其引擎进行编译的步骤和传统的编译语言非常相似，包括下列三个编译步骤：<ul>
+<li>分析/词法分析（Tokenizing/Lexing）（词法化、单词化）</li>
+<li>解析/语法分析（Parsing）</li>
+<li>代码生成</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>作用域是一种规则，用于确定在何处以及如何查找该变量（标识符），即用来管理引擎如何在当前作用域以及嵌套的子作用域中根据标识符名称进行变量查找<ul>
+<li>引擎</li>
+<li>编译器</li>
+<li>作用域</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>var a = 2;<ul>
+<li>var a：编译器会询问作用域是否已经有一个该名称的变量存在于同一个作用域的集合中。如果是，编译器会忽略该声明，继续进行编译；否则它会要求作用域在当前作用域的集合中声明一个新的变量，并命名为a。（定义声明在编译阶段进行）</li>
+<li>a = 2：编译器会为引擎生成运行时所需要的代码，这些代码被用来处理a=2这个赋值操作。首先会询问作用域，在当前作用域集合中是否存在一个叫作a的变量。如果是，引擎就会使用这个变量；否则会向外层嵌套的作用域继续查找该变量。（赋值声明会被留在原地等待执行阶段被调用）</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>编译器在编译过程中，对变量有两种查询方式<ul>
+<li>LHS查询：变量在左侧，目的为赋值操作</li>
+<li>RHS查询：变量在非左侧，目的为获取变量的值</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>LHS和RHS都会再当前执行作用域中开始<ul>
+<li>不成功的RHS会导致抛出ReferenceError异常</li>
+<li>不成功的LSH会导致自动隐式的创建一个全局变量（非严格模式下），该变量使用LHS查询的目标作为标识符，或者抛出ReferenceError异常（严格模式下）</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>LHS和RHS的异常错误<ul>
+<li>ReferenceError异常：同作用域判别失败相关</li>
+<li>TypeError异常：作用域判别成功，但对结果的操作是非法或不合理的</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>编译器可以再代码生成的同时处理声明和值的定义</li>
+</ul>
+<ul>
+<li>在当前作用域中无法找到某个变量时，引擎就会在外层嵌套的作用域中继续查找，直到找到该变量或抵达最外层作用域（即全局作用域）为止</li>
+</ul>
+<h2 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h2><ul>
+<li>作用域的两种工作模型<ul>
+<li>词法作用域：在写代码或定义时确定的，作用域链基于作用域的嵌套，即更关注在何处声明。大多数编程语言都采用</li>
+<li>动态作用域：在运行时确定的，作用域链是基于调用栈的，即更关注函数是从何处调用的。this的机制也是如此</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>词法作用域：是一套关于引擎如何寻找以及会在何处找到变量的规则</li>
+</ul>
+<ul>
+<li>JavaScript中有两个机制可以“欺骗”词法作用域。但在编译时引擎均无法对作用域查找进行优化，所以不要使用它们<ul>
+<li>eval(…)：生成代码并运行</li>
+<li>with：会产生内存泄漏</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>箭头函数：ES6添加了一个特殊的语法形式用于函数声明，将this同词法作用域联系起来</li>
+</ul>
+<ul>
+<li>箭头函数在涉及this绑定时的行为和普通函数的行为完全不一致。它放弃了所有普通this绑定的规则，取而代之的是用当前的词法作用域覆盖了this本来的值</li>
+</ul>
+<h2 id="函数作用域和块作用域"><a href="#函数作用域和块作用域" class="headerlink" title="函数作用域和块作用域"></a>函数作用域和块作用域</h2><ul>
+<li>函数作用域：属于这个函数的全部变量都可以再整个函数的范围内使用及复用（事实上在嵌套的作用域内也可以使用）</li>
+</ul>
+<ul>
+<li>基于作用域的隐藏方法：大豆是从最小特权原则（最小授权原则、最小暴露原则）中引申出来的，即应该最小限度的暴露必要内容</li>
+</ul>
+<ul>
+<li>如果function是声明中的第一个词，那么就是一个函数声明，否则就是一个函数表达式</li>
+</ul>
+<ul>
+<li>函数声明和函数表达式之间最重要的区别：他们的名称标识符将会绑定在何处</li>
+</ul>
+<ul>
+<li>函数表达式的应用场景：<ul>
+<li>匿名函数表达式：<code>setTimeout(() =&gt; &#123;&#125;, 0)</code></li>
+<li>立即执行函数表达式-IIFE（Immediately Invoked Function Expression）：<code>(function foo()&#123;...&#125;)()</code>或<code>(function()&#123;...&#125;())</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>匿名函数表达式的缺点：（==养成始终给函数表达式命名的好习惯==）<ul>
+<li>在栈追踪中不会显示出有意义的函数名，使调试很困难</li>
+<li>没有函数名，自身引用自身，只能使用过期的<code>arguments.callee</code>来引用</li>
+<li>可读性差，可理解性差</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>除了JavaScript歪的很多编程语言都支持块作用域（表面上看没有，除非更加深入的研究）P30页</li>
+</ul>
+<ul>
+<li>块作用域的应用场景：<ul>
+<li>with：从对象中创建出的作用域仅在with声明中而非外部作用域中有效</li>
+<li>try/catch：ES3规范中规定catch分句会创建一个块作用域</li>
+<li>let：为其声明的变量隐式的创建了一个块作用域</li>
+<li>const：创建块作用域变量，但值是固定的常亮</li>
+<li>？？？</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>==for循环的let i==：<ul>
+<li>将i重新绑定到循环的每一个迭代中，并确保使用上一个循环迭代结束时的值重新进行赋值</li>
+<li>i在循环过程中不止被声明一次，每次迭代都会被声明，随后的每次迭代都会使用上一个迭代结束时的值来初始化下一个i</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>为变量显式声明块作用域，并对变量进行本地绑定是非常有用的==工具==，P34页</li>
+</ul>
+<h2 id="提升"><a href="#提升" class="headerlink" title="提升"></a>提升</h2><ul>
+<li>任何声明在某个作用域的变量，都将属于这个作用域</li>
+</ul>
+<ul>
+<li>包括变量和函数在内的所有声明都会再任何代码被执行前首先被处理，可以将这个过程形象的想象成所有的声明（变量和函数）都会被“移动”到各自作用域的最顶端</li>
+</ul>
+<ul>
+<li>先有声明，后有赋值</li>
+</ul>
+<ul>
+<li>在提升中，函数声明会首先被提升，然后才是变量声明；但出现在后面的函数声明还是可以覆盖前面的</li>
+</ul>
+<h2 id="作用域闭包"><a href="#作用域闭包" class="headerlink" title="作用域闭包"></a>作用域闭包</h2><ul>
+<li>闭包是基于词法作用域书写代码时所产生的自然结果</li>
+</ul>
+<ul>
+<li>当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行</li>
+</ul>
+<ul>
+<li>无论通过何种手段将内部函数传递到所在的词法作用域以外，它都会持有对原始定义作用域的引用，无论在何处执行这个函数都会使用闭包</li>
+</ul>
+<ul>
+<li>闭包的应用场景：<ul>
+<li>function调用<code>setTimeout(...)</code></li>
+<li>定时器、事件监听器、Ajax请求、跨窗口通信、WebWorkers、任何异步或同步任务，只要使用了==回调函数==，实际上就是在使用闭包</li>
+<li>for循环</li>
+<li>立即执行函数表达式IIFE：<code>(function()&#123;...&#125;)())</code>（本身创建了闭包，但严格来说并不是闭包）</li>
+<li>模块模式：比如jQuery和$符就是jQuery模块的公共api</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>延迟函数的回调会在循环结束时才执行，即使定时器是<code>setTimeout(..., 0)</code></li>
+</ul>
+<ul>
+<li>在迭代内使用IIFE会为每个迭代都生成一个新的作用域，使得延迟函数的回调可以将新的作用域封闭在每个迭代内部，每个迭代中都会含有一个具有正确值的变量供我们访问</li>
+</ul>
+<ul>
+<li>let声明，可以用来劫持块作用域，并且在这个块作用域中声明一个变量；本质上这是将一个块转换成一个可以被关闭的作用域</li>
+</ul>
+<ul>
+<li>最常见的实现模块模式的方法被称为模块暴露</li>
+</ul>
+<ul>
+<li>模块模式需要具备的两个必要条件：<ul>
+<li>必须有外部的封闭函数，该函数必须至少被调用一次（每次调用都会创建一个新的模块实例）</li>
+<li>封闭函数必须返回至少一个内部函数，这样内部函数才能在私有作用域中形成闭包，并且可以访问或者修改私有属性</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>模块的两个主要特征：<ul>
+<li>为创建内部作用域而调用了一个包装函数</li>
+<li>包装函数的返回值必须至少包括一个对内部函数的引用，这样就会创建涵盖整个包装函数内部作用域的闭包</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>模块也是普通函数，也可以接受参数</li>
+</ul>
+<ul>
+<li>模块模式另一个简单而强大的变化用法是，命名将要作为公共api返回的对象（大多数模块依赖加载器/管理器的本质都是将这种模块定义封装进一个友好的api）</li>
+</ul>
+<ul>
+<li>import：将一个模块中的一个或多个api导入到当前作用域，并可以分别绑定在不同的变量上</li>
+<li>module：将整个模块的api导入并绑定 到一个变量上</li>
+<li>export：将当前模块的一个标识符（变量或函数）导出为公共api</li>
+</ul>
+<h1 id="this和对象原型"><a href="#this和对象原型" class="headerlink" title="this和对象原型"></a>this和对象原型</h1><blockquote>
+<p>任何足够先进的技术都和魔法无异。</p>
+</blockquote>
+<blockquote>
+<p>在遇到问题时，许多开发者并不会深入思考为什么this的行为和预期的不一致，也不会试图回答那些很难解决但确实非常重要的问题，他们只会回避这个问题并使用其他方法来达到目的，这显然不是一种很好的解决办法。</p>
+</blockquote>
+<h2 id="关于this"><a href="#关于this" class="headerlink" title="关于this"></a>关于this</h2><ul>
+<li><p>this关键字是JavaScript中最复杂的机制之一</p>
+</li>
+<li><p>this指向的两大误区：</p>
+<ul>
+<li>指向函数自身</li>
+<li>指向函数的作用域（在任何情况下this都不会指向函数的词法作用域，因为作用域“对象”是存在于JavaScript的引擎内部的）</li>
+</ul>
+</li>
+<li><p>当你想把this和词法作用域的查找混合使用时，这是无法实现的！</p>
+</li>
+<li><p>不能使用this来引用一个词法作用域内部的属性</p>
+</li>
+<li><p>this实际上是在函数被调用时发生的绑定，this指向什么只取决于函数在哪被调用，和函数的生命位置毫无关系。</p>
+</li>
+</ul>
+<h2 id="this全面解析"><a href="#this全面解析" class="headerlink" title="this全面解析"></a>this全面解析</h2><ul>
+<li><p>要判断一个运行中函数的this绑定，就需要找到这个函数的直接调用位置，最重要的就是分析调用栈（为了到达当前执行位置所调用的所有函数，即函数调用链）。</p>
+</li>
+<li><p>调用位置如何决定this的绑定对象？可顺序应用下面四条规则来判断</p>
+<ul>
+<li>是否在new中调用（new绑定）？绑定到新创建的对象。<code>var bar = new foo()</code></li>
+<li>是否通过call、apply（显示绑定）或者bind（硬绑定）调用？绑定到指定的对象。<code>var bar = foo.(obj2)</code></li>
+<li>是否在某个上下文对象（隐式绑定）中调用？绑定到那个上下文对象。<code>var bar = obj1.foo()</code></li>
+<li>如果都不是即独立函数调用（默认绑定），严格模式下绑定到undefined，非严格模式下绑定到全局对象。<code>var bar = foo()</code></li>
+</ul>
+</li>
+<li><p>默认绑定：直接使用不带任何修饰的函数引用进行调用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">a</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">foo</span>: foo</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> bar = obj.<span class="property">foo</span> <span class="comment">// 函数别名</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;oops, global&#x27;</span> <span class="comment">// a是全局对象的属性</span></span><br><span class="line"><span class="title function_">bar</span>() <span class="comment">// &gt;&gt; &#x27;oops, global&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 虽然bar是obj.foo的一个引用，看似是隐式绑定，但实际上，它引用的是foo的函数本身，因此此时的bar()其实是一个不带任何修饰的函数调用，因此应用了默认绑定。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>隐式绑定：调用位置是否有上下文对象，或者说是否被某个对象拥有或包含。即我们必须在一个对象内部包含一个指向函数的属性，并通过这个属性间接引用函数，从而把this间接（隐式）绑定到这个对象上。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数传递就是一种隐式赋值</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">a</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">doFoo</span>(<span class="params">fn</span>) &#123;</span><br><span class="line">    <span class="title function_">fn</span>() <span class="comment">// fn其实引用的是foo函数本身</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">foo</span>: foo</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;oops, global&#x27;</span> <span class="comment">// a是全局对象的属性</span></span><br><span class="line"><span class="title function_">doFoo</span>(obj.<span class="property">foo</span>) <span class="comment">// &gt;&gt; &#x27;oops, global&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果把函数传入语言内置的函数而不是自定义的函数，结果是一样的</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">a</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">foo</span>: foo</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;oops, global&#x27;</span> <span class="comment">// a是全局对象的属性</span></span><br><span class="line"><span class="built_in">setTimeout</span>(obj.<span class="property">foo</span>, <span class="number">100</span>) <span class="comment">// &gt;&gt; &#x27;oops, global&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript环境中内置的setTimeout()函数实现和下面伪代码类似</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">setTimeout</span>(<span class="params">fn, delay</span>) &#123;</span><br><span class="line">    <span class="comment">// 等待delay秒</span></span><br><span class="line">    <span class="title function_">fn</span>() <span class="comment">// 调用函数内容本身</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示绑定：在对象内部不包含函数引用的情况下，在某个对象上强制调用函数，可以使用<code>call(...)</code>和<code>apply(...)</code>方法，它们的第一个参数是一个对象，它们会吧这个对象绑定到this上，接着在调用函数时指定这this。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">a</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line">foo.<span class="title function_">call</span>(obj) <span class="comment">// &gt;&gt; 2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>new绑定：JavaScript中的new机制实际上和面向类的语言完全不同，JavaScript中的new构造函数，其实只是一些使用new操作符调用的普通函数。它们不会属于某个类，也不会实例化一个类。</p>
+</li>
+<li><p>有些调用可能在无意中使用默认绑定规则。为了保护全局对象，可以使用一个<code>DMZ对象（DemilitarizedZone，非军事区）</code>，即一个空的非委托的对象，比如<code>const ∅ = Object.create(null)</code>，使用变量名<code>∅</code>不仅让函数变得更加安全，而且可以提高代码的可读性，因为<code>∅</code>标识“我希望this是空”这比null的含义更清楚。<code>Object.create(null)</code>和<code>&#123;&#125;</code>很像，但并不会创建<code>Object.prototype</code>这个委托，所以它比{}“更空”。</p>
+</li>
+<li><p>ES6中<code>箭头函数()=&gt;&#123;&#125;</code>并不会使用这四条标准的绑定规则，而是根据当前的<code>词法作用域</code>来决定this，具体来说，箭头函数会继承外层函数调用的this绑定（无论this绑定到什么）。这其实和ES6之前的<code>self = this</code>机制一样。</p>
+</li>
+<li><p>代码风格：</p>
+<ul>
+<li>词法作用域风格：只使用<code>词法作用域</code>，并完全抛弃错误的this风格。</li>
+<li>this风格：完全采用this风格，必要时使用<code>bind(...)</code>，尽量避免使用<code>self = this</code>和<code>箭头函数()=&gt;&#123;&#125;</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><h2 id="混合对象“类”"><a href="#混合对象“类”" class="headerlink" title="混合对象“类”"></a>混合对象“类”</h2><h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><h2 id="行为委托"><a href="#行为委托" class="headerlink" title="行为委托"></a>行为委托</h2><h1 id="祝君无Bug"><a href="#祝君无Bug" class="headerlink" title="祝君无Bug~"></a>祝君无Bug~</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://leedebug.github.io">淳淳同学</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://leedebug.github.io/2020/07/18/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%EF%BC%88%E4%B8%8A%E5%8D%B7%EF%BC%89/">https://leedebug.github.io/2020/07/18/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%EF%BC%88%E4%B8%8A%E5%8D%B7%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170127.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2020/06/23/%E3%80%8A%E5%89%8D%E7%AB%AF%E5%86%85%E5%8F%82%E3%80%8B/" title="《前端内参》读书笔记"><img class="cover" src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170225.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-23</div><div class="info-item-2">《前端内参》读书笔记</div></div><div class="info-2"><div class="info-item-1"> 做web前端开发也有两年的时间了，但技术层面一直很浅，特别是近期感觉遇到了知识瓶颈，还是因为看书少、不爱总结。本次笔记在参考Bob Ma大佬整理分享的《前端内参》的基础上，记录并整理下来一些自己平时不注意的知识点。  壹.1.1.3 ES 8 新特性字符串追加在 ES 8 中String新增了两个实例函数String.prototype.padStart和String.prototype.padEnd，允许将空字符串或其他字符串添加到原始字符串的开头或结尾。  String.padStart(targetLength,[padString])  targetLength：当前字符串需要填充到的目标长度。如果这个数值小于当前字符串的长度，则返回当前字符串本身。  padString：(可选)填充字符串。如果字符串太长，使填充后的字符串长度超过了目标长度，则只保留最左侧的部分，其他部分会被截断，此参数的缺省值为空格。 String.padEnd(targetLength,padString])...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">淳淳同学</div><div class="author-info-description">个人博客</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">15</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/LeeDebug" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:961150665@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">作用域和闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.1.</span> <span class="toc-text">作用域是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.2.</span> <span class="toc-text">词法作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.3.</span> <span class="toc-text">函数作用域和块作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E5%8D%87"><span class="toc-number">1.4.</span> <span class="toc-text">提升</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%97%AD%E5%8C%85"><span class="toc-number">1.5.</span> <span class="toc-text">作用域闭包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#this%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">this和对象原型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8Ethis"><span class="toc-number">2.1.</span> <span class="toc-text">关于this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this%E5%85%A8%E9%9D%A2%E8%A7%A3%E6%9E%90"><span class="toc-number">2.2.</span> <span class="toc-text">this全面解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.3.</span> <span class="toc-text">对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B7%E5%90%88%E5%AF%B9%E8%B1%A1%E2%80%9C%E7%B1%BB%E2%80%9D"><span class="toc-number">2.4.</span> <span class="toc-text">混合对象“类”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B"><span class="toc-number">2.5.</span> <span class="toc-text">原型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E4%B8%BA%E5%A7%94%E6%89%98"><span class="toc-number">2.6.</span> <span class="toc-text">行为委托</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A5%9D%E5%90%9B%E6%97%A0Bug"><span class="toc-number">3.</span> <span class="toc-text">祝君无Bug~</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/30/hello-world/" title="Hello World"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20201111170450.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2024/12/30/hello-world/" title="Hello World">Hello World</a><time datetime="2024-12-30T05:49:35.053Z" title="Created 2024-12-30 13:49:35">2024-12-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/05/Vue%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%88%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%89/" title="Vue源码解读（知识点总结）"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210706123716.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue源码解读（知识点总结）"/></a><div class="content"><a class="title" href="/2021/07/05/Vue%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%88%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%89/" title="Vue源码解读（知识点总结）">Vue源码解读（知识点总结）</a><time datetime="2021-07-05T15:55:11.000Z" title="Created 2021-07-05 23:55:11">2021-07-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/27/Vue3%E8%BD%AE%E6%92%AD%E7%BB%84%E4%BB%B6-v3-carousel/" title="【个人开源】Vue3 轮播组件: v3-carousel"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210527141809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【个人开源】Vue3 轮播组件: v3-carousel"/></a><div class="content"><a class="title" href="/2021/05/27/Vue3%E8%BD%AE%E6%92%AD%E7%BB%84%E4%BB%B6-v3-carousel/" title="【个人开源】Vue3 轮播组件: v3-carousel">【个人开源】Vue3 轮播组件: v3-carousel</a><time datetime="2021-05-27T04:55:02.000Z" title="Created 2021-05-27 12:55:02">2021-05-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/24/2021%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2021前端知识点总结"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2021前端知识点总结"/></a><div class="content"><a class="title" href="/2021/05/24/2021%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2021前端知识点总结">2021前端知识点总结</a><time datetime="2021-05-24T10:17:08.000Z" title="Created 2021-05-24 18:17:08">2021-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/04/08/JavaScript%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" title="JavaScript运算符优先级"><img src="https://cdn.jsdelivr.net/gh/LeeDebug/PicGo/img/20210422112132.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript运算符优先级"/></a><div class="content"><a class="title" href="/2021/04/08/JavaScript%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" title="JavaScript运算符优先级">JavaScript运算符优先级</a><time datetime="2021-04-08T02:11:48.000Z" title="Created 2021-04-08 10:11:48">2021-04-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By 淳淳同学</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
