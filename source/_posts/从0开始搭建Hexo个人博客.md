@@ -122,7 +122,7 @@ $ hexo s -g
 ```bash
 deploy:
   type: git
-  repo: https://github.com/LeeDebug/LeeDebug.github.io.git
+  repo: git@github.com:LeeDebug/LeeDebug.github.io.git
   branch: master
 ```
 
